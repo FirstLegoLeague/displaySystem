@@ -1,0 +1,70 @@
+displaySystem.registerModule({
+    name: 'time',
+    template: multiline(function() {/*
+        <div id="time" class="hidden">12:00</div>
+    */}),
+    style: multiline(function() {/*
+        @import url('fonts/lcd-bold.css');
+
+        #time {
+            position: absolute;
+            top: 0.5em;
+            left: 0.5em;
+            color: white;
+            font-size: 96px;
+            font-family: lcdbold;
+            color: white;
+            -webkit-text-fill-color: white;
+            -webkit-text-stroke-width: 1px;
+            -webkit-text-stroke-color: black;
+            transition: all 0.3s;
+        }
+
+        #time.hidden {
+            top: -2em;
+        }
+    */}),
+    factory: function() {
+
+        var offset = 0;
+        var div;
+
+        function pad(nr) {
+            return ((nr<10)?'0':'')+nr;
+        }
+
+        function getTimeDiv() {
+            return div?div:(div=document.getElementById('time'));
+        }
+
+        function setMsgTime(timestamp) {
+            var time = new Date(timestamp).getTime(); //parse?
+            offset = time - (new Date());
+        }
+
+        function time() {
+            var now = new Date((offset||0) + (new Date()).getTime());
+            var hh = pad(now.getHours());
+            var mm = pad(now.getMinutes());
+            getTimeDiv().innerHTML = hh+':'+mm;
+            window.setTimeout(time,500);
+        }
+
+        function showTime() {
+            getTimeDiv().className = '';
+        }
+
+        function hideTime() {
+            getTimeDiv().className = 'hidden';
+        }
+
+        time();
+
+        return {
+            tick: time,
+            show: showTime,
+            hide: hideTime,
+            set: setMsgTime
+        };
+    }
+});
