@@ -34,7 +34,9 @@ Ok, some clarification. All modules are hidden by default. Also, all modules are
 
 You probably do not want to do this every time you load the display. So, open `config.js` and replace
 
-    'clock': {},
+    'clock': {
+        // visible: true
+    },
 
 by
 
@@ -48,7 +50,7 @@ And reload the page. Voilà, the clock is visible by default. You can also do th
 
 Since the display can be controlled by javascript, you could create a control window with buttons and such to control everything. You may set this up with two monitors, one facing the audience and one facing you. This way, you can control the screen without having buttons visible.
 
-However, we have already done this for you, but there is a catch. The control window does not work when you are using the display system directly from the file system (if this is the case, the address bar starts with `file:///`). There are a few ways to solve this:
+Luckily, we have already done this for you, but there is a catch. The control window does not work when you are using the display system directly from the file system (if this is the case, the address bar starts with `file:///`). There are a few ways to solve this:
 
 - Use the [online version](http://firstlegoleague.github.io/displaySystem/), but as said, there is not much to customize here.
 - Host it somewhere online (most hosting providers allow you to FTP the files).
@@ -73,7 +75,7 @@ All basic configuration is done in the config.js file. The configuration options
 - `wsHost`: Websocket host to connect to, if any
 - `mserverNode`: Node to subscribe to when using [mserver](https://github.com/poelstra/mserver), can be omitted otherwise
 - `background`: Background color of the application. Can be used for chromakeying. If omitted, the background color is not defined, which can mean transparent in for instance a [casparCG HTML producer](http://www.casparcg.com/)
-- `modules`: Array of modules to load. These should correspond to names of js files in the modules folder
+- `modules`: Object of modules to load. The keys should correspond to names of js files in the modules folder, the values can be an empty object or some configuration, see the modules section for configuration options per module.
 - `modulePath`: Path to load the modules from, defaults to `modules`. Can even be an url to another domain, since everything is loaded as a normal JavaScript file.
 
 Styling
@@ -83,6 +85,63 @@ This repository provides basic styling, a git submodule, `graphicsPack` is inclu
 
 Modules
 ------------
+
+This bits list the available configuration options for the modules (that you can use in `config.js`). Also, it lists the available javascript functions you can call.
+
+### clock
+
+A simple countdown clock. This is the same clock as available on <https://github.com/FirstLegoLeague/clock>
+
+Configuration options:
+
+- `visible`: initial visibility
+
+Exposed api:
+
+- `show`: show the clock
+- `hide`: hide the clock
+- `arm`: arm the clock. By default it arms to 2:30 minutes. You can arm to a different time by passing in seconds. Hence `arm(10)` arms the clock to 10 seconds
+- `start`: starts the clock
+- `stop`: stops the clock
+
+### time
+
+Shows the current system time. Or some other time if you wish
+
+Configuration options:
+
+- `visible`: initial visibility
+
+Exposed api:
+
+- `show`: show the time
+- `hide`: hide the time
+- `set`: sets the time (and ticks along). Pass in a unix timestamp. Eg `set('2015-02-07T13:00')` or `set(1423314000000)`
+
+### lowThird
+
+Configuration options:
+
+- `visible`: initial visibility
+
+Exposed api:
+
+- `show`: show the bar (and hides after 5 seconds)
+- `hide`: hide the bar
+- `persist`: shows the bar and never hides, until `hide()` is called
+- `toggle`: toggles the visibility of the bar
+- `set`: sets the text of the bar, you can pass in two strings: `set('hello','world')`
+
+### twitter
+
+Configuration options:
+
+- `visible`: initial visibility
+
+Exposed api:
+
+- `show`: show the twitter bar
+- `hide`: hide the twitter bar
 
 Extensibility
 -------------

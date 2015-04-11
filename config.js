@@ -7,10 +7,18 @@ displaySystem.config({
     // background: "lime",
     //modules, order determines z stacking
     modules: {
-        'clock': {},
-        'time': {},
-        // 'twitter': {},
-        // 'lowThird': {}
+        'clock': {
+            //visible: true
+        },
+        'time': {
+            //visible: true
+        },
+        // 'twitter': {
+            //visible: true
+        // },
+        // 'lowThird': {
+            //visible: true
+        // }
     },
     //path to the modules, can even be a full url
     modulePath: "modules"
