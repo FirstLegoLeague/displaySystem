@@ -14,8 +14,9 @@ Get it running
 
 Either:
 
-- If you know what `git` is: clone the repository: `git clone https://github.com/FirstLegoLeague/displaySystem.git`
-- Otherwise, just download the zip from: <https://github.com/FirstLegoLeague/displaySystem/archive/master.zip>
+- If you know what `git` is: clone the repository: `git clone https://github.com/FirstLegoLeague/displaySystem.git` and check out the branch `gh-pages`.
+- Otherwise, just download the zip from: <https://github.com/FirstLegoLeague/displaySystem/archive/master.zip> and unpack.
+- Also, you can just use it online, however, you can't really customize anything. It is a nice way to check it out though.
 
 There are a few ways to use this package
 
