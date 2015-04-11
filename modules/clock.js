@@ -32,7 +32,7 @@ displaySystem.registerModule({
             -webkit-text-fill-color: #0066b3;
         }
     */}),
-    factory: function() {
+    factory: function(config) {
         var div;
         var bgColor = 'black';
         var state = 'stopped';
@@ -152,6 +152,10 @@ displaySystem.registerModule({
 
         function hide() {
             getClockDiv().className = 'hidden stopped';
+        }
+
+        if (config.visible) {
+            show();
         }
 
         return {

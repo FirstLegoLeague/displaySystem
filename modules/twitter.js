@@ -38,7 +38,7 @@ displaySystem.registerModule({
             font-size: 32px;
         }
     */}),
-    factory: function() {
+    factory: function(config) {
 
         var tweetsIndex = {};
         var tweets = [];
@@ -173,6 +173,10 @@ displaySystem.registerModule({
         }
         getScreenWidth();
         window.addEventListener('resize',getScreenWidth);
+
+        if (config.visible) {
+            show();
+        }
 
         /**
          * TODO

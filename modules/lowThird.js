@@ -27,7 +27,7 @@ displaySystem.registerModule({
             bottom: -35%;
         }
     */}),
-    factory: function() {
+    factory: function(config) {
         var visible = false;
         var timer;
 
@@ -62,6 +62,10 @@ displaySystem.registerModule({
         }
         function toggle() {
             visible ? hideLowerThird() : showLowerThird();
+        }
+
+        if (config.visible) {
+            showLowerThird();
         }
 
         return {

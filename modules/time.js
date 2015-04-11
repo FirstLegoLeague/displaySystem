@@ -24,7 +24,7 @@ displaySystem.registerModule({
             top: -2em;
         }
     */}),
-    factory: function() {
+    factory: function(config) {
 
         var offset = 0;
         var div;
@@ -59,6 +59,10 @@ displaySystem.registerModule({
         }
 
         time();
+
+        if (config.visible) {
+            showTime();
+        }
 
         return {
             tick: time,

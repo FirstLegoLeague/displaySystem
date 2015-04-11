@@ -76,7 +76,7 @@ var displaySystem = (function() {
     function init() {
         initWebsocket();
         var modulePath = config.modulePath||'modules';
-        config.modules.forEach(function(name) {
+        Object.keys(config.modules).forEach(function(name) {
             var src = modulePath+'/'+name+'.js';
             loadScript(src);
         });
@@ -96,12 +96,15 @@ var displaySystem = (function() {
             prependToHead(s);
         }
         // register api
-        var m;
+        var m,cfg;
         if (def.factory) {
-            m = def.factory();
+            if (def.name) {
+                cfg = config.modules[def.name];
+            }
+            m = def.factory(cfg);
         }
         if (def.name && m) {
-            modules[def.name] = def.factory();
+            modules[def.name] = m;
         }
     }
 
