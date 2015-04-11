@@ -46,6 +46,8 @@ by
 
 And reload the page. Voilà, the clock is visible by default. You can also do this with other modules.
 
+Also, you probably always want to use the page in full screen mode. To enable full screen, press `F11`.
+
 ### Using the control window
 
 Since the display can be controlled by javascript, you could create a control window with buttons and such to control everything. You may set this up with two monitors, one facing the audience and one facing you. This way, you can control the screen without having buttons visible.
@@ -66,6 +68,14 @@ Luckily, we have already done this for you, but there is a catch. The control wi
 So, the control window. To open it, press `c`
 
 The control window shows buttons for all commands that the modules have. Try and use this to display the time or the clock (for instance in the [online version](http://firstlegoleague.github.io/displaySystem/)).
+
+### Using as a video overlay system
+
+If you want to use the display system as an overlay to a video feed (which is the original purpose), you need to get rid of the white background. There are several ways to do this
+
+- Use the browser as your video mixer. To use this, enable the `useCamera` configuration option. By feeding in a video signal (for instance using a usb camera), you can create a composite output.
+- Give the background a special color, and use a separate video mixer with [chroma key](http://en.wikipedia.org/wiki/Chroma_key) capabilities to mix the overlay over a video feed. Use the `background` configuration option to do this.
+- Use more advanced software video mixing software, like [caspar CG](http://www.casparcg.com/). In the newest versions, you can use a `HTML producer` to overlay a webpage (like this display system) over a video. Make sure, you set the `background` configuration off to have a transparent background. Also, from within Caspar, you can create JavaScript functions to control the modules, much like we have done manually from the console.
 
 Configuration
 --------------

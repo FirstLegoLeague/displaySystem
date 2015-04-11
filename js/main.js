@@ -28,8 +28,8 @@ var displaySystem = (function() {
 
     function setConfig(_config) {
         config = _config;
-        if (config.chromaKey) {
-            document.body.style.backgroundColor = config.chromaKey;
+        if (config.background) {
+            document.body.style.backgroundColor = config.background;
         }
         setTimeout(init,0);
     }
@@ -77,6 +77,9 @@ var displaySystem = (function() {
     function init() {
         initWebsocket();
         initKeyBindings();
+        if (config.useCamera) {
+            initCamera();
+        }
         var modulePath = config.modulePath||'modules';
         Object.keys(config.modules).forEach(function(name) {
             var src = modulePath+'/'+name+'.js';
@@ -125,6 +128,25 @@ var displaySystem = (function() {
                     break;
             }
         });
+    }
+
+    function initCamera() {
+        navigator.getUserMedia  = navigator.getUserMedia ||
+                          navigator.webkitGetUserMedia ||
+                          navigator.mozGetUserMedia ||
+                          navigator.msGetUserMedia;
+
+        var video = document.querySelector('video');
+
+        if (navigator.getUserMedia) {
+            navigator.getUserMedia({audio: true, video: true}, function(stream) {
+                video.src = window.URL.createObjectURL(stream);
+            }, function() {
+                console.log('could not capture video');
+            });
+        } else {
+            console.log('no user video possible in this browser');
+        }
     }
 
     return {
