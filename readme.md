@@ -7,6 +7,42 @@ All modules can be controlled via [websockets](http://en.wikipedia.org/wiki/WebS
 
 Also, all modules can be controlled via a javascript interface, so you can write your own scripts to interface with them. Lastly, we provide a control panel that can be opened in a separate screen to control the modules.
 
+Get it running
+-------
+
+### Get is locally
+
+Either:
+
+- If you know what `git` is: clone the repository: `git clone https://github.com/FirstLegoLeague/displaySystem.git`
+- Otherwise, just download the zip from: <https://github.com/FirstLegoLeague/displaySystem/archive/master.zip>
+
+There are a few ways to use this package
+
+### As a simple display in the browser
+
+1. Double click `index.html`. This shows a white screen. Don't worry.
+1. Open the console by pressing `F12` and selecting the `console` tab.
+1. Type `displaySystem.modules.time.show()` and hit `enter`.
+
+Ok, some clarification. All modules are hidden by default. Also, all modules are accessible to javascript, which makes it possible to control them. In step 3, you just executed some javascript to show the time. Let's do this some more:
+
+- `displaySystem.modules.time.hide()`
+- `displaySystem.modules.clock.show()`
+- `displaySystem.modules.click.start()`
+
+You probably do not want to do this every time you load the display. So, open `config.js` and replace
+
+    'clock': {},
+
+by
+
+    'clock': {
+        visible: true
+    },
+
+And reload the page. Voilà, the clock is visible by default. You can also do this with other modules.
+
 Configuration
 --------------
 
