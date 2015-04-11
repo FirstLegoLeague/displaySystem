@@ -15,7 +15,7 @@ Get it running
 Either:
 
 - If you know what `git` is: clone the repository: `git clone https://github.com/FirstLegoLeague/displaySystem.git` and check out the branch `gh-pages`.
-- Otherwise, just download the zip from: <https://github.com/FirstLegoLeague/displaySystem/archive/master.zip> and unpack.
+- Otherwise, just download the zip from: <https://github.com/FirstLegoLeague/displaySystem/archive/gh-pages.zip> and unpack.
 - Also, you can just use it [online](http://firstlegoleague.github.io/displaySystem/), however, you can't really customize anything. It is a nice way to check it out though.
 
 There are a few ways to use this package
@@ -73,7 +73,7 @@ The control window shows buttons for all commands that the modules have. Try and
 
 If you want to use the display system as an overlay to a video feed (which is the original purpose), you need to get rid of the white background. There are several ways to do this
 
-- Use the browser as your video mixer. To use this, enable the `useCamera` configuration option. By feeding in a video signal (for instance using a usb camera), you can create a composite output.
+- Use the browser as your video mixer. To use this, enable the `camera` module. By feeding in a video signal (for instance using a usb camera), you can create a composite output. You may want to set the `background` configuration to black if the screen size does not match the video size.
 - Give the background a special color, and use a separate video mixer with [chroma key](http://en.wikipedia.org/wiki/Chroma_key) capabilities to mix the overlay over a video feed. Use the `background` configuration option to do this.
 - Use more advanced software video mixing software, like [caspar CG](http://www.casparcg.com/). In the newest versions, you can use a `HTML producer` to overlay a webpage (like this display system) over a video. Make sure, you set the `background` configuration off to have a transparent background. Also, from within Caspar, you can create JavaScript functions to control the modules, much like we have done manually from the console.
 

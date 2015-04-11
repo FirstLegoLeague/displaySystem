@@ -5,10 +5,11 @@ displaySystem.config({
     // mserverNode: "overlay",
     //optional chromakey background color
     // background: "lime",
-    //use a usb or built in camera as background video
-    // useCamera: true,
     //modules, order determines z stacking
     modules: {
+        'camera': {
+            visible: true
+        },
         'clock': {
             // visible: true
         },
