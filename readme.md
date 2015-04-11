@@ -30,7 +30,7 @@ Ok, some clarification. All modules are hidden by default. Also, all modules are
 
 - `displaySystem.modules.time.hide()`
 - `displaySystem.modules.clock.show()`
-- `displaySystem.modules.click.start()`
+- `displaySystem.modules.clock.start()`
 
 You probably do not want to do this every time you load the display. So, open `config.js` and replace
 
@@ -71,9 +71,9 @@ The control window shows buttons for all commands that the modules have. Try and
 
 ### Using as a video overlay system
 
-If you want to use the display system as an overlay to a video feed (which is the original purpose), you need to get rid of the white background. There are several ways to do this
+If you want to use the display system as an overlay to a video feed (which is the original purpose), you need to get rid of the white background and replace it with live video. There are several ways to do this
 
-- Use the browser as your video mixer. To use this, enable the `camera` module. By feeding in a video signal (for instance using a usb camera), you can create a composite output. You may want to set the `background` configuration to black if the screen size does not match the video size. If you have a webcam, you may already have discovered this in the [online version](http://firstlegoleague.github.io/displaySystem/).
+- Use the browser as your video mixer. To do this, use the `camera` module. By feeding in a video signal (for instance using a usb camera), you can create a composite output. You may want to set the `background` configuration to black if the screen size does not match the video size. If you have a webcam, you may already have discovered this in the [online version](http://firstlegoleague.github.io/displaySystem/).
 - Give the background a special color, and use a separate video mixer with [chroma key](http://en.wikipedia.org/wiki/Chroma_key) capabilities to mix the overlay over a video feed. Use the `background` configuration option to do this.
 - Use more advanced software video mixing software, like [caspar CG](http://www.casparcg.com/). In the newest versions, you can use a `HTML producer` to overlay a webpage (like this display system) over a video. Make sure, you set the `background` configuration off to have a transparent background. Also, from within Caspar, you can create JavaScript functions to control the modules, much like we have done manually from the console.
 
@@ -85,7 +85,7 @@ All basic configuration is done in the config.js file. The configuration options
 - `wsHost`: Websocket host to connect to, if any
 - `mserverNode`: Node to subscribe to when using [mserver](https://github.com/poelstra/mserver), can be omitted otherwise
 - `background`: Background color of the application. Can be used for chromakeying. If omitted, the background color is not defined, which can mean transparent in for instance a [casparCG HTML producer](http://www.casparcg.com/)
-- `modules`: Object of modules to load. The keys should correspond to names of js files in the modules folder, the values can be an empty object or some configuration, see the modules section for configuration options per module.
+- `modules`: Object of modules to load. The keys should correspond to names of js files in the modules folder, the values can be an empty object or some configuration, see the modules section for configuration options per module. The config already contains all options, but some are commented out. Enable them by removeing the comments.
 - `modulePath`: Path to load the modules from, defaults to `modules`. Can even be an url to another domain, since everything is loaded as a normal JavaScript file.
 
 Styling
@@ -96,7 +96,13 @@ This repository provides basic styling, a git submodule, `graphicsPack` is inclu
 Modules
 ------------
 
-This bits list the available configuration options for the modules (that you can use in `config.js`). Also, it lists the available javascript functions you can call.
+This bits list the available configuration options for the modules (that you can use in `config.js`). Also, it lists the available javascript functions you can call. Use the following code in the console (behind `F12`):
+
+    displaySystem.modules.<module>.<function>()
+
+For example:
+
+    displaySystem.modules.time.show()
 
 ### camera
 
@@ -179,7 +185,7 @@ The registerModule method expects a definition object with the following keys:
 - `name`: Name to register the module under. If omitted, the module is not registered and cannot be accessed programatically
 - `template`: HTML to insert in the page. This should be a JS string.
 - `style`: CSS to insert in the page. This should be a JS string. Note that the CSS is inserted at the front of the head. So any custom CSS in the head will override module defaults.
-- `factory`: JS to execute when the module is loaded. If the factory returns something, it is registered under the module's name and can be accessed via `displaySystem.modules.<name>`
+- `factory`: JS to execute when the module is loaded. If the factory returns something, it is registered under the module's name and can be accessed via `displaySystem.modules.<name>`. The factory receives the configuration defined in `config.js`.
 
 For string input, you can use [multiline](https://github.com/sindresorhus/multiline) which is included for convenience
 
