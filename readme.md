@@ -73,7 +73,7 @@ The control window shows buttons for all commands that the modules have. Try and
 
 If you want to use the display system as an overlay to a video feed (which is the original purpose), you need to get rid of the white background. There are several ways to do this
 
-- Use the browser as your video mixer. To use this, enable the `camera` module. By feeding in a video signal (for instance using a usb camera), you can create a composite output. You may want to set the `background` configuration to black if the screen size does not match the video size.
+- Use the browser as your video mixer. To use this, enable the `camera` module. By feeding in a video signal (for instance using a usb camera), you can create a composite output. You may want to set the `background` configuration to black if the screen size does not match the video size. If you have a webcam, you may already have discovered this in the [online version](http://firstlegoleague.github.io/displaySystem/).
 - Give the background a special color, and use a separate video mixer with [chroma key](http://en.wikipedia.org/wiki/Chroma_key) capabilities to mix the overlay over a video feed. Use the `background` configuration option to do this.
 - Use more advanced software video mixing software, like [caspar CG](http://www.casparcg.com/). In the newest versions, you can use a `HTML producer` to overlay a webpage (like this display system) over a video. Make sure, you set the `background` configuration off to have a transparent background. Also, from within Caspar, you can create JavaScript functions to control the modules, much like we have done manually from the console.
 
@@ -97,6 +97,19 @@ Modules
 ------------
 
 This bits list the available configuration options for the modules (that you can use in `config.js`). Also, it lists the available javascript functions you can call.
+
+### camera
+
+Shows attached camera stream as the background
+
+Configuration options:
+
+- `visible`: initial visibility
+
+Exposed api:
+
+- `show`: show the video
+- `hide`: hide the video
 
 ### clock
 
