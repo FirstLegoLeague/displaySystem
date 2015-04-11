@@ -2,3 +2,18 @@ html, body {
     overflow: hidden;
     height: 100%;
 }
+
+/* control window */
+@media screen {
+    body.controls {
+        font-family: verdana;
+        font-size: 12px;
+    }
+    body.controls label {
+        display: inline-block;
+        min-width: 75px;
+    }
+    body.controls button {
+        margin-right: 4px;
+    }
+}

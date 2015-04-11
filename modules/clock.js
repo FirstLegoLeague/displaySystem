@@ -159,11 +159,11 @@ displaySystem.registerModule({
         }
 
         return {
-            start: start,
-            stop: stop,
-            arm: arm,
             show: show,
-            hide: hide
+            hide: hide,
+            arm: arm,
+            start: start,
+            stop: stop
         };
     }
 });

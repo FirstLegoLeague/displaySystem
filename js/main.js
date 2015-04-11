@@ -23,6 +23,7 @@ var multiline = (function() {
 var displaySystem = (function() {
     var config;
     var modules = {};
+    var moduleDefs = {};
     var ws;
 
     function setConfig(_config) {
@@ -75,6 +76,7 @@ var displaySystem = (function() {
 
     function init() {
         initWebsocket();
+        initKeyBindings();
         var modulePath = config.modulePath||'modules';
         Object.keys(config.modules).forEach(function(name) {
             var src = modulePath+'/'+name+'.js';
@@ -103,14 +105,32 @@ var displaySystem = (function() {
             }
             m = def.factory(cfg);
         }
-        if (def.name && m) {
-            modules[def.name] = m;
+        if (def.name) {
+            // register module
+            if (m) {
+                modules[def.name] = m;
+            }
+            // register definition
+            moduleDefs[def.name] = def;
         }
+    }
+
+    function initKeyBindings() {
+        window.addEventListener('keydown',function(e) {
+            var key = e.which||e.keyCode;
+            console.log(key);
+            switch (key) {
+                case 67:    //c
+                    window.open('controls.html','fllDisplayControlWindow','resize=yes,width=600,height=300');
+                    break;
+            }
+        });
     }
 
     return {
         config: setConfig,
         registerModule: registerModule,
-        modules: modules
+        modules: modules,
+        definitions: moduleDefs
     };
 }());

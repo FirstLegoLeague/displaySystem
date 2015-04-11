@@ -65,9 +65,9 @@ displaySystem.registerModule({
         }
 
         return {
-            tick: time,
             show: showTime,
             hide: hideTime,
+            tick: time,
             set: setMsgTime
         };
     }

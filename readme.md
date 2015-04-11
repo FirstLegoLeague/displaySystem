@@ -16,7 +16,7 @@ Either:
 
 - If you know what `git` is: clone the repository: `git clone https://github.com/FirstLegoLeague/displaySystem.git` and check out the branch `gh-pages`.
 - Otherwise, just download the zip from: <https://github.com/FirstLegoLeague/displaySystem/archive/master.zip> and unpack.
-- Also, you can just use it online, however, you can't really customize anything. It is a nice way to check it out though.
+- Also, you can just use it [online](http://firstlegoleague.github.io/displaySystem/), however, you can't really customize anything. It is a nice way to check it out though.
 
 There are a few ways to use this package
 
@@ -43,6 +43,27 @@ by
     },
 
 And reload the page. Voilà, the clock is visible by default. You can also do this with other modules.
+
+### Using the control window
+
+Since the display can be controlled by javascript, you could create a control window with buttons and such to control everything. You may set this up with two monitors, one facing the audience and one facing you. This way, you can control the screen without having buttons visible.
+
+However, we have already done this for you, but there is a catch. The control window does not work when you are using the display system directly from the file system (if this is the case, the address bar starts with `file:///`). There are a few ways to solve this:
+
+- Use the [online version](http://firstlegoleague.github.io/displaySystem/), but as said, there is not much to customize here.
+- Host it somewhere online (most hosting providers allow you to FTP the files).
+- Host it locally, for this you need to install a web server. The easiest one I can think of is installed like this:
+    - install nodejs from <https://nodejs.org/>
+    - open a command window (from the start menu, type `cmd` and press enter)
+    - install a static file server by typing `npm install -g node-static`. This will install a simple web server.
+    - open the folder where you downloaded this display system (in the command window)
+    - type `static`
+    - you can now open the application by navigating to <http://localhost:8080>
+- Lastly, you can also control the display system by other means, but this gets more complicated. More on that below.
+
+So, the control window. To open it, press `c`
+
+The control window shows buttons for all commands that the modules have. Try and use this to display the time or the clock (for instance in the [online version](http://firstlegoleague.github.io/displaySystem/)).
 
 Configuration
 --------------

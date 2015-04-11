@@ -69,12 +69,12 @@ displaySystem.registerModule({
         }
 
         return {
-            command: doCommand,
-            set: setText,
             show: showLowerThird,
             hide: hideLowerThird,
             persist: persist,
-            toggle: toggle
+            toggle: toggle,
+            command: doCommand,
+            set: setText
         };
     }
 });
