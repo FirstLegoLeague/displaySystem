@@ -10,10 +10,17 @@ html, body {
     body.controls {
         font-family: verdana;
         font-size: 12px;
+        padding: 12px;
     }
     body.controls label {
         display: inline-block;
         min-width: 75px;
+    }
+    body.controls input {
+        width: 75px;
+        border: 1px solid silver;
+        border-right: none;
+        padding: 2px;
     }
     body.controls button {
         margin-right: 4px;

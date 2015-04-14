@@ -6,18 +6,44 @@ var displaySystem = (function() {
         Object.keys(system.modules).forEach(renderModuleControls);
     }
 
+    function getArguments(f) {
+        var deps = f.toString().match(/^function\s*\w*\((.*?)\)/)[1];
+        return deps?deps.split(/\s*,\s*/):[];
+    }
+
+    function getValue(inp) {
+        return inp.value;
+    }
+    function appendTo(parent) {
+        return function(el) {
+            parent.appendChild(el);
+        };
+    }
+    function createInput(placeholder) {
+        var inp = document.createElement('input');
+        inp.placeholder = placeholder;
+        return inp;
+    }
+
     function renderModuleControls(name) {
         var module = system.modules[name];
         var p = document.createElement('p');
         p.innerHTML = '<label>'+name+'</label>';
         Object.keys(module).forEach(function(fn) {
-            var btn = document.createElement('button');
-            btn.innerHTML = fn;
-            btn.addEventListener('click',function() {
-                console.log(fn);
-                module[fn]();
-            });
-            p.appendChild(btn);
+            var f = module[fn];
+            if (typeof f === 'function') {
+                var args = getArguments(f);
+                var inps = args.map(createInput);
+                var btn = document.createElement('button');
+                btn.innerHTML = fn;
+                btn.addEventListener('click',function() {
+                    var args = inps.map(getValue);
+                    console.log(fn,args);
+                    f.apply(module,args);
+                });
+                inps.forEach(appendTo(p));
+                p.appendChild(btn);
+            }
         });
         document.body.appendChild(p);
     }

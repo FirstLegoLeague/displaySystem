@@ -67,7 +67,7 @@ Luckily, we have already done this for you, but there is a catch. The control wi
 
 So, the control window. To open it, press `c`
 
-The control window shows buttons for all commands that the modules have. Try and use this to display the time or the clock (for instance in the [online version](http://firstlegoleague.github.io/displaySystem/)).
+The control window shows buttons for all commands that the modules have. There are also input fields if the commands can take arguments. Try and use this to display the time or the clock (for instance in the [online version](http://firstlegoleague.github.io/displaySystem/)).
 
 ### Using as a video overlay system
 

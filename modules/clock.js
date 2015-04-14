@@ -78,7 +78,7 @@ displaySystem.registerModule({
         }
 
         var arm = function(countdown) {
-            armTime = countdown||armTime;
+            armTime = (1*countdown)||armTime;
             pauseTime = false;
             time = armTime*1000;
             state = 'armed';
@@ -103,7 +103,7 @@ displaySystem.registerModule({
             if (countdown) {
                 arm(countdown);
             }
-            startStamp = startTime||(+(new Date()));
+            startStamp = (1*startTime)||(+(new Date()));
             state = 'started';
             tick();
         };
