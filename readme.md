@@ -124,6 +124,7 @@ A simple countdown clock. This is the same clock as available on <https://github
 Configuration options:
 
 - `visible`: initial visibility
+- `countdown`: initial time in seconds
 
 Exposed api:
 

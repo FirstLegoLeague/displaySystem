@@ -8,19 +8,20 @@ displaySystem.config({
     //modules, order determines z stacking
     modules: {
         'camera': {
-            visible: true
+            visible: true,
         },
         'clock': {
-            // visible: true
+            // visible: true,
+            // countdown: 20,
         },
         'time': {
-            // visible: true
+            // visible: true,
         },
         // 'twitter': {
-            // visible: true
+            // visible: true,
         // },
         // 'lowThird': {
-            // visible: true
+            // visible: true,
         // }
     },
     //path to the modules, can even be a full url

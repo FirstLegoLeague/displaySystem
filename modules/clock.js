@@ -35,7 +35,7 @@ displaySystem.registerModule({
     factory: function(config) {
         var div;
         var bgColor = 'black';
-        var state = 'stopped';
+        var state = 'stopped hidden';
         var time = 150000;
         var pauseTime = false;
         var armTime = 150;
@@ -147,13 +147,17 @@ displaySystem.registerModule({
         };
 
         function show() {
-            getClockDiv().className = state;
+            getClockDiv().classList.remove('hidden');
         }
 
         function hide() {
-            getClockDiv().className = 'hidden stopped';
+            getClockDiv().classList.add('hidden');
         }
 
+        if (config.countdown) {
+            armTime = config.countdown;
+            setTime(armTime*1000,tenths);
+        }
         if (config.visible) {
             show();
         }
