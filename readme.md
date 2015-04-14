@@ -153,6 +153,8 @@ Exposed api:
 Configuration options:
 
 - `visible`: initial visibility
+- `line1`: initial first line
+- `line2`: initial second line
 
 Exposed api:
 

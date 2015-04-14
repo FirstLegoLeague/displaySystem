@@ -6,25 +6,23 @@ displaySystem.registerModule({
     style: multiline(function() {/*
         div#lowThird {
             font-family: verdana;
-            font-size: 16px;
-            xxbackground-image: url('lowthird.png');
             background-color: #ffd204;
             background-size: cover;
             position: absolute;
             left: 0;
             width: 100%;
             bottom: 0;
-            height: 35%;
+            height: 30vh;
             transition: all 0.3s;
-            padding: 8% 7% 2% 32%;
-            font-size: 490%;
+            padding: 2vh 5vw;
+            font-size: 10vh;
             box-sizing: border-box;
             color: #6f2c91;
 
         }
 
         div#lowThird.hidden {
-            bottom: -35%;
+            bottom: -30vh;
         }
     */}),
     factory: function(config) {
@@ -36,6 +34,7 @@ displaySystem.registerModule({
         }
         function persist() {
             getLowerThird().className = '';
+            visible = true;
             if (timer) {
                 clearTimeout(timer);
                 timer = null;
@@ -46,11 +45,12 @@ displaySystem.registerModule({
             timer = setTimeout(hideLowerThird,5000);
         }
         function hideLowerThird() {
+            visible = false;
             getLowerThird().className = 'hidden';
         }
-        function setText(txt1,txt2) {
-            if (txt1 || txt2) {
-                getLowerThird().innerHTML = '<b>'+(txt1||'')+'</b><br>'+(txt2||'');
+        function setText(line1,line2) {
+            if (line1 || line2) {
+                getLowerThird().innerHTML = '<b>'+(line1||'')+'</b><br>'+(line2||'');
             }
         }
         function doCommand(cmd) {
@@ -64,8 +64,11 @@ displaySystem.registerModule({
             visible ? hideLowerThird() : showLowerThird();
         }
 
+        if (config.line1 || config.line2) {
+            setText(config.line1,config.line2);
+        }
         if (config.visible) {
-            showLowerThird();
+            persist();
         }
 
         return {
@@ -73,8 +76,8 @@ displaySystem.registerModule({
             hide: hideLowerThird,
             persist: persist,
             toggle: toggle,
-            command: doCommand,
-            set: setText
+            set: setText,
+            command: doCommand
         };
     }
 });

@@ -20,9 +20,11 @@ displaySystem.config({
         // 'twitter': {
             // visible: true,
         // },
-        // 'lowThird': {
+        'lowThird': {
             // visible: true,
-        // }
+            // line1: 'foo',
+            // line2: 'bar',
+        }
     },
     //path to the modules, can even be a full url
     modulePath: "modules"
