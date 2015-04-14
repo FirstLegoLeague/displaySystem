@@ -175,6 +175,19 @@ Exposed api:
 - `show`: show the twitter bar
 - `hide`: hide the twitter bar
 
+### css
+
+To include custom styling, create a custom stylesheet to override a default style. Use this for instance to customize fonts, text sizes, colors or background images. You can host it somewhere yourself or serve it up with `static`, as described above.
+
+Configuration options:
+
+- `href`: url to a stylesheet, can be local, or hosted somewhere
+
+Exposed api:
+
+- `set`: set the stylesheet, passing in the `href` parameter
+
+
 Extensibility
 -------------
 

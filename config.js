@@ -24,6 +24,9 @@ displaySystem.config({
             // visible: true,
             // line1: 'foo',
             // line2: 'bar',
+        },
+        'css': {
+            // href: 'css/custom.css',
         }
     },
     //path to the modules, can even be a full url
