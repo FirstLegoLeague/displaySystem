@@ -1,7 +1,7 @@
 Display Systems
 ================
 
-This is a general purpose, configurable system for data display. It currently contains 4 modules, which are explained further on.
+This is a general purpose, configurable system for data display. It currently contains 5 modules, which are explained further on.
 
 All modules can be controlled via [websockets](http://en.wikipedia.org/wiki/WebSocket). In particular, we support [mserver](https://github.com/poelstra/mserver), which was made for this purpose and supports a higher level of messaging, routing, relaying and clustering. In any case, ordinary websocket is supported, as long as it delivers messages in the format described in the modules.
 

@@ -118,7 +118,6 @@ var displaySystem = (function() {
     function initKeyBindings() {
         window.addEventListener('keydown',function(e) {
             var key = e.which||e.keyCode;
-            console.log(key);
             switch (key) {
                 case 67:    //c
                     window.open('controls.html','fllDisplayControlWindow','resize=yes,width=600,height=300');
