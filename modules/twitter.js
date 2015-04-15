@@ -90,6 +90,25 @@ displaySystem.registerModule({
             sequence();
         }
 
+        var seq = 0;
+        function addStr(str) {
+            var parts = str.split(':');
+            var author = parts.shift();
+            var tweet = parts.join(':');
+            add({
+                statusId: seq,
+                author: seq+author,
+                message: tweet
+            });
+            seq += 1;
+        }
+
+        function remStr(index) {
+            remove({
+                statusId: 1*index
+            });
+        }
+
         var t = +(new Date());
         function tick() {
             var now = +(new Date());
@@ -130,13 +149,16 @@ displaySystem.registerModule({
             ].join('');
         }
 
-        //sotrs tweets by time, keeps last 10;
+        // get the most recent set of tweets to work with
+        // sorts tweets by time, keeps last 10;
+        // after adding / deleting tweets
         function sequence() {
             tweets = Object.keys(tweetsIndex).map(function(statusId) {
                 return tweetsIndex[statusId];
             }).sort(by('created')).slice(0,10);
         }
 
+        // rerenders the ticker html (after adding removing from it)
         function render() {
             var str = visibleTweets.map(renderTweet).join(' ');
             getContainer().innerHTML = str;
@@ -201,8 +223,8 @@ displaySystem.registerModule({
         return {
             show: show,
             hide: hide,
-            add: add,
-            remove: remove
+            add: addStr,
+            remove: remStr
         };
     }
 });
