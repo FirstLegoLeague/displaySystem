@@ -51,6 +51,7 @@ displaySystem.registerModule({
         var head = 0;
         var tail = 0;
         var offset = 0;
+        var speed = 100;
 
         function getTwitterDiv() {
             return div?div:(div=document.getElementById('twitter'));
@@ -121,7 +122,8 @@ displaySystem.registerModule({
         tick();
 
         function animate(dt) {
-            offset += dt / 10;
+            // speed in px per second
+            offset += speed * dt / 1000;
             getContainer().style.transform = 'translateX('+ -offset +'px)';
 
             //add tweets if container too small
@@ -198,6 +200,9 @@ displaySystem.registerModule({
 
         if (config.visible) {
             show();
+        }
+        if (config.speed) {
+            speed = config.speed;
         }
 
         onMessage(function(msg) {

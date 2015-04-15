@@ -19,6 +19,7 @@ displaySystem.config({
         },
         'twitter': {
             // visible: true,
+            // speed: 500,
         },
         'lowThird': {
             visible: true,
