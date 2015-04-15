@@ -32,6 +32,7 @@ var displaySystem = (function() {
         Object.keys(module).forEach(function(fn) {
             var f = module[fn];
             if (typeof f === 'function') {
+                var s = p.appendChild(document.createElement('span'));
                 var args = getArguments(f);
                 var inps = args.map(createInput);
                 var btn = document.createElement('button');
@@ -41,8 +42,8 @@ var displaySystem = (function() {
                     console.log(fn,args);
                     f.apply(module,args);
                 });
-                inps.forEach(appendTo(p));
-                p.appendChild(btn);
+                inps.forEach(appendTo(s));
+                s.appendChild(btn);
             }
         });
         document.body.appendChild(p);
