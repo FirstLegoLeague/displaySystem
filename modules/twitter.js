@@ -14,10 +14,9 @@ displaySystem.registerModule({
             background-color: #0066b3;
             color: white;
             font-family: verdana;
-            font-size: 32px;
+            font-size: 6vh;
             transition: bottom 0.3s;
         }
-
 
         #twitter.hidden {
             bottom: -4em;
@@ -34,8 +33,8 @@ displaySystem.registerModule({
         }
 
         #twitter .tweet {
-            padding-right: 50px;
-            font-size: 32px;
+            padding-right: 1.5em;
+            font-size: 6vh;
         }
     */}),
     factory: function(config,onMessage) {
