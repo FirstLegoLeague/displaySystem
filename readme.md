@@ -113,9 +113,9 @@ Start:
 Send a message:
 
     //*nix
-    node dist/src/client -n default -t twitter:add -d '{"statusId":123,"author":"FLL","message":"FLL is great"}'
+    node dist/src/client -n default -t twitter:add -d '{"id":123,"user":"FLL","text":"FLL is great"}'
     //windows
-    node dist/src/client -n default -t twitter:add -d "{""statusId"":123,""author"":""FLL"",""message"":""FLL is great""}"
+    node dist/src/client -n default -t twitter:add -d "{""id"":123,""user"":""FLL"",""text"":""FLL is great""}"
 
 In your config.js, make sure you have the following options:
 
