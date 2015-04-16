@@ -21,8 +21,8 @@ displaySystem.config({
             // visible: true,
         },
         'lowThird': {
-            // visible: true,
-            // line1: 'foo',
+            visible: true,
+            line1: 'press \'C\' to show the control window',
             // line2: 'bar',
         },
         'css': {
