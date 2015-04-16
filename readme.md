@@ -91,9 +91,9 @@ For example:
     {
         "topic": "twitter:add",
         "data": {
-            "statusId": 123,
-            "author": "FLL",
-            "message": "FLL is great!"
+            "id": 123,
+            "user": "FLL",
+            "text": "FLL is great!"
         }
     }
 
@@ -105,6 +105,8 @@ Install:
     cd mserver
     npm install
     npm run build
+
+Make sure `default` is in the `server.conf.json` nodes list. You may want to change the node to be somewhat more specific, but it works like this.
 
 Start:
 
@@ -144,6 +146,7 @@ This would start streaming live twitter messages in your console. You are now on
 
 This command uses [pipes](http://en.wikipedia.org/wiki/Pipeline_(Unix)) to take the output of the `tweet` utility and *pipe* it into the `mserver` client.
 
+**By the way...** the hosted version listens to `ws://localhost:13900/` on the `default` node. So you can set up `node-tweet-cli` and `mserver` locally and still use the hosted version of the display system. Isn't that sweet?
 
 Configuration
 --------------
