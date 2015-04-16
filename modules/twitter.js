@@ -38,7 +38,7 @@ displaySystem.registerModule({
             font-size: 32px;
         }
     */}),
-    factory: function(config) {
+    factory: function(config,onMessage) {
 
         var tweetsIndex = {};
         var tweets = [];
@@ -177,6 +177,19 @@ displaySystem.registerModule({
         if (config.visible) {
             show();
         }
+
+        onMessage(function(msg) {
+            var action = msg.topic.split(':')[1]||'add';
+            switch(action) {
+                case 'add':
+                    add({
+                        statusId: msg.data.id,
+                        author: msg.data.user,
+                        message: msg.data.text
+                    });
+                break;
+            }
+        });
 
         /**
          * TODO

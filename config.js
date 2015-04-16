@@ -1,8 +1,8 @@
 displaySystem.config({
     //websocket host to listen to
-    // wsHost: "",
+    wsHost: "ws://localhost:13900/",
     //specify the node that is being subscribed to when using mserver
-    // mserverNode: "overlay",
+    mserverNode: "default",
     //optional chromakey background color
     // background: "lime",
     //modules, order determines z stacking
@@ -17,9 +17,9 @@ displaySystem.config({
         'time': {
             // visible: true,
         },
-        // 'twitter': {
+        'twitter': {
             // visible: true,
-        // },
+        },
         'lowThird': {
             // visible: true,
             // line1: 'foo',

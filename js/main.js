@@ -63,15 +63,30 @@ var displaySystem = (function() {
                 console.log("close");
             };
             ws.onmessage = function(msg) {
-                console.log(msg);
                 var data = JSON.parse(msg.data);
                 handleMessage(data);
             };
         }
     }
 
+    var handlers = {};
     function handleMessage(msg) {
+        var target = msg.topic.split(':')[0];
+        if (handlers[target]) {
+            handlers[target].forEach(function(handler) {
+                handler(msg);
+            });
+        }
+    }
 
+    function onMessage(def,handler) {
+        if (!def.name) {
+            return;
+        }
+        if (!handlers[def.name]) {
+            handlers[def.name] = [];
+        }
+        handlers[def.name].push(handler);
     }
 
     function init() {
@@ -103,7 +118,9 @@ var displaySystem = (function() {
             if (def.name) {
                 cfg = config.modules[def.name];
             }
-            m = def.factory(cfg);
+            m = def.factory(cfg,function(handler) {
+                return onMessage(def,handler);
+            });
         }
         if (def.name) {
             // register module

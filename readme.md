@@ -77,6 +77,74 @@ If you want to use the display system as an overlay to a video feed (which is th
 - Give the background a special color, and use a separate video mixer with [chroma key](http://en.wikipedia.org/wiki/Chroma_key) capabilities to mix the overlay over a video feed. Use the `background` configuration option to do this.
 - Use more advanced software video mixing software, like [caspar CG](http://www.casparcg.com/). In the newest versions, you can use a `HTML producer` to overlay a webpage (like this display system) over a video. Make sure, you set the `background` configuration off to have a transparent background. Also, from within Caspar, you can create JavaScript functions to control the modules, much like we have done manually from the console.
 
+### Controlling the modules via websockets
+
+If the display system is configured to listen to a websocket server, which can be [mserver](https://github.com/poelstra/mserver) or some other websocket server, it expects messages of the form:
+
+    {
+        "topic": <module:action>,
+        "data": {}
+    }
+
+For example:
+
+    {
+        "topic": "twitter:add",
+        "data": {
+            "statusId": 123,
+            "author": "FLL",
+            "message": "FLL is great!"
+        }
+    }
+
+Since websockets only support text transfer, the above object should be serialized to JSON. It is automatically deserialized and passed to the apropriate module. To get mserver running, follow [the instructions](https://github.com/poelstra/mserver). In short:
+
+Install:
+
+    git clone https://github.com/poelstra/mserver
+    cd mserver
+    npm install
+    npm run build
+
+Start:
+
+    npm start
+
+Send a message:
+
+    //*nix
+    node dist/src/client -n default -t twitter:add -d '{"statusId":123,"author":"FLL","message":"FLL is great"}'
+    //windows
+    node dist/src/client -n default -t twitter:add -d "{""statusId"":123,""author"":""FLL"",""message"":""FLL is great""}"
+
+In your config.js, make sure you have the following options:
+
+    wsHost: "ws://localhost:13900",
+    mservernode: "default"
+
+### Adding a twitter feed to your display.
+
+Being able to send messages via websockets is nice, but it would be even more nice to connect a twitter feed to the whole lot, right? Luckily there is a command line application to read a twitter stream: [node-tweet-cli](https://github.com/voronianski/node-tweet-cli)
+
+Install it like so:
+
+    npm install -g node-tweet-cli
+
+Login (see [the instructions](https://github.com/voronianski/node-tweet-cli) if it is not clear):
+
+    tweet login
+
+Now test your twitter stream in the console:
+
+    tweet stream lego --json
+
+This would start streaming live twitter messages in your console. You are now one step away from connecting everything:
+
+    tweet stream lego --json | node dist/src/client -n default -t twitter:add -i json
+
+This command uses [pipes](http://en.wikipedia.org/wiki/Pipeline_(Unix)) to take the output of the `tweet` utility and *pipe* it into the `mserver` client.
+
+
 Configuration
 --------------
 
