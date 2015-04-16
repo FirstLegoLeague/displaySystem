@@ -71,11 +71,13 @@ var displaySystem = (function() {
 
     var handlers = {};
     function handleMessage(msg) {
-        var target = msg.topic.split(':')[0];
-        if (handlers[target]) {
-            handlers[target].forEach(function(handler) {
-                handler(msg);
-            });
+        if (msg && msg.topic) {
+            var target = msg.topic.split(':')[0];
+            if (handlers[target]) {
+                handlers[target].forEach(function(handler) {
+                    handler(msg);
+                });
+            }
         }
     }
 
