@@ -210,7 +210,7 @@ displaySystem.registerModule({
                 case 'add':
                     add({
                         statusId: msg.data.id,
-                        author: msg.data.user,
+                        author: msg.data.user.screen_name,
                         message: msg.data.text
                     });
                 break;

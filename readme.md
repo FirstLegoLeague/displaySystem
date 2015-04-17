@@ -92,7 +92,9 @@ For example:
         "topic": "twitter:add",
         "data": {
             "id": 123,
-            "user": "FLL",
+            "user": {
+                "screen_name":"FLL"
+            },
             "text": "FLL is great!"
         }
     }
@@ -115,9 +117,9 @@ Start:
 Send a message:
 
     //*nix
-    node dist/src/client -n default -t twitter:add -d '{"id":123,"user":"FLL","text":"FLL is great"}'
+    node dist/src/client -n default -t twitter:add -d '{"id":123,"user":{"screen_name":"FLL"},"text":"FLL is great"}'
     //windows
-    node dist/src/client -n default -t twitter:add -d "{""id"":123,""user"":""FLL"",""text"":""FLL is great""}"
+    node dist/src/client -n default -t twitter:add -d "{""id"":123,""user"":{""screen_name"":""FLL""},""text"":""FLL is great""}"
 
 In your config.js, make sure you have the following options:
 
@@ -138,7 +140,7 @@ Login (see [the instructions](https://github.com/voronianski/node-tweet-cli) if 
 
 Now test your twitter stream in the console:
 
-    tweet stream lego --json
+    tweet stream lego
 
 This would start streaming live twitter messages in your console. You are now one step away from connecting everything:
 
