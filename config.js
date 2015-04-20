@@ -2,7 +2,7 @@ displaySystem.config({
     //websocket host to listen to
     wsHost: "ws://localhost:13900/",
     //specify the node that is being subscribed to when using mserver
-    mserverNode: "default",
+    mserverNode: "overlay",
     //optional chromakey background color
     // background: "lime",
     //modules, order determines z stacking

@@ -3,7 +3,7 @@ Display Systems
 
 This is a general purpose, configurable system for data display. It currently contains 5 modules, which are explained further on.
 
-All modules can be controlled via [websockets](http://en.wikipedia.org/wiki/WebSocket). In particular, we support [mserver](https://github.com/poelstra/mserver), which was made for this purpose and supports a higher level of messaging, routing, relaying and clustering. In any case, ordinary websocket is supported, as long as it delivers messages in the format described in the modules.
+All modules can be controlled via [websockets](http://en.wikipedia.org/wiki/WebSocket). In particular, we support [mhub](https://github.com/poelstra/mhub), which was made for this purpose and supports a higher level of messaging, routing, relaying and clustering. In any case, ordinary websocket is supported, as long as it delivers messages in the format described in the modules.
 
 Also, all modules can be controlled via a javascript interface, so you can write your own scripts to interface with them. Lastly, we provide a control panel that can be opened in a separate screen to control the modules.
 
@@ -79,7 +79,7 @@ If you want to use the display system as an overlay to a video feed (which is th
 
 ### Controlling the modules via websockets
 
-If the display system is configured to listen to a websocket server, which can be [mserver](https://github.com/poelstra/mserver) or some other websocket server, it expects messages of the form:
+If the display system is configured to listen to a websocket server, which can be [mhub](https://github.com/poelstra/mhub) or some other websocket server, it expects messages of the form:
 
     {
         "topic": <module:action>,
@@ -99,32 +99,29 @@ For example:
         }
     }
 
-Since websockets only support text transfer, the above object should be serialized to JSON. It is automatically deserialized and passed to the apropriate module. To get mserver running, follow [the instructions](https://github.com/poelstra/mserver). In short:
+Since websockets only support text transfer, the above object should be serialized to JSON. It is automatically deserialized and passed to the apropriate module. To get mserver running, just read [the instructions](https://github.com/poelstra/mhub). In short:
 
 Install:
 
-    git clone https://github.com/poelstra/mserver
-    cd mserver
-    npm install
-    npm run build
-
-Make sure `default` is in the `server.conf.json` nodes list. You may want to change the node to be somewhat more specific, but it works like this.
+    npm install -g mhub
 
 Start:
 
-    npm start
+    mserver
 
 Send a message:
 
     //*nix
-    node dist/src/client -n default -t twitter:add -d '{"id":123,"user":{"screen_name":"FLL"},"text":"FLL is great"}'
+    mclient -n twitter -t twitter:add -d '{"id":123,"user":{"screen_name":"FLL"},"text":"FLL is great"}'
     //windows
-    node dist/src/client -n default -t twitter:add -d "{""id"":123,""user"":{""screen_name"":""FLL""},""text"":""FLL is great""}"
+    mclient -n twitter -t twitter:add -d "{""id"":123,""user"":{""screen_name"":""FLL""},""text"":""FLL is great""}"
 
 In your config.js, make sure you have the following options:
 
     wsHost: "ws://localhost:13900",
-    mservernode: "default"
+    mserverNode: "overlay"
+
+Note that in the mserver config (`server.conf.json`), the `twitter` node is forwarded to the `overlay` node. That makes this setup work.
 
 ### Adding a twitter feed to your display.
 
@@ -144,11 +141,11 @@ Now test your twitter stream in the console:
 
 This would start streaming live twitter messages in your console. You are now one step away from connecting everything:
 
-    tweet stream lego --json | node dist/src/client -n default -t twitter:add -i json
+    tweet stream lego --json | mclient -n twitter -t twitter:add -i json
 
-This command uses [pipes](http://en.wikipedia.org/wiki/Pipeline_(Unix)) to take the output of the `tweet` utility and *pipe* it into the `mserver` client.
+This command uses [pipes](http://en.wikipedia.org/wiki/Pipeline_(Unix)) to take the output of the `tweet` utility and *pipe* it into `mclient`.
 
-**By the way...** the hosted version listens to `ws://localhost:13900/` on the `default` node. So you can set up `node-tweet-cli` and `mserver` locally and still use the hosted version of the display system. Isn't that sweet?
+**By the way...** the hosted version listens to `ws://localhost:13900/` on the `overlay` node. So you can set up `node-tweet-cli` and `mserver` locally and still use the hosted version of the display system. Isn't that sweet?
 
 Configuration
 --------------
@@ -156,7 +153,7 @@ Configuration
 All basic configuration is done in the config.js file. The configuration options are:
 
 - `wsHost`: Websocket host to connect to, if any
-- `mserverNode`: Node to subscribe to when using [mserver](https://github.com/poelstra/mserver), can be omitted otherwise
+- `mserverNode`: Node to subscribe to when using [mhub](https://github.com/poelstra/mhub), can be omitted otherwise
 - `background`: Background color of the application. Can be used for chromakeying. If omitted, the background color is not defined, which can mean transparent in for instance a [casparCG HTML producer](http://www.casparcg.com/)
 - `modules`: Object of modules to load. The keys should correspond to names of js files in the modules folder, the values can be an empty object or some configuration, see the modules section for configuration options per module. The config already contains all options, but some are commented out. Enable them by removeing the comments.
 - `modulePath`: Path to load the modules from, defaults to `modules`. Can even be an url to another domain, since everything is loaded as a normal JavaScript file.
