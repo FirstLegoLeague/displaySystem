@@ -211,7 +211,8 @@ displaySystem.registerModule({
                     add({
                         statusId: msg.data.id,
                         author: msg.data.user.screen_name,
-                        message: msg.data.text
+                        message: msg.data.text,
+                        created: 1*msg.data.timestamp_ms
                     });
                 break;
             }
