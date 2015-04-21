@@ -156,7 +156,7 @@ displaySystem.registerModule({
         function sequence() {
             tweets = Object.keys(tweetsIndex).map(function(statusId) {
                 return tweetsIndex[statusId];
-            }).sort(by('created')).slice(0,10);
+            }).sort(by('created')).slice(-10);
         }
 
         // rerenders the ticker html (after adding removing from it)
