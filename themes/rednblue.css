@@ -2,39 +2,116 @@ body {
     font-family: verdana;
 }
 
+/* time definitions */
+#time {
+    left: 0;
+    background-color: darkblue;
+    font-family: lcdbold;
+    color: white;
+    transition: transform 0.3s;
+    height: 14vh;
+    font-size: 12vh;
+    line-height: 16vh;
+    width: 37vh;
+    padding-left: 6vh;
+
+    background: linear-gradient(280deg, transparent 3vh, darkblue 0);
+}
+
+#time.hidden {
+    transform: translate(-100%);
+}
+
+/* clock */
+#clock {
+    right: 0;
+    background-color: darkblue;
+    font-family: lcdbold;
+    color: white;
+    transition: transform 0.3s;
+    height: 14vh;
+    font-size: 12vh;
+    line-height: 16vh;
+    width: 37vh;
+    padding-right: 6vh;
+    text-align: right;
+
+    background: linear-gradient(100deg, transparent 3vh, darkblue 0);
+}
+
+#clock.hidden {
+    transform: translate(100%);
+}
+
+#clock.stopped {
+    background-color: crimson;
+}
+#clock.armed {
+    color: yellow;
+}
+
 /* lowThird definitions */
-div#lowThird {
+#lowThird {
     background: none;
     height: 30vh;
     box-sizing: border-box;
 }
-div#lowThird .line {
+#lowThird .line {
     color: white;
     padding-left: 6vh;
     transition: transform 0.3s;
     transform: translate(0);
     box-sizing: border-box;
-    border-bottom-right-radius: 6vh;
+    position: relative;
+    overflow: hidden;
 }
-div#lowThird.hidden .line {
+#lowThird.hidden .line {
     transform: translate(-100%);
 }
 
 /* used ceaser to create custom easing functions: http://matthewlein.com/ceaser/ */
-div#lowThird .line1 {
+#lowThird .line1 {
     background-color: darkblue;
     width: 80%;
     transition-timing-function: cubic-bezier(0.250, 0.100, 0.000, 1.000);
     font-size: 10vh;
     height: 15vh;
     line-height: 15vh;
+
+    background: linear-gradient(280deg, transparent 3vh, darkblue 0);
 }
 
-div#lowThird .line2 {
+#lowThird .line2 {
     background-color: crimson;
     width: 70%;
     transition-timing-function: cubic-bezier(1.000, 0.000, 0.695, 1.000);
     font-size: 6vh;
     height: 10vh;
     line-height: 10vh;
+
+    background: linear-gradient(280deg, transparent 3vh, crimson 0);
+}
+
+/* ticker */
+#twitter {
+    font-size: 6vh;
+    padding: 1em;
+    background-color: darkblue;
+    color: white;
+    transition: bottom 0.3s;
+}
+
+#twitter.hidden {
+    bottom: -4em;
+}
+
+#twitter .tweet {
+    font-size: 6vh;
+}
+
+#twitter .author {
+    font-weight: bold;
+}
+
+#twitter .message {
 }

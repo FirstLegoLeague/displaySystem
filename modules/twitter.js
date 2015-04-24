@@ -133,7 +133,7 @@ displaySystem.registerModule({
                 '</span>: ',
                 '<span class="message">',
                 tweet.message,
-                '</span>'
+                '</span>',
                 '</span>'
             ].join('');
         }

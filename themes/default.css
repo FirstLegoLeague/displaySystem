@@ -62,6 +62,7 @@ body {
 
 /* ticker */
 #twitter {
+    font-size: 6vh;
     padding: 1em;
     background-color: #0066b3;
     color: white;
