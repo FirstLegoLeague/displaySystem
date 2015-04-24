@@ -12,14 +12,25 @@ body {
     height: 14vh;
     font-size: 12vh;
     line-height: 16vh;
-    width: 37vh;
+    width: 32vh;
     padding-left: 6vh;
-
-    background: linear-gradient(280deg, transparent 3vh, darkblue 0);
+}
+#time::after {
+  content: '';
+  width: 3vh;
+  display: block;
+  height: 14vh;
+  position: absolute;
+  right: -3vh;
+  top: 0;
+  border: 2px solid black;
+  box-sizing: border-box;
+  border-width: 14vh 3vh 0 0;
+  border-color: darkblue transparent;
 }
 
 #time.hidden {
-    transform: translate(-100%);
+    transform: translate(-120%);
 }
 
 /* clock */
@@ -32,15 +43,27 @@ body {
     height: 14vh;
     font-size: 12vh;
     line-height: 16vh;
-    width: 37vh;
+    width: 32vh;
     padding-right: 6vh;
     text-align: right;
+}
 
-    background: linear-gradient(100deg, transparent 3vh, darkblue 0);
+#clock::before {
+  content: '';
+  width: 3vh;
+  display: block;
+  height: 14vh;
+  position: absolute;
+  left: -3vh;
+  top: 0;
+  border: 2px solid black;
+  box-sizing: border-box;
+  border-width: 0 0 14vh 3vh;
+  border-color: darkblue transparent;
 }
 
 #clock.hidden {
-    transform: translate(100%);
+    transform: translate(120%);
 }
 
 #clock.stopped {
@@ -63,10 +86,9 @@ body {
     transform: translate(0);
     box-sizing: border-box;
     position: relative;
-    overflow: hidden;
 }
 #lowThird.hidden .line {
-    transform: translate(-100%);
+    transform: translate(-120%);
 }
 
 /* used ceaser to create custom easing functions: http://matthewlein.com/ceaser/ */
@@ -75,10 +97,21 @@ body {
     width: 80%;
     transition-timing-function: cubic-bezier(0.250, 0.100, 0.000, 1.000);
     font-size: 10vh;
-    height: 15vh;
-    line-height: 15vh;
-
-    background: linear-gradient(280deg, transparent 3vh, darkblue 0);
+    height: 14vh;
+    line-height: 14vh;
+}
+#lowThird .line1::after {
+  content: '';
+  width: 3vh;
+  display: block;
+  height: 14vh;
+  position: absolute;
+  right: -3vh;
+  top: 0;
+  border: 2px solid black;
+  box-sizing: border-box;
+  border-width: 14vh 3vh 0 0;
+  border-color: darkblue transparent;
 }
 
 #lowThird .line2 {
@@ -88,8 +121,20 @@ body {
     font-size: 6vh;
     height: 10vh;
     line-height: 10vh;
+}
 
-    background: linear-gradient(280deg, transparent 3vh, crimson 0);
+#lowThird .line2::after {
+  content: '';
+  width: 2.14vh;
+  display: block;
+  height: 10vh;
+  position: absolute;
+  right: -2.14vh;
+  top: 0;
+  border: 2px solid black;
+  box-sizing: border-box;
+  border-width: 10vh 2.14vh 0 0;
+  border-color: crimson transparent;
 }
 
 /* ticker */
