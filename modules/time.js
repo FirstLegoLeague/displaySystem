@@ -12,16 +12,6 @@ displaySystem.registerModule({
             left: 0.5em;
             color: white;
             font-size: 96px;
-            font-family: lcdbold;
-            color: white;
-            -webkit-text-fill-color: white;
-            -webkit-text-stroke-width: 1px;
-            -webkit-text-stroke-color: black;
-            transition: all 0.3s;
-        }
-
-        #time.hidden {
-            top: -2em;
         }
     */}),
     factory: function(config) {

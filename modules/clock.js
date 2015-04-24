@@ -12,24 +12,6 @@ displaySystem.registerModule({
             right: 0.5em;
             color: white;
             font-size: 96px;
-            font-family: lcdbold;
-            color: #ffd204;
-            -webkit-text-fill-color: #ffd204;
-            -webkit-text-stroke-width: 1px;
-            -webkit-text-stroke-color: black;
-            transition: top 0.3s;
-        }
-
-        #clock.hidden {
-            top: -2em;
-        }
-        #clock.stopped {
-            color: red;
-            -webkit-text-fill-color: #c41425;
-        }
-        #clock.armed {
-            color: blue;
-            -webkit-text-fill-color: #0066b3;
         }
     */}),
     factory: function(config) {

@@ -9,27 +9,13 @@ displaySystem.registerModule({
             bottom: 0;
             left: 0;
             right: 0;
-            padding: 1em;
             overflow: hidden;
-            background-color: #0066b3;
-            color: white;
-            font-family: verdana;
-            font-size: 6vh;
-            transition: bottom 0.3s;
-        }
-
-        #twitter.hidden {
-            bottom: -4em;
         }
 
         #twitter .container {
             white-space: nowrap;
             display: inline-block;
             font-size: 0;
-        }
-
-        #twitter .author {
-            font-weight: bold;
         }
 
         #twitter .tweet {
@@ -145,7 +131,9 @@ displaySystem.registerModule({
                 '<span class="author">@',
                 tweet.author,
                 '</span>: ',
+                '<span class="message">',
                 tweet.message,
+                '</span>'
                 '</span>'
             ].join('');
         }

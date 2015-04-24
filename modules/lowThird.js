@@ -4,25 +4,12 @@ displaySystem.registerModule({
         <div id="lowThird" class="hidden"></div>
     */}),
     style: multiline(function() {/*
-        div#lowThird {
-            font-family: verdana;
-            background-color: #ffd204;
-            background-size: cover;
+        #lowThird {
             position: absolute;
             left: 0;
             width: 100%;
             bottom: 0;
-            height: 30vh;
-            transition: all 0.3s;
-            padding: 2vh 5vw;
             font-size: 10vh;
-            box-sizing: border-box;
-            color: #6f2c91;
-
-        }
-
-        div#lowThird.hidden {
-            bottom: -30vh;
         }
     */}),
     factory: function(config) {
@@ -50,7 +37,7 @@ displaySystem.registerModule({
         }
         function setText(line1,line2) {
             if (line1 || line2) {
-                getLowerThird().innerHTML = '<b>'+(line1||'')+'</b><br>'+(line2||'');
+                getLowerThird().innerHTML = '<div class="line line1">'+(line1||'')+'</div><div class="line line2">'+(line2||'')+'</div>';
             }
         }
         function doCommand(cmd) {
