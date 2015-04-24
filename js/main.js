@@ -118,6 +118,7 @@ var displaySystem = (function() {
         var m,cfg;
         if (def.factory) {
             if (def.name) {
+                //TODO: this is a bit of a tight coupling between names in config and module names
                 cfg = config.modules[def.name];
             }
             m = def.factory(cfg,function(handler) {
