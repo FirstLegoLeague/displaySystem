@@ -1,0 +1,40 @@
+body {
+    font-family: verdana;
+}
+
+/* lowThird definitions */
+div#lowThird {
+    background: none;
+    height: 30vh;
+    box-sizing: border-box;
+}
+div#lowThird .line {
+    color: white;
+    padding-left: 6vh;
+    transition: transform 0.3s;
+    transform: translate(0);
+    box-sizing: border-box;
+    border-bottom-right-radius: 6vh;
+}
+div#lowThird.hidden .line {
+    transform: translate(-100%);
+}
+
+/* used ceaser to create custom easing functions: http://matthewlein.com/ceaser/ */
+div#lowThird .line1 {
+    background-color: darkblue;
+    width: 80%;
+    transition-timing-function: cubic-bezier(0.250, 0.100, 0.000, 1.000);
+    font-size: 10vh;
+    height: 15vh;
+    line-height: 15vh;
+}
+
+div#lowThird .line2 {
+    background-color: crimson;
+    width: 70%;
+    transition-timing-function: cubic-bezier(1.000, 0.000, 0.695, 1.000);
+    font-size: 6vh;
+    height: 10vh;
+    line-height: 10vh;
+}

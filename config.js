@@ -27,7 +27,8 @@ displaySystem.config({
             // line2: 'bar',
         },
         'css': {
-            href: 'themes/default.css',
+            href: 'themes/rednblue.css',
+            // href: 'themes/default.css',
         }
     },
     //path to the modules, can even be a full url
