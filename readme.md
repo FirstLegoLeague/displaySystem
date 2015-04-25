@@ -184,8 +184,8 @@ Configuration options:
 
 Exposed api:
 
-- `show`: show the video
-- `hide`: hide the video
+- `show()`: show the video
+- `hide()`: hide the video
 
 ### clock
 
@@ -198,11 +198,11 @@ Configuration options:
 
 Exposed api:
 
-- `show`: show the clock
-- `hide`: hide the clock
-- `arm`: arm the clock. By default it arms to 2:30 minutes. You can arm to a different time by passing in seconds. Hence `arm(10)` arms the clock to 10 seconds
-- `start`: starts the clock
-- `stop`: stops the clock
+- `show()`: show the clock
+- `hide()`: hide the clock
+- `arm(countdown)`: arm the clock. By default it arms to 2:30 minutes. You can arm to a different time by passing in seconds. Hence `arm(10)` arms the clock to 10 seconds
+- `start(startTime,countdown)`: starts the clock
+- `stop()`: stops the clock
 
 ### time
 
@@ -214,9 +214,9 @@ Configuration options:
 
 Exposed api:
 
-- `show`: show the time
-- `hide`: hide the time
-- `set`: sets the time (and ticks along). Pass in a unix timestamp. Eg `set('2015-02-07T13:00')` or `set(1423314000000)`
+- `show()`: show the time
+- `hide()`: hide the time
+- `set(timestamp)`: sets the time (and ticks along). Pass in a unix timestamp. Eg `set('2015-02-07T13:00')` or `set(1423314000000)`
 
 ### lowThird
 
@@ -228,11 +228,11 @@ Configuration options:
 
 Exposed api:
 
-- `show`: show the bar (and hides after 5 seconds)
-- `hide`: hide the bar
-- `persist`: shows the bar and never hides, until `hide()` is called
-- `toggle`: toggles the visibility of the bar
-- `set`: sets the text of the bar, you can pass in two strings: `set('hello','world')`
+- `show()`: show the bar (and hides after 5 seconds)
+- `hide()`: hide the bar
+- `persist()`: shows the bar and never hides, until `hide()` is called
+- `toggle()`: toggles the visibility of the bar
+- `set(line1,line2)`: sets the text of the bar, you can pass in two strings: `set('hello','world')`
 
 ### twitter
 
@@ -242,8 +242,9 @@ Configuration options:
 
 Exposed api:
 
-- `show`: show the twitter bar
-- `hide`: hide the twitter bar
+- `show()`: show the twitter bar
+- `hide()`: hide the twitter bar
+- `add(author,tweet)`: add a message to the bar
 
 ### css
 
