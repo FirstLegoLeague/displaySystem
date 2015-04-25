@@ -73,7 +73,7 @@ body {
     border-color: crimson transparent;
 }
 #clock.armed {
-    color: yellow;
+    color: crimson;
 }
 
 /* lowThird definitions */
