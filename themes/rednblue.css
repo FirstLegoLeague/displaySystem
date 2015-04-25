@@ -9,24 +9,24 @@ body {
     font-family: lcdbold;
     color: white;
     transition: transform 0.3s;
-    height: 14vh;
-    font-size: 12vh;
-    line-height: 16vh;
-    width: 32vh;
-    padding-left: 6vh;
+    height: 10vh;
+    font-size: 8vh;
+    line-height: 12vh;
+    width: 20vh;
+    padding-left: 3vh;
 }
 #time::after {
-  content: '';
-  width: 3vh;
-  display: block;
-  height: 14vh;
-  position: absolute;
-  right: -3vh;
-  top: 0;
-  border: 2px solid black;
-  box-sizing: border-box;
-  border-width: 14vh 3vh 0 0;
-  border-color: darkblue transparent;
+    content: '';
+    width: 2.5vh;
+    display: block;
+    height: 10vh;
+    position: absolute;
+    right: -2.5vh;
+    top: 0;
+    border: 2px solid black;
+    box-sizing: border-box;
+    border-width: 10vh 2.5vh 0 0;
+    border-color: darkblue transparent;
 }
 
 #time.hidden {
@@ -40,26 +40,26 @@ body {
     font-family: lcdbold;
     color: white;
     transition: transform 0.3s;
-    height: 14vh;
-    font-size: 12vh;
-    line-height: 16vh;
-    width: 32vh;
-    padding-right: 6vh;
+    height: 10vh;
+    font-size: 8vh;
+    line-height: 12vh;
+    width: 20vh;
+    padding-right: 3vh;
     text-align: right;
 }
 
 #clock::before {
-  content: '';
-  width: 3vh;
-  display: block;
-  height: 14vh;
-  position: absolute;
-  left: -3vh;
-  top: 0;
-  border: 2px solid black;
-  box-sizing: border-box;
-  border-width: 0 0 14vh 3vh;
-  border-color: darkblue transparent;
+    content: '';
+    width: 2.5vh;
+    display: block;
+    height: 10vh;
+    position: absolute;
+    left: -2.5vh;
+    top: 0;
+    border: 2px solid black;
+    box-sizing: border-box;
+    border-width: 0 0 10vh 2.5vh;
+    border-color: darkblue transparent;
 }
 
 #clock.hidden {
@@ -69,6 +69,9 @@ body {
 #clock.stopped {
     background-color: crimson;
 }
+#clock.stopped::before {
+    border-color: crimson transparent;
+}
 #clock.armed {
     color: yellow;
 }
@@ -76,12 +79,12 @@ body {
 /* lowThird definitions */
 #lowThird {
     background: none;
-    height: 30vh;
+    height: 22vh;
     box-sizing: border-box;
 }
 #lowThird .line {
     color: white;
-    padding-left: 6vh;
+    padding-left: 3vh;
     transition: transform 0.3s;
     transform: translate(0);
     box-sizing: border-box;
@@ -96,45 +99,45 @@ body {
     background-color: darkblue;
     width: 80%;
     transition-timing-function: cubic-bezier(0.250, 0.100, 0.000, 1.000);
-    font-size: 10vh;
-    height: 14vh;
-    line-height: 14vh;
+    font-size: 8vh;
+    height: 10vh;
+line-height: 10vh;
 }
 #lowThird .line1::after {
-  content: '';
-  width: 3vh;
-  display: block;
-  height: 14vh;
-  position: absolute;
-  right: -3vh;
-  top: 0;
-  border: 2px solid black;
-  box-sizing: border-box;
-  border-width: 14vh 3vh 0 0;
-  border-color: darkblue transparent;
+    content: '';
+    width: 2.5vh;
+    display: block;
+    height: 10vh;
+    position: absolute;
+    right: -2.5vh;
+    top: 0;
+    border: 2px solid black;
+    box-sizing: border-box;
+    border-width: 10vh 2.5vh 0 0;
+    border-color: darkblue transparent;
 }
 
 #lowThird .line2 {
     background-color: crimson;
     width: 70%;
     transition-timing-function: cubic-bezier(1.000, 0.000, 0.695, 1.000);
-    font-size: 6vh;
-    height: 10vh;
-    line-height: 10vh;
+    font-size: 5vh;
+    height: 8vh;
+    line-height: 8vh;
 }
 
 #lowThird .line2::after {
-  content: '';
-  width: 2.14vh;
-  display: block;
-  height: 10vh;
-  position: absolute;
-  right: -2.14vh;
-  top: 0;
-  border: 2px solid black;
-  box-sizing: border-box;
-  border-width: 10vh 2.14vh 0 0;
-  border-color: crimson transparent;
+    content: '';
+    width: 2vh;
+    display: block;
+    height: 8vh;
+    position: absolute;
+    right: -2vh;
+    top: 0;
+    border: 2px solid black;
+    box-sizing: border-box;
+    border-width: 8vh 2vh 0 0;
+    border-color: crimson transparent;
 }
 
 /* ticker */
