@@ -143,7 +143,7 @@ line-height: 10vh;
 /* ticker */
 #twitter {
     font-size: 6vh;
-    padding: 1em;
+    padding: 0.2em;
     background-color: darkblue;
     color: white;
     transition: bottom 0.3s;
