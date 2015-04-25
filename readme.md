@@ -1,6 +1,8 @@
 Display Systems
 ================
 
+![rednblue theme](themes/rednblue.png)
+
 This is a general purpose, configurable system for data display. It currently contains 5 modules, which are explained further on.
 
 All modules can be controlled via [websockets](http://en.wikipedia.org/wiki/WebSocket). In particular, we support [mhub](https://github.com/poelstra/mhub), which was made for this purpose and supports a higher level of messaging, routing, relaying and clustering. In any case, ordinary websocket is supported, as long as it delivers messages in the format described in the modules.
@@ -165,8 +167,10 @@ Themes can be used by pointing the `css` module configuration to a stylesheet. T
 
 ### Included themes
 
-- `css/default.css`: a colorful default theme that can be used to create your own
-- `css/rednblue.css`: a simple red and blue theme with slanted edges
+- `themes/default.css`: a colorful default theme that can be used to create your own
+- `themes/rednblue.css`: a simple red and blue theme with slanted edges
+
+For screenshots, see the `themes` [folder](themes)
 
 ### External themes
 
