@@ -77,14 +77,12 @@ displaySystem.registerModule({
         }
 
         var seq = 0;
-        function addStr(str) {
-            var parts = str.split(':');
-            var author = parts.shift();
-            var tweet = parts.join(':');
+        function addStr(author, tweet) {
             add({
                 statusId: seq,
                 author: seq+author,
-                message: tweet
+                message: tweet,
+                created: +(new Date())
             });
             seq += 1;
         }

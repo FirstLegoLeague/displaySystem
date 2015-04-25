@@ -63,8 +63,7 @@ displaySystem.registerModule({
             hide: hideLowerThird,
             persist: persist,
             toggle: toggle,
-            set: setText,
-            command: doCommand
+            set: setText
         };
     }
 });
