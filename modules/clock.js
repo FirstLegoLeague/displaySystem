@@ -61,6 +61,7 @@ displaySystem.registerModule({
 
         var arm = function(countdown) {
             armTime = (1*countdown)||armTime;
+            tenths = false;
             pauseTime = false;
             time = armTime*1000;
             state = 'armed';
