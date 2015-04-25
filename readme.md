@@ -158,10 +158,19 @@ All basic configuration is done in the config.js file. The configuration options
 - `modules`: Object of modules to load. The keys should correspond to names of js files in the modules folder, the values can be an empty object or some configuration, see the modules section for configuration options per module. The config already contains all options, but some are commented out. Enable them by removeing the comments.
 - `modulePath`: Path to load the modules from, defaults to `modules`. Can even be an url to another domain, since everything is loaded as a normal JavaScript file.
 
-Styling
+Theming
 -----------
 
-This repository provides basic styling, a git submodule, `graphicsPack` is included and provides images and generic stylesheets. For FirstLegoLeague purposes, this submodule is updated every year. in any case, you can provide your own styling and imagery. Basic css is defined in the modules, but you can create your own to override or amend it.
+Themes can be used by pointing the `css` module configuration to a stylesheet. This stylesheet can be hosted anywhere. In particular, the following are available:
+
+### Included themes
+
+- `css/default.css`: a colorful default theme that can be used to create your own
+- `css/rednblue.css`: a simple red and blue theme with slanted edges
+
+### External themes
+
+We will provide a yearly theme especially for the FIRST LEGO League. Currently, there is none.
 
 Modules
 ------------
