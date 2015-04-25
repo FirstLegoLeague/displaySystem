@@ -24,6 +24,7 @@ var displaySystem = (function() {
     var config;
     var modules = {};
     var moduleDefs = {};
+    var lastModuleContainer;
     var ws;
 
     function setConfig(_config) {
@@ -39,9 +40,10 @@ var displaySystem = (function() {
         h.insertBefore(el,h.firstChild);
     }
 
-    function loadScript(src) {
+    function loadScript(src,onload) {
         var el = document.createElement('script');
         el.src = src;
+        el.onload = onload;
         prependToHead(el);
     }
 
@@ -95,9 +97,13 @@ var displaySystem = (function() {
         initWebsocket();
         initKeyBindings();
         var modulePath = config.modulePath||'modules';
-        Object.keys(config.modules).forEach(function(name) {
+        Object.keys(config.modules).forEach(function(name,i) {
             var src = modulePath+'/'+name+'.js';
-            loadScript(src);
+            loadScript(src,function() {
+                if (lastModuleContainer) {
+                    lastModuleContainer.style.zIndex = i;
+                }
+            });
         });
     }
 
@@ -105,8 +111,12 @@ var displaySystem = (function() {
         // add html
         if (def.template) {
             var d = document.createElement('div');
+            d.className = 'moduleContainer';
             d.innerHTML = def.template;
             document.body.appendChild(d);
+            lastModuleContainer = d;
+        } else {
+            lastModuleContainer = undefined;
         }
         // add styles
         if (def.style) {
