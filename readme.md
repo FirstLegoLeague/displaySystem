@@ -3,7 +3,7 @@ Display Systems
 
 ![rednblue theme](themes/rednblue.png)
 
-This is a general purpose, configurable system for data display. It currently contains 5 modules, which are explained further on.
+This is a general purpose, configurable system for data display. It currently contains 7 modules, which are explained further on.
 
 All modules can be controlled via [websockets](http://en.wikipedia.org/wiki/WebSocket). In particular, we support [mhub](https://github.com/poelstra/mhub), which was made for this purpose and supports a higher level of messaging, routing, relaying and clustering. In any case, ordinary websocket is supported, as long as it delivers messages in the format described in the modules.
 
@@ -230,6 +230,22 @@ Exposed api:
 - `show()`: show the time
 - `hide()`: hide the time
 - `set(timestamp)`: sets the time (and ticks along). Pass in a unix timestamp. Eg `set('2015-02-07T13:00')` or `set(1423314000000)`
+
+### list
+
+Shows a list of things, for examples, rankings or schedules
+
+Configuration options:
+
+- `visible`: initial visibility
+- `header`: header of the list
+- `data`: data of the list, an array of arrays of strings
+
+Exposed api:
+
+- `show()`: show the list
+- `hide()`: hide the list
+- `set(pasteFromExcel,header)`: set the list, paste data from excel and add an optional header.
 
 ### lowThird
 
