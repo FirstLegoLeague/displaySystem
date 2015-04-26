@@ -16,7 +16,7 @@ html, body {
 /* control window */
 @media screen {
     body.controls {
-        font-family: verdana;
+        font-family: verdana, helvetica, sans-serif;
         font-size: 12px;
         padding: 12px;
     }
