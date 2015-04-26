@@ -40,6 +40,22 @@ body {
     -webkit-text-fill-color: #0066b3;
 }
 
+/* list */
+#list {
+    background-color: #ffd204;
+    opacity: 1;
+    transition: opacity 0.3s;
+}
+#list.hidden {
+    opacity: 0;
+}
+#list .header {
+    text-align: center;
+}
+#list .cell {
+    padding-left: 3vh;
+}
+
 /* lowThird definitions */
 #lowThird {
     background-color: #ffd204;

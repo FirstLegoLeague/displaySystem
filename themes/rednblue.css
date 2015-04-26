@@ -76,6 +76,94 @@ body {
     color: crimson;
 }
 
+/* list */
+#list {
+    opacity: 1;
+    transition: opacity 0.3s;
+}
+#list.hidden {
+    opacity: 0;
+}
+#list .header {
+    text-align: center;
+}
+#list .header span {
+    display: inline-block;
+    background-color: crimson;
+    color: white;
+    line-height: 7.2vh;
+    height: 7.2vh;
+    vertical-align: top;
+}
+#list .header span::before {
+    content: '';
+    width: 4.8vh;
+    display: inline-block;
+    height: 7.2vh;
+    /*position: absolute;*/
+    margin-left: -4.8vh;
+    top: 0;
+    border: 2px solid black;
+    box-sizing: border-box;
+    border-width: 0 0 7.2vh 1.8vh;
+    border-color: crimson transparent;
+}
+#list .header span::after {
+    content: '';
+    width: 4.8vh;
+    display: inline-block;
+    height: 7.2vh;
+    /*position: absolute;*/
+    margin-right: -4.8vh;
+    top: 0;
+    border: 2px solid black;
+    box-sizing: border-box;
+    border-width: 0 1.8vh 7.2vh 0;
+    border-color: crimson transparent;
+}
+#list .row {
+    height: 6.4vh;
+    font-size: 5.5vh;
+    background-color: darkblue;
+    color: white;
+    margin-bottom: 0.8vh;
+    position: relative;
+    line-height: 6.4vh;
+    transition: transform 0.3s;
+}
+#list.hidden .row {
+    transform: rotateX(90deg);
+}
+#list .row::before {
+    content: '';
+    width: 1.6vh;
+    display: block;
+    height: 6.4vh;
+    position: absolute;
+    left: -1.6vh;
+    top: 0;
+    border: 2px solid black;
+    box-sizing: border-box;
+    border-width: 6.4vh 1.6vh 0 0;
+    border-color: transparent darkblue;
+}
+#list .row::after {
+    content: '';
+    width: 1.6vh;
+    display: block;
+    height: 6.4vh;
+    position: absolute;
+    right: -1.6vh;
+    top: 0;
+    border: 2px solid black;
+    box-sizing: border-box;
+    border-width: 6.4vh 1.6vh 0 0;
+    border-color: darkblue transparent;
+}
+#list .cell {
+    padding-left: 3vh;
+}
+
 /* lowThird definitions */
 #lowThird {
     background: none;
