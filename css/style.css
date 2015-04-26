@@ -28,11 +28,17 @@ html, body {
         display: inline-block;
         white-space: nowrap;
     }
-    body.controls input {
+    body.controls input,
+    body.controls textarea {
         width: 75px;
         border: 1px solid silver;
         border-right: none;
         padding: 2px;
+        overflow: hidden;
+        vertical-align: bottom;
+        font-size: 13px;
+        height: 15px;
+        resize: none;
     }
     body.controls button {
         margin-right: 4px;

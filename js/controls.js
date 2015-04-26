@@ -20,7 +20,7 @@ var displaySystem = (function() {
         };
     }
     function createInput(placeholder) {
-        var inp = document.createElement('input');
+        var inp = document.createElement('textarea');
         inp.placeholder = placeholder;
         return inp;
     }
