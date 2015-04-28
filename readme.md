@@ -200,6 +200,11 @@ Exposed api:
 - `show()`: show the video
 - `hide()`: hide the video
 
+mhub topics:
+
+- `camera:show`
+- `camera:hide`
+
 ### clock
 
 A simple countdown clock. This is the same clock as available on <https://github.com/FirstLegoLeague/clock>
@@ -217,6 +222,11 @@ Exposed api:
 - `start(startTime,countdown)`: starts the clock
 - `stop()`: stops the clock
 
+mhub topics:
+
+- `clock:show`
+- `clock:hide`
+
 ### time
 
 Shows the current system time. Or some other time if you wish
@@ -230,6 +240,11 @@ Exposed api:
 - `show()`: show the time
 - `hide()`: hide the time
 - `set(timestamp)`: sets the time (and ticks along). Pass in a unix timestamp. Eg `set('2015-02-07T13:00')` or `set(1423314000000)`
+
+mhub topics:
+
+- `time:show`
+- `time:hide`
 
 ### list
 
@@ -247,6 +262,11 @@ Exposed api:
 - `hide()`: hide the list
 - `set(pasteFromExcel,header)`: set the list, paste data from excel and add an optional header.
 
+mhub topics:
+
+- `list:show`
+- `list:hide`
+
 ### lowThird
 
 Configuration options:
@@ -263,6 +283,11 @@ Exposed api:
 - `toggle()`: toggles the visibility of the bar
 - `set(line1,line2)`: sets the text of the bar, you can pass in two strings: `set('hello','world')`
 
+mhub topics:
+
+- `lowthird:show`
+- `lowthird:hide`
+
 ### twitter
 
 Configuration options:
@@ -274,6 +299,23 @@ Exposed api:
 - `show()`: show the twitter bar
 - `hide()`: hide the twitter bar
 - `add(author,tweet)`: add a message to the bar
+
+mhub topics:
+
+- `twitter:show`
+- `twitter:hide`
+- `twitter:add`: add a message, data should be of the form:
+
+        {
+            "id": 114749583439036416,
+            "timestamp_ms": 1430250098759,
+            "text":"Tweet Button, Follow Button, and Web Intents javascript now support SSL http:\/\/t.co\/9fbA0oYy ^TS",
+            "user": {
+                "screen_name":"twitterapi"
+            }
+        }
+
+    This is basically a subset of the [twitter api output](https://dev.twitter.com/overview/api/tweets)
 
 ### css
 
