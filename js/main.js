@@ -24,7 +24,7 @@ var displaySystem = (function() {
     var config;
     var modules = {};
     var moduleDefs = {};
-    var lastModuleContainer;
+    var lastModule;
     var ws;
 
     function setConfig(_config) {
@@ -97,26 +97,40 @@ var displaySystem = (function() {
         initWebsocket();
         initKeyBindings();
         var modulePath = config.modulePath||'modules';
+        var pending = [];
         Object.keys(config.modules).forEach(function(name,i) {
             var src = modulePath+'/'+name+'.js';
+            pending[i] = {
+                name: name
+            };
             loadScript(src,function() {
-                if (lastModuleContainer) {
-                    lastModuleContainer.style.zIndex = i;
-                }
+                pending[i].def = lastModule;
+                checkLoaded(pending);
             });
         });
     }
 
+    function checkLoaded(pending) {
+        if (pending.every(function(module) {
+            return module.def;
+        })) {
+            pending.forEach(function(module) {
+                initializeModule(module.def);
+            });
+        }
+    }
+
     function registerModule(def) {
+        lastModule = def;
+    }
+
+    function initializeModule(def) {
         // add html
         if (def.template) {
             var d = document.createElement('div');
             d.className = 'moduleContainer';
             d.innerHTML = def.template;
             document.body.appendChild(d);
-            lastModuleContainer = d;
-        } else {
-            lastModuleContainer = undefined;
         }
         // add styles
         if (def.style) {
