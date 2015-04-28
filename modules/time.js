@@ -14,7 +14,7 @@ displaySystem.registerModule({
             font-size: 96px;
         }
     */}),
-    factory: function(config) {
+    factory: function(config,onMessage) {
 
         var offset = 0;
         var div;
@@ -23,7 +23,7 @@ displaySystem.registerModule({
             return ((nr<10)?'0':'')+nr;
         }
 
-        function getTimeDiv() {
+        function getElement() {
             return div?div:(div=document.getElementById('time'));
         }
 
@@ -36,27 +36,33 @@ displaySystem.registerModule({
             var now = new Date((offset||0) + (new Date()).getTime());
             var hh = pad(now.getHours());
             var mm = pad(now.getMinutes());
-            getTimeDiv().innerHTML = hh+':'+mm;
+            getElement().innerHTML = hh+':'+mm;
             window.setTimeout(time,500);
         }
 
-        function showTime() {
-            getTimeDiv().className = '';
+        function show() {
+            getElement().className = '';
         }
 
-        function hideTime() {
-            getTimeDiv().className = 'hidden';
+        function hide() {
+            getElement().className = 'hidden';
         }
 
         time();
 
         if (config.visible) {
-            showTime();
+            show();
         }
+        onMessage('show',function() {
+            show();
+        });
+        onMessage('hide',function() {
+            hide();
+        });
 
         return {
-            show: showTime,
-            hide: hideTime,
+            show: show,
+            hide: hide,
             set: setMsgTime
         };
     }

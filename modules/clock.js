@@ -14,7 +14,7 @@ displaySystem.registerModule({
             font-size: 96px;
         }
     */}),
-    factory: function(config) {
+    factory: function(config,onMessage) {
         var div;
         var bgColor = 'black';
         var state = 'stopped hidden';
@@ -28,7 +28,7 @@ displaySystem.registerModule({
             y: 0
         };
 
-        function getClockDiv() {
+        function getElement() {
             return div?div:(div=document.getElementById('clock'));
         }
 
@@ -55,8 +55,8 @@ displaySystem.registerModule({
                 // str += '.'+hsec;
                 str = pad(sec)+'.'+hsec;
             }
-            getClockDiv().innerHTML = str;
-            getClockDiv().className = state;
+            getElement().innerHTML = str;
+            getElement().className = state;
         }
 
         var arm = function(countdown) {
@@ -94,7 +94,7 @@ displaySystem.registerModule({
         var stop = function() {
             state = 'stopped';
             pauseTime = false;
-            getClockDiv().className = state;
+            getElement().className = state;
             window.setTimeout(hide,3000);
         };
 
@@ -130,11 +130,11 @@ displaySystem.registerModule({
         };
 
         function show() {
-            getClockDiv().classList.remove('hidden');
+            getElement().classList.remove('hidden');
         }
 
         function hide() {
-            getClockDiv().classList.add('hidden');
+            getElement().classList.add('hidden');
         }
 
         if (config.countdown) {
@@ -144,6 +144,13 @@ displaySystem.registerModule({
         if (config.visible) {
             show();
         }
+
+        onMessage('show',function() {
+            show();
+        });
+        onMessage('hide',function() {
+            hide();
+        });
 
         return {
             show: show,

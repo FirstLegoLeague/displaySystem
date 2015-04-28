@@ -190,18 +190,19 @@ displaySystem.registerModule({
             speed = config.speed;
         }
 
-        onMessage(function(msg) {
-            var action = msg.topic.split(':')[1]||'add';
-            switch(action) {
-                case 'add':
-                    add({
-                        statusId: msg.data.id,
-                        author: msg.data.user.screen_name,
-                        message: msg.data.text,
-                        created: 1*msg.data.timestamp_ms
-                    });
-                break;
-            }
+        onMessage('add',function(msg) {
+            add({
+                statusId: msg.data.id,
+                author: msg.data.user.screen_name,
+                message: msg.data.text,
+                created: 1*msg.data.timestamp_ms
+            });
+        });
+        onMessage('show',function() {
+            show();
+        });
+        onMessage('hide',function() {
+            hide();
         });
 
         /**

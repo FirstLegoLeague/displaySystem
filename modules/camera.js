@@ -16,7 +16,7 @@ displaySystem.registerModule({
             display: none;
         }
     */}),
-    factory: function(config) {
+    factory: function(config,onMessage) {
         var el;
 
         function getElement() {
@@ -53,6 +53,12 @@ displaySystem.registerModule({
         if (config.visible) {
             show();
         }
+        onMessage('show',function() {
+            show();
+        });
+        onMessage('hide',function() {
+            hide();
+        });
 
         init();
 

@@ -12,43 +12,43 @@ displaySystem.registerModule({
             font-size: 10vh;
         }
     */}),
-    factory: function(config) {
+    factory: function(config, onMessage) {
         var visible = false;
         var timer;
 
-        function getLowerThird() {
+        function getElement() {
             return document.getElementById('lowThird');
         }
         function persist() {
-            getLowerThird().className = '';
+            getElement().className = '';
             visible = true;
             if (timer) {
                 clearTimeout(timer);
                 timer = null;
             }
         }
-        function showLowerThird() {
+        function show() {
             persist();
-            timer = setTimeout(hideLowerThird,5000);
+            timer = setTimeout(hide,5000);
         }
-        function hideLowerThird() {
+        function hide() {
             visible = false;
-            getLowerThird().className = 'hidden';
+            getElement().className = 'hidden';
         }
         function setText(line1,line2) {
             if (line1 || line2) {
-                getLowerThird().innerHTML = '<div class="line line1">'+(line1||'')+'</div><div class="line line2">'+(line2||'')+'</div>';
+                getElement().innerHTML = '<div class="line line1">'+(line1||'')+'</div><div class="line line2">'+(line2||'')+'</div>';
             }
         }
         function doCommand(cmd) {
             switch(cmd) {
-                case 'show': showLowerThird(); break;
+                case 'show': show(); break;
                 case 'persist': persist(); break;
-                case 'hide': hideLowerThird(); break;
+                case 'hide': hide(); break;
             }
         }
         function toggle() {
-            visible ? hideLowerThird() : showLowerThird();
+            visible ? hide() : show();
         }
 
         if (config.line1 || config.line2) {
@@ -58,9 +58,16 @@ displaySystem.registerModule({
             persist();
         }
 
+        onMessage('show',function() {
+            show();
+        });
+        onMessage('hide',function() {
+            hide();
+        });
+
         return {
-            show: showLowerThird,
-            hide: hideLowerThird,
+            show: show,
+            hide: hide,
             persist: persist,
             toggle: toggle,
             set: setText

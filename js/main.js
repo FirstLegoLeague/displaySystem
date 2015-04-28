@@ -75,23 +75,24 @@ var displaySystem = (function() {
     var handlers = {};
     function handleMessage(msg) {
         if (msg && msg.topic) {
-            var target = msg.topic.split(':')[0];
-            if (handlers[target]) {
-                handlers[target].forEach(function(handler) {
+            var topic = msg.topic.toLowerCase();
+            if (handlers[topic]) {
+                handlers[topic].forEach(function(handler) {
                     handler(msg);
                 });
             }
         }
     }
 
-    function onMessage(def,handler) {
+    function onMessage(def,action,handler) {
         if (!def.name) {
             return;
         }
-        if (!handlers[def.name]) {
-            handlers[def.name] = [];
+        var topic = (def.name+':'+action).toLowerCase();
+        if (!handlers[topic]) {
+            handlers[topic] = [];
         }
-        handlers[def.name].push(handler);
+        handlers[topic].push(handler);
     }
 
     function init() {
@@ -147,8 +148,8 @@ var displaySystem = (function() {
                 //TODO: this is a bit of a tight coupling between names in config and module names
                 cfg = config.modules[def.name];
             }
-            m = def.factory(cfg,function(handler) {
-                return onMessage(def,handler);
+            m = def.factory(cfg,function(action, handler) {
+                return onMessage(def,action,handler);
             });
         }
         if (def.name) {
