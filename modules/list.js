@@ -17,7 +17,7 @@ displaySystem.registerModule({
             box-sizing: border-box;
         }
     */}),
-    factory: function(config) {
+    factory: function(config, onMessage) {
         function getElement() {
             return document.getElementById('list');
         }
@@ -79,6 +79,13 @@ displaySystem.registerModule({
         if (config.visible) {
             show();
         }
+
+        onMessage('show',function() {
+            show();
+        });
+        onMessage('hide',function() {
+            hide();
+        });
 
         return {
             show: show,
