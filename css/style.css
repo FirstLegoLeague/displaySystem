@@ -4,7 +4,9 @@ html, body {
     margin: 0;
     padding: 0;
 }
-
+.loading {
+    display: none;
+}
 .moduleContainer {
     position: absolute;
     left: 0;

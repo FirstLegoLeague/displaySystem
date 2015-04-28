@@ -29,6 +29,7 @@ var displaySystem = (function() {
 
     function setConfig(_config) {
         config = _config;
+        document.body.classList.add('loading');
         if (config.background) {
             document.body.style.backgroundColor = config.background;
         }
@@ -117,6 +118,7 @@ var displaySystem = (function() {
             pending.forEach(function(module) {
                 initializeModule(module.def);
             });
+            document.body.classList.remove('loading');
         }
     }
 
