@@ -35,8 +35,29 @@ displaySystem.registerModule({
             if (navigator.getUserMedia) {
                 navigator.getUserMedia({audio: useAudio, video: true}, function(stream) {
                     video.src = window.URL.createObjectURL(stream);
-                }, function() {
-                    console.log('could not capture video');
+                }, function(error) {
+                    switch(error.name) {
+                        case "PermissionDeniedError":
+                            // The user or browser denied permission to the camera
+                            console.log("Please enable camera permissions in your browser");
+                            break;
+                        case "NotSupportedError":
+                            // e.g. if we want audio and the browser doesn't support thats
+                            console.log("The requested acces to the camera is not supported");
+                            break;
+                        case "ConstraintNotSatisfiedError":
+                            // e.g. audio or video
+                            console.log("No media tracks of the requested types were found");
+                            break;
+                        case "NotFoundError":
+                            console.log("The object can not be found");
+                            break;
+                        case "AbortError":
+                            console.log("The operation was aborted");
+                            break;
+                        default:
+                            console.log(error.name + ", message: " + error.message);
+                    }
                 });
             } else {
                 console.log('no user video possible in this browser');
