@@ -9,6 +9,7 @@ displaySystem.config({
     modules: {
         'camera': {
             visible: true,
+            // audio: true,
         },
         'clock': {
             // visible: true,

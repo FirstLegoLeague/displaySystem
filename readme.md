@@ -238,6 +238,7 @@ Shows attached camera stream as the background
 Configuration options:
 
 - `visible`: initial visibility
+- `audio`: whether audio should be on for the camera capture, defaults to `false`
 
 Exposed api:
 

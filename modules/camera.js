@@ -18,6 +18,7 @@ displaySystem.registerModule({
     */}),
     factory: function(config,onMessage) {
         var el;
+        var useAudio = false;
 
         function getElement() {
             return el?el:(el=document.getElementById('camera'));
@@ -32,7 +33,7 @@ displaySystem.registerModule({
             var video = document.querySelector('video');
 
             if (navigator.getUserMedia) {
-                navigator.getUserMedia({audio: true, video: true}, function(stream) {
+                navigator.getUserMedia({audio: useAudio, video: true}, function(stream) {
                     video.src = window.URL.createObjectURL(stream);
                 }, function() {
                     console.log('could not capture video');
@@ -50,6 +51,9 @@ displaySystem.registerModule({
             getElement().className = 'hidden';
         }
 
+        if (config.audio) {
+            useAudio = true;
+        }
         if (config.visible) {
             show();
         }
