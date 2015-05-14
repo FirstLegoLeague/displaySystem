@@ -16,6 +16,7 @@ displaySystem.config({
         },
         'time': {
             // visible: true,
+            // format: "MM:ss",
         },
         'twitter': {
             // visible: true,

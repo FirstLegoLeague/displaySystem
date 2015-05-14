@@ -12,8 +12,8 @@ body {
     height: 10vh;
     font-size: 8vh;
     line-height: 12vh;
-    width: 20vh;
     padding-left: 3vh;
+    padding-right: 1vh;
 }
 #time::after {
     content: '';

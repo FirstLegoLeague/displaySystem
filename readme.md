@@ -12,7 +12,7 @@ Also, all modules can be controlled via a javascript interface, so you can write
 Get it running
 -------
 
-### Get is locally
+### Get it locally
 
 Either:
 
@@ -149,6 +149,37 @@ This command uses [pipes](http://en.wikipedia.org/wiki/Pipeline_(Unix)) to take 
 
 **By the way...** the hosted version listens to `ws://localhost:13900/` on the `overlay` node. So you can set up `node-tweet-cli` and `mserver` locally and still use the hosted version of the display system. Isn't that sweet?
 
+### Controlling time
+
+If you have a number of displays, all showing the time, you may want to be sure every display is showing the correct time. By default, the `time` module shows the system time, but that may be different (if not configured properly) between systems.
+
+Also, you may want to set another time altogether, for example number of minutes into a match.
+
+To set the time, you could just use the control window, but you can also use the websockets interface.
+
+A nice way to ensure a consistent time is to just *pipe* a timestamp into `mclient`.
+
+First install the [cli-time utility](https://github.com/FirstLegoLeague/cli-time):
+
+    npm install -g cli-time
+
+Then make sure that in the mserver config (`server.conf.json`), the `time` node is forwarded to the `overlay` node.
+
+Then pipe it through to an mclient instance:
+
+    cli-time -m json -i | mclient -n time -t time:set -i json
+
+To set the time to 0 and start counting:
+
+    //*nix
+    mclient -n time -t time:set -d '{"time":"0"}'
+    //windows
+    mclient -n time -t time:set -d "{""time"":""0""}"
+
+Note that the `"0"` is quoted and it actually means setting the time to Jan 1 2000 at 00:00 in your local timezone.
+
+
+
 Configuration
 --------------
 
@@ -234,17 +265,30 @@ Shows the current system time. Or some other time if you wish
 Configuration options:
 
 - `visible`: initial visibility
+- `format`: time formatting, defaults to `HH:MM` (hours and minutes).
 
 Exposed api:
 
 - `show()`: show the time
 - `hide()`: hide the time
 - `set(timestamp)`: sets the time (and ticks along). Pass in a unix timestamp. Eg `set('2015-02-07T13:00')` or `set(1423314000000)`
+    - `set()`: passing nothing sets the time (back) to the system time
+    - `set(0)`: passing `0` sets the clock to zero (it actually sets the clock to Jan 1 2000 at 00:00 in your local timezone)
+- `format(mask)`: a formatting string to display the time, defaults to `HH:MM`
+
+The time formatting if based on Steven Levithan's excellent [dateFormat()](http://blog.stevenlevithan.com/archives/date-time-format) function. For possible mask configuration, see [his blog article](http://blog.stevenlevithan.com/archives/date-time-format)
 
 mhub topics:
 
 - `time:show`
 - `time:hide`
+- `time:set` set the current time, data should be of the form:
+
+        {
+            "time": "2015-05-14T15:48:54+0200"
+        }
+
+    This is just an iso formatted time string, the standard output of [cli-time](https://github.com/FirstLegoLeague/cli-time)
 
 ### list
 
