@@ -9,6 +9,33 @@ All modules can be controlled via [websockets](http://en.wikipedia.org/wiki/WebS
 
 Also, all modules can be controlled via a javascript interface, so you can write your own scripts to interface with them. Lastly, we provide a control panel that can be opened in a separate screen to control the modules.
 
+Contents
+-----
+
+*generated with [DocToc](http://doctoc.herokuapp.com/)*
+
+- [Get it running](#get-it-running)
+    - [Get it locally](#get-it-locally)
+    - [As a simple display in the browser](#as-a-simple-display-in-the-browser)
+    - [Using the control window](#using-the-control-window)
+    - [Using as a video overlay system](#using-as-a-video-overlay-system)
+    - [Controlling the modules via websockets](#controlling-the-modules-via-websockets)
+    - [Adding a twitter feed to your display](#adding-a-twitter-feed-to-your-display)
+    - [Controlling time](#controlling-time)
+- [Configuration](#configuration)
+- [Theming](#theming)
+    - [Included themes](#included-themes)
+    - [External themes](#external-themes)
+- [Modules](#modules)
+    - [camera](#camera)
+    - [clock](#clock)
+    - [time](#time)
+    - [list](#list)
+    - [lowThird](#lowthird)
+    - [twitter](#twitter)
+    - [css](#css)
+- [Extensibility](#extensibility)
+
 Get it running
 -------
 
@@ -125,7 +152,7 @@ In your config.js, make sure you have the following options:
 
 Note that in the mserver config (`server.conf.json`), the `twitter` node is forwarded to the `overlay` node. That makes this setup work.
 
-### Adding a twitter feed to your display.
+### Adding a twitter feed to your display
 
 Being able to send messages via websockets is nice, but it would be even more nice to connect a twitter feed to the whole lot, right? Luckily there is a command line application to read a twitter stream: [node-tweet-cli](https://github.com/voronianski/node-tweet-cli)
 
