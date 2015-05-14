@@ -19,13 +19,11 @@ Contents
     - [As a simple display in the browser](#as-a-simple-display-in-the-browser)
     - [Using the control window](#using-the-control-window)
     - [Using as a video overlay system](#using-as-a-video-overlay-system)
+- [Configuration](#configuration)
+- [Advanced usage](#advanced-usage)
     - [Controlling the modules via websockets](#controlling-the-modules-via-websockets)
     - [Adding a twitter feed to your display](#adding-a-twitter-feed-to-your-display)
     - [Controlling time](#controlling-time)
-- [Configuration](#configuration)
-- [Theming](#theming)
-    - [Included themes](#included-themes)
-    - [External themes](#external-themes)
 - [Modules](#modules)
     - [camera](#camera)
     - [clock](#clock)
@@ -34,6 +32,9 @@ Contents
     - [lowThird](#lowthird)
     - [twitter](#twitter)
     - [css](#css)
+- [Theming](#theming)
+    - [Included themes](#included-themes)
+    - [External themes](#external-themes)
 - [Extensibility](#extensibility)
 
 Get it running
@@ -105,6 +106,20 @@ If you want to use the display system as an overlay to a video feed (which is th
 - Use the browser as your video mixer. To do this, use the `camera` module. By feeding in a video signal (for instance using a usb camera), you can create a composite output. You may want to set the `background` configuration to black if the screen size does not match the video size. If you have a webcam, you may already have discovered this in the [online version](http://firstlegoleague.github.io/displaySystem/).
 - Give the background a special color, and use a separate video mixer with [chroma key](http://en.wikipedia.org/wiki/Chroma_key) capabilities to mix the overlay over a video feed. Use the `background` configuration option to do this.
 - Use more advanced software video mixing software, like [caspar CG](http://www.casparcg.com/). In the newest versions, you can use a `HTML producer` to overlay a webpage (like this display system) over a video. Make sure, you set the `background` configuration off to have a transparent background. Also, from within Caspar, you can create JavaScript functions to control the modules, much like we have done manually from the console.
+
+Configuration
+--------------
+
+All basic configuration is done in the config.js file. The configuration options are:
+
+- `wsHost`: Websocket host to connect to, if any
+- `mserverNode`: Node to subscribe to when using [mhub](https://github.com/poelstra/mhub), can be omitted otherwise
+- `background`: Background color of the application. Can be used for chromakeying. If omitted, the background color is not defined, which can mean transparent in for instance a [casparCG HTML producer](http://www.casparcg.com/)
+- `modules`: Object of modules to load. The keys should correspond to names of js files in the modules folder, the values can be an empty object or some configuration, see the modules section for configuration options per module. The config already contains all options, but some are commented out. Enable them by removeing the comments.
+- `modulePath`: Path to load the modules from, defaults to `modules`. Can even be an url to another domain, since everything is loaded as a normal JavaScript file.
+
+Advanced usage
+-----------
 
 ### Controlling the modules via websockets
 
@@ -205,39 +220,10 @@ To set the time to 0 and start counting:
 
 Note that the `"0"` is quoted and it actually means setting the time to Jan 1 2000 at 00:00 in your local timezone.
 
-
-
-Configuration
---------------
-
-All basic configuration is done in the config.js file. The configuration options are:
-
-- `wsHost`: Websocket host to connect to, if any
-- `mserverNode`: Node to subscribe to when using [mhub](https://github.com/poelstra/mhub), can be omitted otherwise
-- `background`: Background color of the application. Can be used for chromakeying. If omitted, the background color is not defined, which can mean transparent in for instance a [casparCG HTML producer](http://www.casparcg.com/)
-- `modules`: Object of modules to load. The keys should correspond to names of js files in the modules folder, the values can be an empty object or some configuration, see the modules section for configuration options per module. The config already contains all options, but some are commented out. Enable them by removeing the comments.
-- `modulePath`: Path to load the modules from, defaults to `modules`. Can even be an url to another domain, since everything is loaded as a normal JavaScript file.
-
-Theming
------------
-
-Themes can be used by pointing the `css` module configuration to a stylesheet. This stylesheet can be hosted anywhere. In particular, the following are available:
-
-### Included themes
-
-- `themes/default.css`: a colorful default theme that can be used to create your own
-- `themes/rednblue.css`: a simple red and blue theme with slanted edges
-
-For screenshots, see the `themes` [folder](themes)
-
-### External themes
-
-We will provide a yearly theme especially for the FIRST LEGO League. Currently, there is none.
-
 Modules
 ------------
 
-This bits list the available configuration options for the modules (that you can use in `config.js`). Also, it lists the available javascript functions you can call. Use the following code in the console (behind `F12`):
+This bit list the available configuration options for the modules (that you can use in `config.js`). Also, it lists the available javascript functions you can call. Use the following code in the console (behind `F12`):
 
     displaySystem.modules.<module>.<function>()
 
@@ -300,7 +286,7 @@ Exposed api:
 - `hide()`: hide the time
 - `set(timestamp)`: sets the time (and ticks along). Pass in a unix timestamp. Eg `set('2015-02-07T13:00')` or `set(1423314000000)`
     - `set()`: passing nothing sets the time (back) to the system time
-    - `set(0)`: passing `0` sets the clock to zero (it actually sets the clock to Jan 1 2000 at 00:00 in your local timezone)
+    - `set('0')`: passing `0` sets the clock to zero (it actually sets the clock to Jan 1 2000 at 00:00 in your local timezone)
 - `format(mask)`: a formatting string to display the time, defaults to `HH:MM`
 
 The time formatting if based on Steven Levithan's excellent [dateFormat()](http://blog.stevenlevithan.com/archives/date-time-format) function. For possible mask configuration, see [his blog article](http://blog.stevenlevithan.com/archives/date-time-format)
@@ -400,6 +386,21 @@ Exposed api:
 
 - `set`: set the stylesheet, passing in the `href` parameter
 
+Theming
+-----------
+
+Themes can be used by pointing the `css` module configuration to a stylesheet. This stylesheet can be hosted anywhere. In particular, the following are available:
+
+### Included themes
+
+- `themes/default.css`: a colorful default theme that can be used to create your own
+- `themes/rednblue.css`: a simple red and blue theme with slanted edges
+
+For screenshots, see the `themes` [folder](themes)
+
+### External themes
+
+We will provide a yearly theme especially for the FIRST LEGO League. Currently, there is none.
 
 Extensibility
 -------------
