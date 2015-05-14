@@ -386,6 +386,7 @@ Configuration options:
 Exposed api:
 
 - `set`: set the stylesheet, passing in the `href` parameter
+- `reset`: resets the stylesheet back to the `config.js` option
 
 Theming
 -----------

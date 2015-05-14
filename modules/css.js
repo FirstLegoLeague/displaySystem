@@ -10,7 +10,13 @@ displaySystem.registerModule({
         }
 
         function setCss(href) {
-            el.href = href;
+            if (href) {
+                el.href = href;
+            }
+        }
+
+        function reset() {
+            setCss(config.href);
         }
 
         createElement();
@@ -20,7 +26,8 @@ displaySystem.registerModule({
         }
 
         return {
-            set: setCss
+            set: setCss,
+            reset: reset
         };
     }
 });
