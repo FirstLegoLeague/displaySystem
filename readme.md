@@ -3,7 +3,7 @@ Display Systems
 
 ![rednblue theme](themes/rednblue.png)
 
-This is a general purpose, configurable system for data display. It currently contains 7 modules, which are explained further on.
+This is a general purpose, configurable system for data display. It currently contains 8 modules, which are explained further on.
 
 All modules can be controlled via [websockets](http://en.wikipedia.org/wiki/WebSocket). In particular, we support [mhub](https://github.com/poelstra/mhub), which was made for this purpose and supports a higher level of messaging, routing, relaying and clustering. In any case, ordinary websocket is supported, as long as it delivers messages in the format described in the modules.
 
@@ -17,6 +17,7 @@ Contents
 - [Get it running](#get-it-running)
     - [Get it locally](#get-it-locally)
     - [As a simple display in the browser](#as-a-simple-display-in-the-browser)
+    - [Using key bindings](#using-key-bindings)
     - [Using the control window](#using-the-control-window)
     - [Using as a video overlay system](#using-as-a-video-overlay-system)
 - [Configuration](#configuration)
@@ -32,6 +33,7 @@ Contents
     - [lowThird](#lowthird)
     - [twitter](#twitter)
     - [css](#css)
+    - [keybindings](#keybindings)
 - [Theming](#theming)
     - [Included themes](#included-themes)
     - [External themes](#external-themes)
@@ -77,6 +79,22 @@ by
 And reload the page. Voilà, the clock is visible by default. You can also do this with other modules.
 
 Also, you probably always want to use the page in full screen mode. To enable full screen, press `F11`.
+
+### Using key bindings
+
+A few key bindings are available by default, but they can be customized by adjusting the `keybindings` configuration
+
+- `q`: show the time
+- `a`: hide the time
+- `w`: show the clock
+- `s`: hide the clock
+- `e`: show the lower third
+- `d`: hide the lower third
+- `r`: show the twitter bar
+- `f`: hide the twitter bar
+- `t`: show the list
+- `g`: hide the list
+- `c`: show the control window
 
 ### Using the control window
 
@@ -223,7 +241,7 @@ Note that the `"0"` is quoted and it actually means setting the time to Jan 1 20
 Modules
 ------------
 
-This bit list the available configuration options for the modules (that you can use in `config.js`). Also, it lists the available javascript functions you can call. Use the following code in the console (behind `F12`):
+This bit lists the available configuration options for the modules (that you can use in `config.js`). Also, it lists the available javascript functions you can call. Use the following code in the console (behind `F12`):
 
     displaySystem.modules.<module>.<function>()
 
@@ -387,6 +405,27 @@ Exposed api:
 
 - `set`: set the stylesheet, passing in the `href` parameter
 - `reset`: resets the stylesheet back to the `config.js` option
+
+### keybindings
+
+This is a module that handles key bindings. By default it can show and hide other modules and show the control window, as explained in the [Using key bindings](#using-key-bindings) section above. However, this module is completely user configureable.
+
+The module uses [David Flanagan's keymap.js](https://github.com/luics/Luy.Web/blob/master/!reading-note/!javascript-the-definitive-guide/17/Keymap.js), which is kept in a repository by [鬼道 (luics)](https://github.com/luics)
+
+The keybinding configuration takes a map of key bindings with handlers. The key bindings should be strings in the form:
+
+    alt-ctrl-f
+    v
+    shift-f3
+
+That is:
+
+- a key like "A", "7", "F2", "PageUp", * "Left", "Delete", "/", "~"
+- some optional prefixes like "alt-", "ctrl-", "shift-". These shoulde appear in **alphabethical order**
+
+The handlers could be strings, in which case they are prefixed by `displaySystem.modules.`. This causes a string like `clock.show()` to be correctly executed. This allows for a simple way to bind module functions to keys.
+
+Alternatively, handlers could be functions,. In that case, you can do pretty much anything you want, for example define "display groups" under numeric keys, to toggle the visibility of a set of modules.
 
 Theming
 -----------

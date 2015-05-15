@@ -97,7 +97,6 @@ var displaySystem = (function() {
 
     function init() {
         initWebsocket();
-        initKeyBindings();
         var modulePath = config.modulePath||'modules';
         var pending = [];
         Object.keys(config.modules).forEach(function(name,i) {
@@ -160,17 +159,6 @@ var displaySystem = (function() {
             // register definition
             moduleDefs[def.name] = def;
         }
-    }
-
-    function initKeyBindings() {
-        window.addEventListener('keydown',function(e) {
-            var key = e.which||e.keyCode;
-            switch (key) {
-                case 67:    //c
-                    window.open('controls.html','fllDisplayControlWindow','resize=yes,width=600,height=300');
-                    break;
-            }
-        });
     }
 
     return {

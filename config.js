@@ -47,6 +47,21 @@ displaySystem.config({
         'css': {
             href: 'themes/rednblue.css',
             // href: 'themes/default.css',
+        },
+        'keybindings': {
+            'q': 'time.show()',
+            'a': 'time.hide()',
+            'w': 'clock.show()',
+            's': 'clock.hide()',
+            'e': 'lowThird.show()',
+            'd': 'lowThird.hide()',
+            'r': 'twitter.show()',
+            'f': 'twitter.hide()',
+            't': 'list.show()',
+            'g': 'list.hide()',
+            'c': function() {
+                window.open('controls.html','fllDisplayControlWindow','resize=yes,width=600,height=300');
+            }
         }
     },
     //path to the modules, can even be a full url
