@@ -2,6 +2,7 @@ displaySystem.registerModule({
     name: 'camera',
     template: multiline(function() {/*
         <video id="camera" class="hidden" autoplay></video>
+        <div id="cameraError"></div>
     */}),
     style: multiline(function() {/*
         #camera {
@@ -15,6 +16,18 @@ displaySystem.registerModule({
         #camera.hidden {
             display: none;
         }
+
+        #cameraError {
+            display: none;
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 30vh;
+            padding-top: 30vh;
+            text-align: center;
+            font-size: 3vh;
+        }
     */}),
     factory: function(config,onMessage) {
         var el;
@@ -22,6 +35,13 @@ displaySystem.registerModule({
 
         function getElement() {
             return el?el:(el=document.getElementById('camera'));
+        }
+
+        function showError(msg) {
+            var el = document.getElementById('cameraError');
+            msg = 'The camera module could not be initialized<br>' + msg;
+            el.innerHTML = msg;
+            el.style.display = 'block';
         }
 
         function init() {
@@ -33,34 +53,39 @@ displaySystem.registerModule({
             var video = document.querySelector('video');
 
             if (navigator.getUserMedia) {
-                navigator.getUserMedia({audio: useAudio, video: true}, function(stream) {
+                navigator.getUserMedia({
+                    audio: useAudio,
+                    video: true
+                }, function(stream) {
                     video.src = window.URL.createObjectURL(stream);
                 }, function(error) {
+                    console.log(error);
                     switch(error.name) {
                         case "PermissionDeniedError":
                             // The user or browser denied permission to the camera
-                            console.log("Please enable camera permissions in your browser");
+                            showError("Please enable camera permissions in your browser");
                             break;
                         case "NotSupportedError":
                             // e.g. if we want audio and the browser doesn't support thats
-                            console.log("The requested acces to the camera is not supported");
+                            showError("The requested acces to the camera is not supported");
                             break;
                         case "ConstraintNotSatisfiedError":
                             // e.g. audio or video
-                            console.log("No media tracks of the requested types were found");
+                            showError("No media tracks of the requested types were found");
                             break;
+                        case "DevicesNotFoundError":
                         case "NotFoundError":
-                            console.log("The object can not be found");
+                            showError("The camera can not be found");
                             break;
                         case "AbortError":
-                            console.log("The operation was aborted");
+                            showError("The operation was aborted");
                             break;
                         default:
-                            console.log(error.name + ", message: " + error.message);
+                            showError(error.name + ", message: " + (error.message||'no message'));
                     }
                 });
             } else {
-                console.log('no user video possible in this browser');
+                showError('no user video possible in this browser');
             }
         }
 
