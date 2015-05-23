@@ -29,7 +29,7 @@ var displaySystem = (function() {
 
     function setConfig(_config) {
         config = _config;
-        document.body.classList.add('loading');
+        closeCurtain();
         if (config.background) {
             document.body.style.backgroundColor = config.background;
         }
@@ -118,12 +118,22 @@ var displaySystem = (function() {
             pending.forEach(function(module) {
                 initializeModule(module.def);
             });
-            document.body.classList.remove('loading');
+            openCurtain();
         }
     }
 
     function registerModule(def) {
         lastModule = def;
+    }
+
+    function closeCurtain(){
+        var curtain = document.createElement('div');
+        curtain.setAttribute('id', 'curtain');
+        document.body.insertBefore(curtain, document.body.firstChild);
+    }
+
+    function openCurtain(){
+        document.body.removeChild(document.getElementById('curtain'));
     }
 
     function initializeModule(def) {

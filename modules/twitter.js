@@ -37,6 +37,7 @@ displaySystem.registerModule({
         var tail = 0;
         var offset = 0;
         var speed = 100;
+        var seq = 0;
 
         function getTwitterDiv() {
             return div?div:(div=document.getElementById('twitter'));
@@ -65,7 +66,6 @@ displaySystem.registerModule({
             };
         }
 
-
         function add(msg) {
             tweetsIndex[msg.statusId] = msg;
             sequence();
@@ -76,11 +76,10 @@ displaySystem.registerModule({
             sequence();
         }
 
-        var seq = 0;
         function addStr(author, tweet) {
             add({
                 statusId: seq,
-                author: seq+author,
+                author: author,
                 message: tweet,
                 created: +(new Date())
             });
@@ -126,6 +125,7 @@ displaySystem.registerModule({
         function renderTweet(tweet) {
             return [
                 '<span class="tweet">',
+                tweet.statusId,
                 '<span class="author">@',
                 tweet.author,
                 '</span>: ',
