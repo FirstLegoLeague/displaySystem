@@ -86,6 +86,7 @@ body {
 }
 #list .header {
     text-align: center;
+    margin-bottom: 0.8vh;
 }
 #list .header span {
     display: inline-block;
@@ -123,7 +124,7 @@ body {
 }
 #list .row {
     height: 6.4vh;
-    font-size: 5.5vh;
+    font-size: 5.0vh;
     background-color: darkblue;
     color: white;
     margin-bottom: 0.8vh;

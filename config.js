@@ -30,19 +30,17 @@ displaySystem.config({
         },
         'list': {
             // visible: true,
-            // header: 'results round 1',
-            // data: [
-            //     ['foo',1],
-            //     ['bar',2],
-            //     ['hello',3],
-            //     ['what?',4],
-            //     ['some',5],
-            //     ['minor',6],
-            //     ['bear',7],
-            //     ['poo',8],
-            //     ['cheers',9],
-            //     ['mate',10],
-            // ]
+            header: 'results round 1',
+            data: [
+                ['just try',1],
+                ['to copy',2],
+                ['and paste',3],
+                ['some cells',4],
+                ['from excel',5],
+                ['into the control',6],
+                ['window! You\'ll be',7],
+                ['amazed!',8],
+            ]
         },
         'css': {
             href: 'themes/rednblue.css',
