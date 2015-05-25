@@ -400,10 +400,12 @@ To include custom styling, create a custom stylesheet to override a default styl
 Configuration options:
 
 - `href`: url to a stylesheet, can be local, or hosted somewhere
+- `gist`: gist id to load alongside the stylesheet, can be used to customize themes
 
 Exposed api:
 
 - `set`: set the stylesheet, passing in the `href` parameter
+- `gist`: load a stylesheet from a gist id. All css files are concatenated and used as data url
 - `reset`: resets the stylesheet back to the `config.js` option
 
 ### keybindings
@@ -442,6 +444,15 @@ For screenshots, see the `themes` [folder](themes)
 ### External themes
 
 We will provide a yearly theme especially for the FIRST LEGO League. Currently, there is none.
+
+### Your own themes
+
+You can add your own themes in two ways:
+
+1. Host them somewhere yourself, by setting up a server, or hosting it through a `gh-pages` branch in github (which we do for our themes).
+2. Create a [GitHub "Gist"](https://gist.github.com/). Add as many css files as you like, then copy the last bit of the url (the Gist id) and paste it into the `gist` field in the css module.
+
+The second method creates a stylesheet that can be used to override a certain theme or make small adjustments to it.
 
 Extensibility
 -------------

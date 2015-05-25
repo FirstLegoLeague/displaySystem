@@ -45,6 +45,7 @@ displaySystem.config({
         'css': {
             href: 'themes/rednblue.css',
             // href: 'themes/default.css',
+            // gist: '9c7e4efaba9dbbc4831b'
         },
         'keybindings': {
             'q': 'time.show()',
