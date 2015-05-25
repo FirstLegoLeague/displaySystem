@@ -39,7 +39,6 @@ var displaySystem = (function() {
                 btn.innerHTML = fn;
                 btn.addEventListener('click',function() {
                     var args = inps.map(getValue);
-                    console.log(fn,args);
                     f.apply(module,args);
                 });
                 inps.forEach(appendTo(s));
