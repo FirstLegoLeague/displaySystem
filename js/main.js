@@ -127,13 +127,11 @@ var displaySystem = (function() {
     }
 
     function closeCurtain(){
-        var curtain = document.createElement('div');
-        curtain.setAttribute('id', 'curtain');
-        document.body.insertBefore(curtain, document.body.firstChild);
+        document.body.classList.add('curtain');
     }
 
     function openCurtain(){
-        document.body.removeChild(document.getElementById('curtain'));
+        document.body.classList.remove('curtain');
     }
 
     function initializeModule(def) {

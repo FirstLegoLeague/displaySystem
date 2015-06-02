@@ -5,12 +5,8 @@ html, body {
     padding: 0;
 }
 /* hides screen during initialization */
-#curtain {
-    width: 100%;
-    height: 100%;
-    background-color: white;
-    z-index: 1000;
-    position: absolute; /* z-index only works for positioned elements */
+.curtain {
+    visibility: hidden;
 }
 
 .moduleContainer {
