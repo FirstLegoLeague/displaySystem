@@ -62,7 +62,7 @@ displaySystem.registerModule({
             if (msg && msg.data) {
                 setText.apply(null,Object.keys(msg.data).slice(0,2).map(function(key) {
                     return msg.data[key];
-                });
+                }));
             }
             show();
         });
