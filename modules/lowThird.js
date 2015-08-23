@@ -58,7 +58,12 @@ displaySystem.registerModule({
             persist();
         }
 
-        onMessage('show',function() {
+        onMessage('show',function(msg) {
+            if (msg && msg.data) {
+                setText.apply(null,Object.keys(msg.data).slice(0,2).map(function(key) {
+                    return msg.data[key];
+                });
+            }
             show();
         });
         onMessage('hide',function() {
