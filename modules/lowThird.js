@@ -60,9 +60,13 @@ displaySystem.registerModule({
 
         onMessage('show',function(msg) {
             if (msg && msg.data) {
-                setText.apply(null,Object.keys(msg.data).slice(0,2).map(function(key) {
-                    return msg.data[key];
-                }));
+                if (typeof msg.data === 'string') {
+                    setText(msg.data);
+                } else {
+                    setText.apply(null,Object.keys(msg.data).slice(0,2).map(function(key) {
+                        return msg.data[key];
+                    }));
+                }
             }
             show();
         });

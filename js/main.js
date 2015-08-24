@@ -148,6 +148,11 @@ var displaySystem = (function() {
             s.innerHTML = def.style;
             prependToHead(s);
         }
+        if (def.scripts) {
+            def.scripts.forEach(function(src) {
+                loadScript(src);           
+            });
+        }
         // register api
         var m,cfg;
         if (def.factory) {

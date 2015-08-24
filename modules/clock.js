@@ -151,6 +151,15 @@ displaySystem.registerModule({
         onMessage('hide',function() {
             hide();
         });
+        onMessage('start',function() {
+            start();
+        });
+        onMessage('stop',function() {
+            stop();
+        });
+        onMessage('arm',function() {
+            arm();
+        });
 
         return {
             show: show,

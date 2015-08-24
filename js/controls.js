@@ -3,6 +3,7 @@ var displaySystem = (function() {
 
     function init() {
         system = window.opener.displaySystem;
+        system.controlWindow = window;
         Object.keys(system.modules).forEach(renderModuleControls);
     }
 

@@ -1,6 +1,6 @@
 displaySystem.config({
     //websocket host to listen to
-    wsHost: "ws://localhost:13900/",
+    wsHost: "ws://192.168.178.26:13900/",
     //specify the node that is being subscribed to when using mserver
     mserverNode: "overlay",
     //optional chromakey background color
@@ -47,6 +47,7 @@ displaySystem.config({
             // href: 'themes/default.css',
             // gist: '9c7e4efaba9dbbc4831b'
         },
+        // 'cast': {},
         'keybindings': {
             'q': 'time.show()',
             'a': 'time.hide()',
@@ -59,7 +60,8 @@ displaySystem.config({
             't': 'list.show()',
             'g': 'list.hide()',
             'c': function() {
-                window.open('controls.html','fllDisplayControlWindow','resize=yes,width=600,height=300');
+                window.open('controls.html','fllDisplayControlWindow','location=yes,resize=yes,width=600,height=300');
+                // window.open('controls.html','fllDisplayControlWindow');
             }
         }
     },
