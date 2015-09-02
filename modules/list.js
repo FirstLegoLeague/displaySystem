@@ -18,6 +18,10 @@ displaySystem.registerModule({
         }
     */}),
     factory: function(config, onMessage) {
+        var numberOfLines = 8;
+        var pageTimer = 5000;
+        var running = true;
+
         function getElement() {
             return document.getElementById('list');
         }
@@ -44,12 +48,14 @@ displaySystem.registerModule({
             set(data,header);
         }
 
-        function set(data,header) {
+        function setPage(data,header,page) {
+            var pageData = data.slice(page*numberOfLines,(page+1)*numberOfLines);
             var head = '';
             if (header) {
                 head = '<div class="header"><span>'+header+'</span></div>';
             }
-            var html = data.map(function(row) {
+
+            var html = pageData.slice(0,numberOfLines).map(function(row) {
                 return [
                     '<div class="row">',
                     row.map(function(cell,i,a) {
@@ -69,6 +75,42 @@ displaySystem.registerModule({
             getElement().innerHTML = head + html;
         }
 
+        function nextPage(data,header,page) {
+            var pages = Math.ceil(data.length / numberOfLines);
+            var current = page;
+            var next = (current+1) % pages;
+            setPage(data,header,current);
+            window.setTimeout(function() {
+                nextPage(data,header,next);
+            },pageTimer);
+        }
+
+        function set(data,header) {
+            nextPage(data,header,0);
+        }
+
+        function start() {
+            running = true;
+        }
+
+        function stop() {
+            running = false;
+        }
+
+        function setTimer(seconds) {
+            pageTimer = seconds * 1000;
+        }
+
+        function setLines(lines) {
+            numberOfLines = lines;
+        }
+
+        if (config.timer) {
+            setTimer(config.timer / 1000);
+        }
+        if (config.lines) {
+            setLines(config.lines);
+        }
         if (config.data) {
             if (config.data instanceof Array) {
                 set(config.data,config.header);
@@ -91,6 +133,8 @@ displaySystem.registerModule({
             show: show,
             hide: hide,
             set: setFromString,
+            timer: setTimer,
+            lines: setLines
         };
     }
 });

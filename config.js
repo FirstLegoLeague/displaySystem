@@ -44,7 +44,12 @@ displaySystem.config({
                 ['into the control',6],
                 ['window! You\'ll be',7],
                 ['amazed!',8],
-            ]
+                ['It even has',8],
+                ['automatic',8],
+                ['paging',8],
+            ],
+            timer: 5000,
+            lines: 8
         },
         'css': {
             href: 'themes/rednblue.css',
@@ -63,7 +68,7 @@ displaySystem.config({
             't': 'list.show()',
             'g': 'list.hide()',
             'c': function() {
-                window.open('controls.html','fllDisplayControlWindow','resize=yes,width=600,height=350');
+                window.open('controls.html','fllDisplayControlWindow','resize=yes,width=800,height=350');
             }
         }
     },
