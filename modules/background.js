@@ -50,10 +50,10 @@ displaySystem.registerModule({
         });
 
         return {
-            set: setColor,
-            clear: clear,
             show: show,
-            hide: hide
+            hide: hide,
+            set: setColor,
+            clear: clear
         };
     }
 });
