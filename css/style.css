@@ -24,6 +24,9 @@ html, body {
         font-size: 12px;
         padding: 12px;
     }
+    body.controls .instructions {
+        text-align: right;
+    }
     body.controls label {
         display: inline-block;
         min-width: 75px;

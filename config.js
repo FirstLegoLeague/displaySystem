@@ -63,7 +63,7 @@ displaySystem.config({
             't': 'list.show()',
             'g': 'list.hide()',
             'c': function() {
-                window.open('controls.html','fllDisplayControlWindow','resize=yes,width=600,height=300');
+                window.open('controls.html','fllDisplayControlWindow','resize=yes,width=600,height=350');
             }
         }
     },
