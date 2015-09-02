@@ -30,9 +30,6 @@ var displaySystem = (function() {
     function setConfig(_config) {
         config = _config;
         closeCurtain();
-        if (config.background) {
-            document.body.style.backgroundColor = config.background;
-        }
         setTimeout(init,0);
     }
 

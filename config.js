@@ -7,6 +7,10 @@ displaySystem.config({
     // background: "lime",
     //modules, order determines z stacking
     modules: {
+        'background': {
+            color: 'black',
+            // visible: false
+        },
         'camera': {
             visible: true,
             // audio: true,
