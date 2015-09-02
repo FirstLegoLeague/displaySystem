@@ -41,11 +41,6 @@ displaySystem.registerModule({
         }
 
         function setTime(msec,hundreds) {
-            if (msec < 0) {
-                zero();
-                return;
-            }
-
             var secs = Math.floor(msec/1000);
             var hsec = Math.floor((msec/100)) % 10;
             var sec = secs % 60;
@@ -87,6 +82,7 @@ displaySystem.registerModule({
                 arm(countdown);
             }
             startStamp = (1*startTime)||(+(new Date()));
+            tenths = false;
             state = 'started';
             tick();
         };
@@ -123,6 +119,10 @@ displaySystem.registerModule({
                 time = (startTime*1000) - (now - startStamp);
                 if (time < 10000) {
                     tenths = true;
+                }
+                if (time < 0) {
+                    zero();
+                    return;
                 }
                 setTime(time,tenths);
                 window.requestAnimationFrame(tick);
