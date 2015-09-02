@@ -1,8 +1,10 @@
 displaySystem.registerModule({
     name: 'camera',
     template: multiline(function() {/*
-        <video id="camera" class="hidden" autoplay></video>
-        <div id="cameraError"></div>
+        <div id="camera" class="hidden">
+            <video id="camera" autoplay></video>
+            <div id="cameraError"></div>
+        </div>
     */}),
     style: multiline(function() {/*
         #camera {
@@ -27,6 +29,14 @@ displaySystem.registerModule({
             padding-top: 30vh;
             text-align: center;
             font-size: 3vh;
+            color: black;
+            text-shadow:
+               -1px -1px 0 #fff,  
+                1px -1px 0 #fff,
+               -1px  1px 0 #fff,
+                1px  1px 0 #fff;
+            }
+
         }
     */}),
     factory: function(config,onMessage) {
@@ -40,6 +50,7 @@ displaySystem.registerModule({
         function showError(msg) {
             var el = document.getElementById('cameraError');
             msg = 'The camera module could not be initialized<br>' + msg;
+            msg += '<br>You may want to disable the camera module';
             el.innerHTML = msg;
             el.style.display = 'block';
         }
@@ -50,7 +61,7 @@ displaySystem.registerModule({
                           navigator.mozGetUserMedia ||
                           navigator.msGetUserMedia;
 
-            var video = document.querySelector('video');
+            var video = document.querySelector('#camera video');
 
             if (navigator.getUserMedia) {
                 navigator.getUserMedia({
