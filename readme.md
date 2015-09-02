@@ -261,6 +261,8 @@ Configuration options:
 - Exposed api:
 - `show()`: show the background
 - `hide()`: hide the background, which can mean transparent in some applications
+- `set(color)`: sets the background to the specified color
+- `clear()`: clear the background by setting it to transparent
 
 mhub topics:
 
