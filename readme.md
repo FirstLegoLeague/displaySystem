@@ -430,7 +430,7 @@ Exposed api:
 
 ### keybindings
 
-This is a module that handles key bindings. By default it can show and hide other modules and show the control window, as explained in the [Using key bindings](#using-key-bindings) section above. However, this module is completely user configureable.
+This is a module that handles key bindings. By default it can show and hide other modules and show the control window, as explained in the [Using key bindings](#using-key-bindings) section above. However, this module is completely user configurable.
 
 The module uses [David Flanagan's keymap.js](https://github.com/luics/Luy.Web/blob/master/!reading-note/!javascript-the-definitive-guide/17/Keymap.js), which is kept in a repository by [鬼道 (luics)](https://github.com/luics)
 
