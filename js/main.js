@@ -59,9 +59,11 @@ var displaySystem = (function() {
             };
             ws.onerror = function(e){
                 console.log("error", e);
+                delete system.ws;
             };
             ws.onclose = function() {
                 console.log("close");
+                delete system.ws;
             };
             ws.onmessage = function(msg) {
                 var data = JSON.parse(msg.data);
