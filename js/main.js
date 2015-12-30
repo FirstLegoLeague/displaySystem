@@ -21,6 +21,7 @@ var multiline = (function() {
 
 // display system main
 var displaySystem = (function() {
+    var system = {};
     var config;
     var modules = {};
     var moduleDefs = {};
@@ -66,6 +67,9 @@ var displaySystem = (function() {
                 var data = JSON.parse(msg.data);
                 handleMessage(data);
             };
+            system.ws = {
+                sendMessage: sendMessage
+            };
         }
     }
 
@@ -78,6 +82,17 @@ var displaySystem = (function() {
                     handler(msg);
                 });
             }
+        }
+    }
+
+    function sendMessage(def,action,data) {
+        if (config.wsHost) {
+            ws.send(JSON.stringify({
+                type: "publish",
+                node: config.mserverNode,
+                topic: def.name+':'+action,
+                data: data
+            }));
         }
     }
 
@@ -166,10 +181,12 @@ var displaySystem = (function() {
         }
     }
 
-    return {
+    system = {
         config: setConfig,
         registerModule: registerModule,
         modules: modules,
         definitions: moduleDefs
     };
+
+    return system;
 }());

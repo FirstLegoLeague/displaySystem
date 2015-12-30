@@ -25,6 +25,14 @@ var displaySystem = (function() {
         return inp;
     }
 
+    function sendMessage(name,action,args,values) {
+        var data = {};
+        args.forEach(function(arg,i) {
+            data[arg] = values[i];
+        });
+        system.ws.sendMessage({name:name},action,data);
+    }
+
     function renderModuleControls(name) {
         var module = system.modules[name];
         var p = document.createElement('p');
@@ -38,8 +46,14 @@ var displaySystem = (function() {
                 var btn = document.createElement('button');
                 btn.innerHTML = fn;
                 btn.addEventListener('click',function() {
-                    var args = inps.map(getValue);
-                    f.apply(module,args);
+                    var data = inps.map(getValue);
+                    if (system.ws) {
+                        //handle via websocket
+                        sendMessage(name,fn,args,data);
+                    } else {
+                        //handle directly 
+                        f.apply(module,data);
+                    }
                 });
                 inps.forEach(appendTo(s));
                 s.appendChild(btn);
