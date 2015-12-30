@@ -302,13 +302,18 @@ Exposed api:
 - `show()`: show the clock
 - `hide()`: hide the clock
 - `arm(countdown)`: arm the clock. By default it arms to 2:30 minutes. You can arm to a different time by passing in seconds. Hence `arm(10)` arms the clock to 10 seconds
-- `start(startTime,countdown)`: starts the clock
-- `stop()`: stops the clock
+- `start(countdown,startTime)`: `countdown` is seconds to countdown from, without data uses previous set arm time
+- `stop()`: stops the clock, and leave it at the countdown time
+- `pause()`: pauses the clock when running, and resumes it when paused (toggle)
 
 mhub topics:
 
 - `clock:show`
 - `clock:hide`
+- `clock:arm` data: `{countdown:<sec>}`
+- `clock:start` data: `{countdown:<sec>,startTime:<timestamp>}`
+- `clock:stop`
+- `clock:pause`
 
 ### time
 

@@ -73,11 +73,11 @@ displaySystem.registerModule({
                 state = 'paused';
                 pauseTime = t/1000;
             } else {
-                start(pauseStamp);
+                start(false,pauseStamp);
             }
         };
 
-        var start = function(startTime,countdown) {
+        var start = function(countdown,startTime) {
             if (countdown) {
                 arm(countdown);
             }
@@ -151,13 +151,26 @@ displaySystem.registerModule({
         onMessage('hide',function() {
             hide();
         });
+        onMessage('arm',function(msg) {
+            arm(msg.data && msg.data.countdown);
+        });
+        onMessage('start',function(msg) {
+            start(msg.data && msg.data.countdown, msg.data && msg.data.startTime);
+        });
+        onMessage('stop',function(msg) {
+            stop();
+        });
+        onMessage('pause',function(msg) {
+            playPause();
+        });
 
         return {
             show: show,
             hide: hide,
             arm: arm,
             start: start,
-            stop: stop
+            stop: stop,
+            pause: playPause
         };
     }
 });
