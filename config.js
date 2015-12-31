@@ -15,6 +15,18 @@ displaySystem.config({
             visible: true,
             // audio: true,
         },
+        'gallery': {
+            // visible: true,
+            transition: 'fade',
+            size: 'cover',
+            timeout: 4,
+            images: [
+                'http://lorempixel.com/640/480/people/1',
+                'http://lorempixel.com/640/480/people/2',
+                'http://lorempixel.com/640/480/people/3',
+                'http://lorempixel.com/640/480/people/4'
+            ]
+        },
         'clock': {
             // visible: true,
             // countdown: 20,

@@ -300,6 +300,39 @@ mhub topics:
 - `camera:show`
 - `camera:hide`
 
+### gallery
+
+A gallery of images. Partially transparent images may be used to display for example some logos in corners of the screen. Note that in addition to displaying images, you can use a custom css stylesheet to completely customize your experience (this is somewhat of a more advanced usage though).
+
+Configuration options:
+
+- `visible`: initial visibility, defaults to false,
+- `timeout`: time between transitions, in seconds. Enter 0 to disable transitions.
+- `transition`: method of transition. Currently `fade` is the only option, it is also the default.
+- `size`: sizing method to display the image, can should be a valid [css3 `background-size`](https://developer.mozilla.org/en-US/docs/Web/CSS/background-size) property. In practice: one of the following:
+    - `cover`: enlarge the image to cover the screen, some parts may be cropped
+    - `contain`: enlarge the image to fit the screen, there may be empty space around the image
+    - `100% 100%`: stretch the image to fit the screen, it may become distorted
+    - `auto`: display the image as is
+
+Exposed api:
+
+- `show()`: show the gallery
+- `hide()`: hide the gallery
+- `prev()`: transition to previous image
+- `next()`: transition to next image
+- `set(index)`: sets the image specified by the index
+- `load(images)`: loads the given images, either as an array of strings or a single string of newline separated urls
+
+mhub topics:
+
+- `gallery:show`
+- `gallery:hide`
+- `gallery:prev`
+- `gallery:next`
+- `gallery:set` data: `{"index":<number>}`
+- `gallery:load` data: `{"images":[<string>]}`
+
 ### clock
 
 A simple countdown clock. This is the same clock as available on <https://github.com/FirstLegoLeague/clock>
