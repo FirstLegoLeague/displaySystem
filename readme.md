@@ -269,7 +269,8 @@ Configuration options:
 - `visible`: initial visibility, defaults to true
 - `color`: color of the background, can be any css color, which includes names, rgb, rgba and hex colors.
 
-- Exposed api:
+Exposed api:
+
 - `show()`: show the background
 - `hide()`: hide the background, which can mean transparent in some applications
 - `set(color)`: sets the background to the specified color

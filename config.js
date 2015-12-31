@@ -3,13 +3,13 @@ displaySystem.config({
     wsHost: "ws://localhost:13900/",
     //specify the node that is being subscribed to when using mserver
     mserverNode: "overlay",
-    //optional chromakey background color
-    // background: "lime",
     //modules, order determines z stacking
     modules: {
         'background': {
-            color: 'black',
             // visible: false
+            color: 'black',
+            //optional chromakey background color
+            // color: "lime",
         },
         'camera': {
             visible: true,
