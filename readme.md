@@ -28,6 +28,7 @@ Contents
 - [Modules](#modules)
     - [background](#background)
     - [camera](#camera)
+    - [gallery](#gallery)
     - [clock](#clock)
     - [time](#time)
     - [list](#list)
