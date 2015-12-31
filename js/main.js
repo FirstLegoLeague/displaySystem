@@ -95,7 +95,6 @@ var displaySystem = (function() {
                     return (msg.data||{})[arg];
                 });
                 api.apply(module,data);
-                console.log(moduleName,action,msg.data,api,args);
             }
 
             //handle individual handlers
