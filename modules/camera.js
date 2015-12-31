@@ -39,7 +39,7 @@ displaySystem.registerModule({
 
         }
     */}),
-    factory: function(config,onMessage) {
+    factory: function(config) {
         var el;
         var useAudio = false;
 
@@ -114,12 +114,6 @@ displaySystem.registerModule({
         if (config.visible) {
             show();
         }
-        onMessage('show',function() {
-            show();
-        });
-        onMessage('hide',function() {
-            hide();
-        });
 
         init();
 

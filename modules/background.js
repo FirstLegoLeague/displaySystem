@@ -13,7 +13,7 @@ displaySystem.registerModule({
             display: none;
         }
     */}),
-    factory: function(config, onMessage) {
+    factory: function(config) {
         var el;
 
         function getElement() {
@@ -42,12 +42,6 @@ displaySystem.registerModule({
         if (config.visible === false) {
             hide();
         }
-        onMessage('show',function() {
-            show();
-        });
-        onMessage('hide',function() {
-            hide();
-        });
 
         return {
             show: show,

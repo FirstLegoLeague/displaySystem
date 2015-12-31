@@ -14,7 +14,7 @@ displaySystem.registerModule({
             font-size: 96px;
         }
     */}),
-    factory: function(config,onMessage) {
+    factory: function(config) {
         var div;
         var bgColor = 'black';
         var state = 'stopped hidden';
@@ -144,25 +144,6 @@ displaySystem.registerModule({
         if (config.visible) {
             show();
         }
-
-        onMessage('show',function() {
-            show();
-        });
-        onMessage('hide',function() {
-            hide();
-        });
-        onMessage('arm',function(msg) {
-            arm(msg.data && msg.data.countdown);
-        });
-        onMessage('start',function(msg) {
-            start(msg.data && msg.data.countdown, msg.data && msg.data.startTime);
-        });
-        onMessage('stop',function(msg) {
-            stop();
-        });
-        onMessage('pause',function(msg) {
-            playPause();
-        });
 
         return {
             show: show,

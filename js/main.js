@@ -75,10 +75,30 @@ var displaySystem = (function() {
         }
     }
 
+    function getArguments(f) {
+        var deps = f.toString().match(/^function\s*\w*\((.*?)\)/)[1];
+        return deps?deps.split(/\s*,\s*/):[];
+    }
+
     var handlers = {};
     function handleMessage(msg) {
         if (msg && msg.topic) {
-            var topic = msg.topic.toLowerCase();
+            var topic = msg.topic;
+            //handle generic by checking the api
+            var moduleName = topic.split(':')[0];
+            var action = topic.split(':')[1];
+            if (modules[moduleName] && modules[moduleName][action]) {
+                var module = modules[moduleName];
+                var api = module[action];
+                var args = getArguments(api);
+                var data = args.map(function(arg) {
+                    return (msg.data||{})[arg];
+                });
+                api.apply(module,data);
+                console.log(moduleName,action,msg.data,api,args);
+            }
+
+            //handle individual handlers
             if (handlers[topic]) {
                 handlers[topic].forEach(function(handler) {
                     handler(msg);
@@ -102,7 +122,7 @@ var displaySystem = (function() {
         if (!def.name) {
             return;
         }
-        var topic = (def.name+':'+action).toLowerCase();
+        var topic = (def.name+':'+action);
         if (!handlers[topic]) {
             handlers[topic] = [];
         }

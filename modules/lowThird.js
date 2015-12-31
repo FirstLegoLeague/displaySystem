@@ -12,7 +12,7 @@ displaySystem.registerModule({
             font-size: 10vh;
         }
     */}),
-    factory: function(config, onMessage) {
+    factory: function(config) {
         var visible = false;
         var timer;
 
@@ -57,18 +57,6 @@ displaySystem.registerModule({
         if (config.visible) {
             persist();
         }
-
-        onMessage('show',function(msg) {
-            if (msg && msg.data) {
-                setText.apply(null,Object.keys(msg.data).slice(0,2).map(function(key) {
-                    return msg.data[key];
-                }));
-            }
-            show();
-        });
-        onMessage('hide',function() {
-            hide();
-        });
 
         return {
             show: show,

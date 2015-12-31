@@ -14,7 +14,7 @@ displaySystem.registerModule({
             font-size: 96px;
         }
     */}),
-    factory: function(config,onMessage) {
+    factory: function(config) {
 
         var offset = 0;
         var div;
@@ -56,17 +56,6 @@ displaySystem.registerModule({
         }
 
         time();
-
-        onMessage('show',function() {
-            show();
-        });
-        onMessage('hide',function() {
-            hide();
-        });
-        onMessage('set',function(msg) {
-            var d = new Date(msg.data.time);
-            setMsgTime(msg.data.time);
-        });
 
         return {
             show: show,

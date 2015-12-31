@@ -203,7 +203,7 @@ Now test your twitter stream in the console:
 
 This would start streaming live twitter messages in your console. You are now one step away from connecting everything:
 
-    tweet stream lego --json | mclient -n twitter -t twitter:add -i json
+    tweet stream lego --json | mclient -n twitter -t twitter:addMessage -i json
 
 This command uses [pipes](http://en.wikipedia.org/wiki/Pipeline_(Unix)) to take the output of the `tweet` utility and *pipe* it into `mclient`.
 
@@ -268,6 +268,8 @@ mhub topics:
 
 - `background:show`
 - `background:hide`
+- `background:set` data: `{color:<color>}`
+- `background:clear`
 
 ### camera
 
@@ -342,10 +344,12 @@ mhub topics:
 - `time:set` set the current time, data should be of the form:
 
         {
-            "time": "2015-05-14T15:48:54+0200"
+            "timestamp": "2015-05-14T15:48:54+0200"
         }
 
     This is just an iso formatted time string, the standard output of [cli-time](https://github.com/FirstLegoLeague/cli-time)
+
+- `time:format` data: `{mask:<string>}`
 
 ### list
 
@@ -367,6 +371,7 @@ mhub topics:
 
 - `list:show`
 - `list:hide`
+- `list:set` data: {pasteFromExcel:<csvData>,header:<string>}
 
 ### lowThird
 
@@ -386,8 +391,11 @@ Exposed api:
 
 mhub topics:
 
-- `lowthird:show`
-- `lowthird:hide`
+- `lowThird:show`
+- `lowThird:hide`
+- `lowThird:persist`
+- `lowThird:toggle`
+- `lowThird:set` data: `{line1:<string>,line2:<string>}`
 
 ### twitter
 
@@ -405,7 +413,8 @@ mhub topics:
 
 - `twitter:show`
 - `twitter:hide`
-- `twitter:add`: add a message, data should be of the form:
+- `twitter:add` data: `{author:<string>,tweet:<string>}`
+- `twitter:addMessage`: add a message, data should be of the form:
 
         {
             "id": 114749583439036416,

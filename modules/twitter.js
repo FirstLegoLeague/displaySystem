@@ -67,7 +67,13 @@ displaySystem.registerModule({
         }
 
         function add(msg) {
-            tweetsIndex[msg.statusId] = msg;
+            var data = {
+                statusId: msg.id,
+                author: msg.user.screen_name,
+                message: msg.text,
+                created: 1*msg.timestamp_ms
+            };
+            tweetsIndex[data.statusId] = data;
             sequence();
         }
 
@@ -78,10 +84,10 @@ displaySystem.registerModule({
 
         function addStr(author, tweet) {
             add({
-                statusId: seq,
-                author: author,
-                message: tweet,
-                created: +(new Date())
+                id: seq,
+                user: {screen_name: author},
+                text: tweet,
+                timestamp_ms: +(new Date())
             });
             seq += 1;
         }
@@ -190,19 +196,8 @@ displaySystem.registerModule({
             speed = config.speed;
         }
 
-        onMessage('add',function(msg) {
-            add({
-                statusId: msg.data.id,
-                author: msg.data.user.screen_name,
-                message: msg.data.text,
-                created: 1*msg.data.timestamp_ms
-            });
-        });
-        onMessage('show',function() {
-            show();
-        });
-        onMessage('hide',function() {
-            hide();
+        onMessage('addMessage',function(msg) {
+            add(msg.data);
         });
 
         /**
