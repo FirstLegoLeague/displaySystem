@@ -508,6 +508,22 @@ The handlers could be strings, in which case they are prefixed by `displaySystem
 
 Alternatively, handlers could be functions,. In that case, you can do pretty much anything you want, for example define "display groups" under numeric keys, to toggle the visibility of a set of modules.
 
+### controls
+
+This is the actual control window (which you must have seen by now). Display Systems comes with a standard control window that just creates buttons for all api functions of all loaded modules. You can change this by specifying a custom url to open.
+
+Configuration options:
+
+- `url` url to load
+
+Exposed api
+
+- `open()` opens the controls in a popup window
+
+mhub topics:
+
+- `controls:open` 
+
 Theming
 -----------
 

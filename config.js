@@ -79,9 +79,13 @@ displaySystem.config({
             'f': 'twitter.hide()',
             't': 'list.show()',
             'g': 'list.hide()',
-            'c': function() {
-                window.open('controls.html','fllDisplayControlWindow','resize=yes,width=800,height=350');
-            }
+            'c': 'controls.open()',
+            // 'c': function() {
+            //     window.open('controls.html','fllDisplayControlWindow','resize=yes,width=800,height=350');
+            // }
+        },
+        'controls': {
+            //url: <your own control window>
         }
     },
     //path to the modules, can even be a full url
