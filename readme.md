@@ -242,9 +242,9 @@ Then pipe it through to an mclient instance:
 To set the time to 0 and start counting:
 
     //*nix
-    mclient -n time -t time:set -d '{"time":"0"}'
+    mclient -n time -t time:set -d '{"timestamp":"0"}'
     //windows
-    mclient -n time -t time:set -d "{""time"":""0""}"
+    mclient -n time -t time:set -d "{""timestamp"":""0""}"
 
 Note that the `"0"` is quoted and it actually means setting the time to Jan 1 2000 at 00:00 in your local timezone.
 
