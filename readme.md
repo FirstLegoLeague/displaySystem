@@ -145,13 +145,15 @@ If the display system is configured to listen to a websocket server, which can b
 
     {
         "topic": <module:action>,
-        "data": {}
+        "data": {
+            arg1:value1
+        }
     }
 
 For example:
 
     {
-        "topic": "twitter:add",
+        "topic": "twitter:addMessage",
         "data": {
             "id": 123,
             "user": {
@@ -174,9 +176,9 @@ Start:
 Send a message:
 
     //*nix
-    mclient -n twitter -t twitter:add -d '{"id":123,"user":{"screen_name":"FLL"},"text":"FLL is great"}'
+    mclient -n twitter -t twitter:addMessage -d '{"id":123,"user":{"screen_name":"FLL"},"text":"FLL is great"}'
     //windows
-    mclient -n twitter -t twitter:add -d "{""id"":123,""user"":{""screen_name"":""FLL""},""text"":""FLL is great""}"
+    mclient -n twitter -t twitter:addMessage -d "{""id"":123,""user"":{""screen_name"":""FLL""},""text"":""FLL is great""}"
 
 In your config.js, make sure you have the following options:
 
@@ -184,6 +186,14 @@ In your config.js, make sure you have the following options:
     mserverNode: "overlay"
 
 Note that in the mserver config (`server.conf.json`), the `twitter` node is forwarded to the `overlay` node. That makes this setup work.
+
+All api functions are automatically exposed as mhub topics. For example, where we used `displaySystem.modules.clock.show()` via the command line before, we can now do the same via websockets:
+
+    mclient -n overlay -t clock:show
+
+When data needs to be added, for example when arming the clock via `displaySystem.modules.clock.arm(30)`, we need to add a data segment to the `mclient` message:
+
+    mclient -n overlay -t clock:arm -d '{"countdown":30}'
 
 ### Adding a twitter feed to your display
 
