@@ -17,7 +17,7 @@ displaySystem.registerModule({
             box-sizing: border-box;
         }
     */}),
-    factory: function(config) {
+    factory: function(config,onMessage) {
         var numberOfLines = 8;
         var pageTimer = 5000;
         var running = true;
@@ -121,6 +121,10 @@ displaySystem.registerModule({
         if (config.visible) {
             show();
         }
+
+        onMessage('setArray',function(msg) {
+            set(msg.data.data,msg.data.header);
+        });
 
         return {
             show: show,

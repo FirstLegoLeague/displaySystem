@@ -416,7 +416,8 @@ mhub topics:
 
 - `list:show`
 - `list:hide`
-- `list:set` data: {pasteFromExcel:<csvData>,header:<string>}
+- `list:set` data: `{pasteFromExcel:<csvData>,header:<string>}`
+- `list:setArray` data: `{data:[[<string>]],header:<string>}`
 
 ### lowThird
 
