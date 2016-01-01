@@ -19,7 +19,8 @@ displaySystem.registerModule({
     */}),
     factory: function(config,onMessage) {
         var numberOfLines = 8;
-        var pageTimer = 5000;
+        var pageTimeout = 5000;
+        var pageTimer;
         var running = true;
 
         function getElement() {
@@ -80,9 +81,13 @@ displaySystem.registerModule({
             var current = page;
             var next = (current+1) % pages;
             setPage(data,header,current);
-            window.setTimeout(function() {
+            if (pageTimer) {
+                window.clearTimeout(pageTimer);
+                pageTimer = null;
+            }
+            pageTimer = window.setTimeout(function() {
                 nextPage(data,header,next);
-            },pageTimer);
+            },pageTimeout);
         }
 
         function set(data,header) {
@@ -98,7 +103,7 @@ displaySystem.registerModule({
         }
 
         function setTimer(seconds) {
-            pageTimer = seconds * 1000;
+            pageTimeout = seconds * 1000;
         }
 
         function setLines(lines) {
