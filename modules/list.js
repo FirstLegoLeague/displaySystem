@@ -36,9 +36,11 @@ displaySystem.registerModule({
         }
         function show() {
             getElement().classList.remove('hidden');
+            start();
         }
         function hide() {
             getElement().classList.add('hidden');
+            stop();
         }
 
         function setFromString(pasteFromExcel,header) {
@@ -85,9 +87,11 @@ displaySystem.registerModule({
                 window.clearTimeout(pageTimer);
                 pageTimer = null;
             }
-            pageTimer = window.setTimeout(function() {
-                nextPage(data,header,next);
-            },pageTimeout);
+            if (running) {
+                pageTimer = window.setTimeout(function() {
+                    nextPage(data,header,next);
+                },pageTimeout);
+            }
         }
 
         function set(data,header) {
@@ -100,6 +104,10 @@ displaySystem.registerModule({
 
         function stop() {
             running = false;
+            if (pageTimer) {
+                window.clearTimeout(pageTimer);
+                pageTimer = null;
+            }
         }
 
         function setTimer(seconds) {
