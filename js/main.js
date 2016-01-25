@@ -46,33 +46,58 @@ var displaySystem = (function() {
         prependToHead(el);
     }
 
-    function initWebsocket() {
+    var connected = false;
+    var backoff = 100;
+    var maxBackoff = 5000;
+    var pendingConnection;
+
+    function initWebsocket(config) {
+        var ws;
         if (config.wsHost) {
+            if (pendingConnection) {
+                clearTimeout(pendingConnection);
+            }
             ws = new WebSocket(config.wsHost);
+
             ws.onopen = function() {
                 if (config.mserverNode) {
                     ws.send(JSON.stringify({
                         type: "subscribe",
                         node: config.mserverNode
                     }));
+                    connected = true;
+                    backoff = 100;
                 }
             };
             ws.onerror = function(e){
-                console.log("error", e);
-                delete system.ws;
+                console.log("error");
+                ws.close();
             };
             ws.onclose = function() {
-                console.log("close");
+                console.log("close reconnecting in",backoff,'ms');
+                connected = false;
                 delete system.ws;
+                pendingConnection = setTimeout(function() {
+                    connect();
+                },backoff);
+                backoff = Math.min(maxBackoff,backoff * 2);
             };
             ws.onmessage = function(msg) {
                 var data = JSON.parse(msg.data);
-                handleMessage(data);
-            };
-            system.ws = {
-                sendMessage: sendMessage
+                if (data.topic) {
+                    handleMessage(data);
+                }
             };
         }
+
+        return ws;
+    }
+
+    function connect() {
+        ws = initWebsocket(config);
+        system.ws = {
+            sendMessage: sendMessage
+        };
     }
 
     function getArguments(f) {
@@ -129,7 +154,8 @@ var displaySystem = (function() {
     }
 
     function init() {
-        initWebsocket();
+        // initWebsocket();
+        connect();
         var modulePath = config.modulePath||'modules';
         var pending = [];
         Object.keys(config.modules).forEach(function(name,i) {
