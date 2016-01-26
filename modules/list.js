@@ -58,13 +58,22 @@ displaySystem.registerModule({
                 head = '<div class="header"><span>'+header+'</span></div>';
             }
 
+            //crude estimation of width fractions by string length
+            var widths = data.reduce(function(res,row) {
+                row.forEach(function(cell,i) {
+                    res[i] = Math.max(res[i]||0,cell.toString().length);
+                });
+                return res;
+            },[]);
+            var totalWidth = widths.reduce(function(all,w) {return all+w;},0);
+
             var html = pageData.slice(0,numberOfLines).map(function(row) {
                 return [
                     '<div class="row">',
                     row.map(function(cell,i,a) {
                         return [
                             '<div class="cell" style="width:',
-                            i?(25/(a.length-1)+'vw'):'25vw',
+                            (50*(widths[i])/totalWidth)+'vw',
                             '">',
                             '<span>',
                             cell,
