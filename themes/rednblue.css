@@ -4,7 +4,8 @@ body {
 
 /* time definitions */
 #time {
-    left: 0;
+    left: -20vw;
+    transform: translate(20vw);
     background-color: darkblue;
     font-family: lcdbold;
     color: white;
@@ -30,12 +31,13 @@ body {
 }
 
 #time.hidden {
-    transform: translate(-120%);
+    transform: translate(0);
 }
 
 /* clock */
 #clock {
-    right: 0;
+    right: -20vw;
+    transform: translate(-20vw);
     background-color: darkblue;
     font-family: lcdbold;
     color: white;
@@ -63,7 +65,7 @@ body {
 }
 
 #clock.hidden {
-    transform: translate(120%);
+    transform: translate(0);
 }
 
 #clock.stopped {
