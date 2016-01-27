@@ -68,14 +68,12 @@ displaySystem.registerModule({
             if (msg && msg.data) {
                 line1text = msg.data;
                 update();
-                show();
             }
         });
         onMessage('line2',function(msg) {
             if (msg && msg.data) {
                 line2text = msg.data;
                 update();
-                show();
             }
         });
 
