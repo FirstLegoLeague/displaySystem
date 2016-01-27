@@ -1,0 +1,166 @@
+body {
+    font-family: verdana, helvetica, sans-serif;
+}
+
+/* time definitions */
+#time {
+    left: 0;
+    background-color: darkblue;
+    font-family: lcdbold;
+    color: white;
+    transition: transform 0.3s;
+    height: 10vh;
+    font-size: 8vh;
+    line-height: 12vh;
+    padding-left: 3vh;
+    padding-right: 1vh;
+}
+#time::after {
+    content: '';
+    width: 2.5vh;
+    display: block;
+    height: 10vh;
+    position: absolute;
+    right: -2.5vh;
+    top: 0;
+    border: 2px solid black;
+    box-sizing: border-box;
+    border-width: 10vh 2.5vh 0 0;
+    border-color: darkblue transparent;
+}
+
+#time.hidden {
+    transform: translate(-120%);
+}
+
+/* clock */
+#clock {
+    right: 0;
+    background-color: darkblue;
+    font-family: lcdbold;
+    color: white;
+    transition: transform 0.3s;
+    height: 10vh;
+    font-size: 8vh;
+    line-height: 12vh;
+    width: 20vh;
+    padding-right: 3vh;
+    text-align: right;
+}
+
+#clock::before {
+    content: '';
+    width: 2.5vh;
+    display: block;
+    height: 10vh;
+    position: absolute;
+    left: -2.5vh;
+    top: 0;
+    border: 2px solid black;
+    box-sizing: border-box;
+    border-width: 0 0 10vh 2.5vh;
+    border-color: darkblue transparent;
+}
+
+#clock.hidden {
+    transform: translate(120%);
+}
+
+#clock.stopped {
+    background-color: crimson;
+}
+#clock.stopped::before {
+    border-color: crimson transparent;
+}
+#clock.armed {
+    color: crimson;
+}
+
+/* list */
+#list {
+    background-image: url(fll_list_bkg.png);
+    background-size: 100% 100%;
+    color: black;
+    opacity: 1;
+    transition: opacity 0.3s;
+    top: 5vh;
+    height: 80vh;
+    width: 75vw;
+    left: 12.5vw;
+    padding: 4vw;
+}
+#list.hidden {
+    opacity: 0;
+}
+#list .header {
+    text-align: center;
+}
+#list .cell {
+    padding-left: 3vh;
+}
+
+/* lowThird definitions */
+#lowThird {
+    background-image: url(fll_lowThird_bkg.png);
+    background-size: cover;
+    color: black;
+    height: 26vh;
+    box-sizing: border-box;
+    padding-top: 7vh;
+    padding-left: 22vw;
+    transition: transform 0.3s;
+}
+#lowThird.hidden  {
+    transform: translateY(120%);
+}
+#lowThird .line {
+    padding-left: 3vh;
+    box-sizing: border-box;
+    position: relative;
+}
+
+/* used ceaser to create custom easing functions: http://matthewlein.com/ceaser/ */
+#lowThird .line1 {
+    /*background-color: darkblue;*/
+    width: 80%;
+    font-size: 8vh;
+    height: 10vh;
+    line-height: 10vh;
+}
+
+#lowThird .line2 {
+    /*background-color: crimson;*/
+    width: 70%;
+    font-size: 5vh;
+    height: 8vh;
+    line-height: 8vh;
+}
+
+/* ticker */
+#twitter {
+    font-size: 6vh;
+    padding: 0.2em;
+    background-color: #0089D0;
+    color: white;
+    transition: bottom 0.3s;
+}
+
+#twitter.hidden {
+    bottom: -4em;
+}
+
+#twitter .tweet {
+    font-size: 6vh;
+}
+
+#twitter .author {
+    font-weight: bold;
+}
+
+#twitter .message {
+}
+
+/* gallery */
+#gallery div {
+    transition: none;
+}
