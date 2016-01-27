@@ -199,6 +199,9 @@ displaySystem.registerModule({
         onMessage('addMessage',function(msg) {
             add(msg.data);
         });
+        onMessage('removeMessage',function(msg) {
+            remove(msg.data);
+        })
 
         /**
          * TODO
