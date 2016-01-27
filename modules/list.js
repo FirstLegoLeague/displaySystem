@@ -73,7 +73,7 @@ displaySystem.registerModule({
                     row.map(function(cell,i,a) {
                         return [
                             '<div class="cell" style="width:',
-                            (50*(widths[i])/totalWidth)+'vw',
+                            (100*(widths[i])/totalWidth)+'%',
                             '">',
                             '<span>',
                             cell,
