@@ -78,7 +78,7 @@ displaySystem.registerModule({
         }
 
         function remove(msg) {
-            delete tweetsIndex[msg.statusId];
+            delete tweetsIndex[msg.id];
             sequence();
         }
 
@@ -94,7 +94,7 @@ displaySystem.registerModule({
 
         function remStr(index) {
             remove({
-                statusId: 1*index
+                id: 1*index
             });
         }
 
@@ -131,7 +131,7 @@ displaySystem.registerModule({
         function renderTweet(tweet) {
             return [
                 '<span class="tweet">',
-                tweet.statusId,
+                // tweet.statusId,
                 '<span class="author">@',
                 tweet.author,
                 '</span>: ',
@@ -199,6 +199,9 @@ displaySystem.registerModule({
         onMessage('addMessage',function(msg) {
             add(msg.data);
         });
+        onMessage('removeMessage',function(msg) {
+            remove(msg.data);
+        })
 
         /**
          * TODO
