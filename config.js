@@ -63,6 +63,9 @@ displaySystem.config({
             timer: 5000,
             lines: 8
         },
+        'rtl': {
+            // enable: true
+        },
         'css': {
             href: 'themes/rednblue.css',
             // href: 'themes/default.css',
