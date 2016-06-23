@@ -1,8 +1,12 @@
 displaySystem.registerModule({
     name: 'rtl',
     style: multiline(function() {/*
-        .rtl {
+        body.rtl {
             direction: rtl;
+        }
+
+        body:not(.rtl) {
+            direction: ltr;
         }
     */}),
     factory: function(config) {
