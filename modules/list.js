@@ -6,12 +6,20 @@ displaySystem.registerModule({
     style: multiline(function() {/*
         #list {
             position: absolute;
-            left: 25vw;
             top: 10vh;
             width: 50vw;
             font-size: 6vh;
             box-sizing: border-box;
         }
+
+        body:not(.rtl) #list {
+            left: 25vw;
+        }
+
+        body.rtl #list {
+            right: 25vw;
+        }
+
         #list .cell {
             display: inline-block;
             box-sizing: border-box;
@@ -120,7 +128,7 @@ displaySystem.registerModule({
         }
 
         function setTimer(seconds) {
-            pageTimeout = seconds * 1000;
+            pageTimeout = seconds * 100000;
         }
 
         function setLines(lines) {
