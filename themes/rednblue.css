@@ -4,30 +4,53 @@ body {
 
 /* time definitions */
 #time {
-    left: -20vw;
-    transform: translate(20vw);
     background-color: darkblue;
-    font-family: lcdbold;
+    font-family: lcdbold, serif;
     color: white;
     transition: transform 0.3s;
     height: 10vh;
     font-size: 8vh;
     line-height: 12vh;
+}
+
+body:not(.rtl) #time {
+    left: -20vw;
+    transform: translate(20vw);
     padding-left: 3vh;
     padding-right: 1vh;
 }
+
+body.rtl #time {
+    right: -20vw;
+    transform: translate(-20vw);
+    padding-left: 1vh;
+    padding-right: 3vh;
+}
+
 #time::after {
     content: '';
     width: 2.5vh;
     display: block;
     height: 10vh;
     position: absolute;
-    right: -2.5vh;
     top: 0;
-    border: 2px solid black;
+    border-style: solid;
+    border-top-width: 10vh;
+    border-bottom-width: 0;
     box-sizing: border-box;
-    border-width: 10vh 2.5vh 0 0;
     border-color: darkblue transparent;
+}
+
+body:not(.rtl) #time::after {
+    right: -2.5vh;
+    border-right-width: 2.5vh;
+    border-left-width: 0;
+}
+
+body.rtl #time::after {
+    left: -2.5vh;
+    border-right-width: 0;
+    border-left-width: 2.5vh;
 }
 
 #time.hidden {
@@ -36,10 +59,8 @@ body {
 
 /* clock */
 #clock {
-    right: -20vw;
-    transform: translate(-20vw);
     background-color: darkblue;
-    font-family: lcdbold;
+    font-family: lcdbold, sans-serif;
     color: white;
     transition: transform 0.3s;
     height: 10vh;
@@ -50,6 +71,16 @@ body {
     text-align: right;
 }
 
+body:not(.rtl) #clock {
+    right: -20vw;
+    transform: translate(-20vw);
+}
+
+body.rtl #clock {
+    left: -20vw;
+    transform: translate(20vw);
+}
+
 #clock::before {
     content: '';
     width: 2.5vh;
@@ -58,10 +89,23 @@ body {
     position: absolute;
     left: -2.5vh;
     top: 0;
-    border: 2px solid black;
+    border-style: solid;
+    border-top-width: 0;
+    border-bottom-width: 10vh;
     box-sizing: border-box;
-    border-width: 0 0 10vh 2.5vh;
     border-color: darkblue transparent;
+}
+
+body:not(.rtl) #clock::before {
+    left: -2.5vh;
+    border-right-width: 0;
+    border-left-width: 2.5vh;
+}
+
+body.rtl #clock::before {
+    right: -2.5vh;
+    border-right-width: 2.5vh;
+    border-left-width: 0;
 }
 
 #clock.hidden {
@@ -83,13 +127,16 @@ body {
     opacity: 1;
     transition: opacity 0.3s;
 }
+
 #list.hidden {
     opacity: 0;
 }
+
 #list .header {
     text-align: center;
     margin-bottom: 0.8vh;
 }
+
 #list .header span {
     display: inline-block;
     background-color: crimson;
@@ -98,32 +145,59 @@ body {
     height: 7.2vh;
     vertical-align: top;
 }
+
 #list .header span::before {
     content: '';
     width: 4.8vh;
     display: inline-block;
     height: 7.2vh;
     /*position: absolute;*/
-    margin-left: -4.8vh;
     top: 0;
-    border: 2px solid black;
-    box-sizing: border-box;
-    border-width: 0 0 7.2vh 1.8vh;
+    border-style: solid;
+    border-top-width: 0;
+    border-bottom-width: 7.2vh;
     border-color: crimson transparent;
+    box-sizing: border-box;
 }
+
+body:not(.rtl) #list .header span::before {
+    margin-left: -4.8vh;
+    border-right-width: 0;
+    border-left-width: 1.8vh;
+}
+
+body.rtl #list .header span::before {
+    margin-right: -4.8vh;
+    border-right-width: 1.8vh;
+    border-left-width: 0;
+}
+
 #list .header span::after {
     content: '';
     width: 4.8vh;
     display: inline-block;
     height: 7.2vh;
     /*position: absolute;*/
-    margin-right: -4.8vh;
     top: 0;
-    border: 2px solid black;
-    box-sizing: border-box;
-    border-width: 0 1.8vh 7.2vh 0;
+    border-style: solid;
+    border-top-width: 0;
+    border-bottom-width: 7.2vh;
     border-color: crimson transparent;
+    box-sizing: border-box;
 }
+
+body:not(.rtl) #list .header span::after {
+    margin-right: -4.8vh;
+    border-right-width: 1.8vh;
+    border-left-width: 0;
+}
+
+body.rtl #list .header span::after {
+    margin-left: -4.8vh;
+    border-right-width: 0;
+    border-left-width: 1.8vh;
+}
+
 #list .row {
     height: 6.4vh;
     font-size: 5.0vh;
@@ -134,37 +208,73 @@ body {
     line-height: 6.4vh;
     transition: transform 0.3s;
 }
-#list.hidden .row {
+
+body:not(.rtl) #list.hidden .row {
     transform: rotateX(90deg);
 }
+
+body.rtl #list.hidden .row {
+    transform: rotateX(-90deg);
+}
+
 #list .row::before {
     content: '';
     width: 1.6vh;
     display: block;
     height: 6.4vh;
     position: absolute;
-    left: -1.6vh;
     top: 0;
-    border: 2px solid black;
+    border-style: solid;
+    border-top-width: 6.4vh;
+    border-bottom-width: 0;
     box-sizing: border-box;
-    border-width: 6.4vh 1.6vh 0 0;
     border-color: transparent darkblue;
 }
+
+body:not(.rtl) #list .row::before {
+    left: -1.6vh;
+    border-right-width: 1.6vh;
+    border-left-width: 0;
+}
+
+body.rtl #list .row::before {
+    right: -1.6vh;
+    border-right-width: 0;
+    border-left-width: 1.6vh;
+}
+
 #list .row::after {
     content: '';
     width: 1.6vh;
     display: block;
     height: 6.4vh;
     position: absolute;
-    right: -1.6vh;
     top: 0;
-    border: 2px solid black;
-    box-sizing: border-box;
-    border-width: 6.4vh 1.6vh 0 0;
+    border-style: solid;
+    border-top-width: 6.4vh;
+    border-bottom-width: 0;
     border-color: darkblue transparent;
+    box-sizing: border-box;
 }
-#list .cell {
+
+body:not(.rtl) #list .row::after {
+    right: -1.6vh;
+    border-right-width: 1.6vh;
+    border-left-width: 0;
+}
+
+body.rtl #list .row::after {
+    left: -1.6vh;
+    border-right-width: 0;
+    border-left-width: 1.6vh;
+}
+
+body:not(.rtl) #list .cell {
     padding-left: 3vh;
+}
+
+body.rtl #list .cell {
+    padding-right: 3vh;
 }
 
 /* lowThird definitions */
@@ -181,8 +291,21 @@ body {
     box-sizing: border-box;
     position: relative;
 }
-#lowThird.hidden .line {
+
+body:not(.rtl) #lowThird .line {
+    padding-left: 3vh;
+}
+
+body.rtl #lowThird .line {
+    padding-right: 3vh;
+}
+
+body:not(.rtl) #lowThird.hidden .line {
     transform: translate(-120%);
+}
+
+body.rtl #lowThird.hidden .line {
+    transform: translate(120%);
 }
 
 /* used ceaser to create custom easing functions: http://matthewlein.com/ceaser/ */
@@ -200,12 +323,24 @@ body {
     display: block;
     height: 10vh;
     position: absolute;
-    right: -2.5vh;
     top: 0;
-    border: 2px solid black;
+    border-style: solid;
+    border-top-width: 10vh;
+    border-bottom-width: 0;
     box-sizing: border-box;
-    border-width: 10vh 2.5vh 0 0;
     border-color: darkblue transparent;
+}
+
+body:not(.rtl) #lowThird .line1::after {
+    right: -2.5vh;
+    border-right-width: 2.5vh;
+    border-left-width: 0;
+}
+
+body.rtl #lowThird .line1::after {
+    left: -2.5vh;
+    border-right-width: 0;
+    border-left-width: 2.5vh;
 }
 
 #lowThird .line2 {
@@ -223,12 +358,24 @@ body {
     display: block;
     height: 8vh;
     position: absolute;
-    right: -2vh;
     top: 0;
-    border: 2px solid black;
-    box-sizing: border-box;
-    border-width: 8vh 2vh 0 0;
+    border-style: solid;
+    border-top-width: 8vh;
+    border-bottom-width: 0;
     border-color: crimson transparent;
+    box-sizing: border-box;
+}
+
+body:not(.rtl) #lowThird .line2::after {
+    right: -2vh;
+    border-right-width: 2vh;
+    border-left-width: 0;
+}
+
+body.rtl #lowThird .line2::after {
+    left: -2vh;
+    border-right-width: 0;
+    border-left-width: 2vh;
 }
 
 /* ticker */

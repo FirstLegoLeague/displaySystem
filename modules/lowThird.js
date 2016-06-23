@@ -6,10 +6,17 @@ displaySystem.registerModule({
     style: multiline(function() {/*
         #lowThird {
             position: absolute;
-            left: 0;
             width: 100%;
             bottom: 0;
             font-size: 10vh;
+        }
+
+        body:not(.rtl) #lowThird {
+            left: 0;
+        }
+
+        body.rtl #lowThird {
+            right: 0;
         }
     */}),
     factory: function(config, onMessage) {

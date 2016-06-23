@@ -9,9 +9,16 @@ displaySystem.registerModule({
         #clock {
             position: absolute;
             top: 0.5em;
-            right: 0.5em;
             color: white;
             font-size: 96px;
+        }
+
+        body:not(.rtl) #clock {
+            right: 0.5em;
+        }
+
+        body.rtl #clock {
+            left: 0.5em;
         }
     */}),
     factory: function(config) {
