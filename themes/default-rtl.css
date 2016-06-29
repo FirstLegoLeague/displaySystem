@@ -1,0 +1,102 @@
+body {
+    font-family: verdana, helvetica, sans-serif;
+    direction: rtl;
+}
+
+/* time definitions */
+#time {
+    font-size: 96px;
+    font-family: lcdbold;
+    color: white;
+    -webkit-text-fill-color: white;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
+    transition: top 0.3s;
+}
+
+#time.hidden {
+    top: -2em;
+}
+
+/* clock definitions */
+#clock {
+    font-size: 96px;
+    font-family: lcdbold;
+    color: #ffd204;
+    -webkit-text-fill-color: #ffd204;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
+    transition: top 0.3s;
+}
+
+#clock.hidden {
+    top: -2em;
+}
+#clock.stopped {
+    color: red;
+    -webkit-text-fill-color: #c41425;
+}
+#clock.armed {
+    color: blue;
+    -webkit-text-fill-color: #0066b3;
+}
+
+/* list */
+#list {
+    background-color: #ffd204;
+    opacity: 1;
+    transition: opacity 0.3s;
+}
+#list.hidden {
+    opacity: 0;
+}
+#list .header {
+    text-align: center;
+}
+#list .cell {
+    padding-right: 3vh;
+}
+
+/* lowThird definitions */
+#lowThird {
+    background-color: #ffd204;
+    background-size: cover;
+    position: absolute;
+    height: 30vh;
+    padding: 2vh 5vw;
+    color: #6f2c91;
+    box-sizing: border-box;
+    transition: bottom 0.3s;
+}
+
+#lowThird.hidden {
+    bottom: -30vh;
+}
+
+#lowThird .line1 {
+    font-weight: bold;
+}
+
+/* ticker */
+#twitter {
+    font-size: 6vh;
+    padding: 1em;
+    background-color: #0066b3;
+    color: white;
+    transition: bottom 0.3s;
+}
+
+#twitter.hidden {
+    bottom: -4em;
+}
+
+#twitter .tweet {
+    font-size: 6vh;
+}
+
+#twitter .author {
+    font-weight: bold;
+}
+
+#twitter .message {
+}
