@@ -253,8 +253,24 @@ body {
     transition: bottom 0.3s;
 }
 
+#twitter, #twitter .tweet {
+    -moz-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+    filter: "FlipH";
+    -ms-filter: "FlipH";
+}
+
 #twitter.hidden {
     bottom: -4em;
+}
+
+#twitter .tweet {
+    font-size: 6vh;
+    display: inline-block;
+    padding-right: inherit !important;
+    padding-left: 1.5em;
 }
 
 #twitter .tweet {

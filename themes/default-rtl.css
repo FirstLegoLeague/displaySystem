@@ -6,7 +6,7 @@ body {
 /* time definitions */
 #time {
     font-size: 96px;
-    font-family: lcdbold;
+    font-family: lcdbold, sans-serif;
     color: white;
     -webkit-text-fill-color: white;
     -webkit-text-stroke-width: 1px;
@@ -21,7 +21,7 @@ body {
 /* clock definitions */
 #clock {
     font-size: 96px;
-    font-family: lcdbold;
+    font-family: lcdbold, sans-serif;
     color: #ffd204;
     -webkit-text-fill-color: #ffd204;
     -webkit-text-stroke-width: 1px;
@@ -86,12 +86,24 @@ body {
     transition: bottom 0.3s;
 }
 
+#twitter, #twitter .tweet {
+    -moz-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+    filter: "FlipH";
+    -ms-filter: "FlipH";
+}
+
 #twitter.hidden {
     bottom: -4em;
 }
 
 #twitter .tweet {
     font-size: 6vh;
+    display: inline-block;
+    padding-right: inherit !important;
+    padding-left: 1.5em;
 }
 
 #twitter .author {
