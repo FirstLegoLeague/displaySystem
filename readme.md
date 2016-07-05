@@ -47,7 +47,7 @@ Get it running
 
 ### Test online
 
-You check out display system [online](https://firstlegoleague.github.io/displaySystem/), however, you can't really customize anything. It is a nice way to check it out though.
+You can check out display system [online](https://firstlegoleague.github.io/displaySystem/), however, you can't really customize anything. It is a nice way to check it out though.
 
 Everything is served over https, which allows the webcam to work. If you want to [control the system via websockets](#controlling-the-modules-via-websockets), you can easily set up your own [mhub](https://github.com/poelstra/mhub). See [Controlling the modules via websockets](#controlling-the-modules-via-websockets) for a description to get that running.
 
@@ -196,9 +196,9 @@ Start:
 Send a message:
 
     //*nix
-    mclient -n twitter -t twitter:addMessage -d '{"id":123,"user":{"screen_name":"FLL"},"text":"FLL is great"}'
+    mhub-client -n twitter -t twitter:addMessage -d '{"id":123,"user":{"screen_name":"FLL"},"text":"FLL is great"}'
     //windows
-    mclient -n twitter -t twitter:addMessage -d "{""id"":123,""user"":{""screen_name"":""FLL""},""text"":""FLL is great""}"
+    mhub-client -n twitter -t twitter:addMessage -d "{""id"":123,""user"":{""screen_name"":""FLL""},""text"":""FLL is great""}"
 
 In your `config.js`, make sure you have the following options:
 
@@ -234,11 +234,11 @@ Note that in the default (online) `config.js`, we have:
 
 All api functions are automatically exposed as mhub topics. For example, where we used `displaySystem.modules.clock.show()` via the command line before, we can now do the same via websockets:
 
-    mclient -n overlay -t clock:show
+    mhub-client -n overlay -t clock:show
 
-When data needs to be added, for example when arming the clock via `displaySystem.modules.clock.arm(30)`, we need to add a data segment to the `mclient` message:
+When data needs to be added, for example when arming the clock via `displaySystem.modules.clock.arm(30)`, we need to add a data segment to the `mhub-client` message:
 
-    mclient -n overlay -t clock:arm -d '{"countdown":30}'
+    mhub-client -n overlay -t clock:arm -d '{"countdown":30}'
 
 ### Adding a twitter feed to your display
 
@@ -258,9 +258,9 @@ Now test your twitter stream in the console:
 
 This would start streaming live twitter messages in your console. You are now one step away from connecting everything:
 
-    tweet stream lego --json | mclient -n twitter -t twitter:addMessage -i json
+    tweet stream lego --json | mhub-client -n twitter -t twitter:addMessage -i json
 
-This command uses [pipes](http://en.wikipedia.org/wiki/Pipeline_(Unix)) to take the output of the `tweet` utility and *pipe* it into `mclient`.
+This command uses [pipes](http://en.wikipedia.org/wiki/Pipeline_(Unix)) to take the output of the `tweet` utility and *pipe* it into `mhub-client`.
 
 **By the way...** the hosted version listens to `ws://localhost:13900/` on the `overlay` node. So you can set up `node-tweet-cli` and `mhub-server` locally and still use the hosted version of the display system. Isn't that sweet?
 
@@ -272,7 +272,7 @@ Also, you may want to set another time altogether, for example number of minutes
 
 To set the time, you could just use the control window, but you can also use the websockets interface.
 
-A nice way to ensure a consistent time is to just *pipe* a timestamp into `mclient`.
+A nice way to ensure a consistent time is to just *pipe* a timestamp into `mhub-client`.
 
 First install the [cli-time utility](https://github.com/FirstLegoLeague/cli-time):
 
@@ -280,16 +280,16 @@ First install the [cli-time utility](https://github.com/FirstLegoLeague/cli-time
 
 Then make sure that in the mhub-server config (`server.conf.json`), the `time` node is forwarded to the `overlay` node.
 
-Then pipe it through to an mclient instance:
+Then pipe it through to an mhub-client instance:
 
-    cli-time -m json -i | mclient -n time -t time:set -i json
+    cli-time -m json -i | mhub-client -n time -t time:set -i json
 
 To set the time to 0 and start counting:
 
     //*nix
-    mclient -n time -t time:set -d '{"timestamp":"0"}'
+    mhub-client -n time -t time:set -d '{"timestamp":"0"}'
     //windows
-    mclient -n time -t time:set -d "{""timestamp"":""0""}"
+    mhub-client -n time -t time:set -d "{""timestamp"":""0""}"
 
 Note that the `"0"` is quoted and it actually means setting the time to Jan 1 2000 at 00:00 in your local timezone.
 
