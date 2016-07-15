@@ -115,10 +115,10 @@ Luckily, we have already done this for you, but there is a catch. The control wi
 - Host it locally, for this you need to install a web server. The easiest one I can think of is installed like this:
     - install nodejs from <https://nodejs.org/>
     - open a command window (from the start menu, type `cmd` and press enter)
-    - install a static file server by typing `npm install -g node-static`. This will install a simple web server.
     - open the folder where you downloaded this display system (in the command window)
-    - type `static`
-    - you can now open the application by navigating to <http://localhost:8080>
+    - type `npm install`
+    - type `npm start`
+    - you can now open the application by navigating to <http://localhost:1391>
 - Lastly, you can also control the display system by other means, but this gets more complicated. More on that below.
 
 So, the control window. To open it, press `c`
@@ -519,7 +519,7 @@ mhub topics:
 
 ### css
 
-To include custom styling, create a custom stylesheet to override a default style. Use this for instance to customize fonts, text sizes, colors or background images. You can host it somewhere yourself or serve it up with `static`, as described above.
+To include custom styling, create a custom stylesheet to override a default style. Use this for instance to customize fonts, text sizes, colors or background images. You can host it somewhere yourself or serve it up with `npm start`, as described above.
 
 Configuration options:
 

@@ -1,0 +1,22 @@
+{
+  "name": "displaysystem",
+  "version": "1.0.0",
+  "description": "Display Systems",
+  "main": "config.js",
+  "scripts": {
+    "start": "node_modules/node-static/bin/cli.js -a 0.0.0.0 -p 1391 ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FirstLegoLeague/displaySystem.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FirstLegoLeague/displaySystem/issues"
+  },
+  "homepage": "https://github.com/FirstLegoLeague/displaySystem#readme",
+  "dependencies": {
+    "node-static": "^0.7.7"
+  }
+}
