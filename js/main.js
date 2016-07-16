@@ -52,13 +52,17 @@ var displaySystem = (function() {
     var pendingConnection;
 
     function initWebsocket(config) {
-        var ws;
-        if (config.wsHost) {
+        var ws, host;
+        if (config.wsHost || config.wssHost) {
             if (pendingConnection) {
                 clearTimeout(pendingConnection);
             }
-            var protocol = (window.location.protocol === 'https:')?'wss://':'ws://';
-            ws = new WebSocket(protocol + config.wsHost);
+            if (window.location.protocol === 'https:') {
+                host = 'wss://'+config.wssHost;
+            } else {
+                host = 'ws://'+config.wsHost;
+            }
+            ws = new WebSocket(host);
 
             ws.onopen = function() {
                 if (config.mserverNode) {
@@ -133,7 +137,7 @@ var displaySystem = (function() {
     }
 
     function sendMessage(def,action,data) {
-        if (config.wsHost) {
+        if (config.wsHost || config.wssHost) {
             ws.send(JSON.stringify({
                 type: "publish",
                 node: config.mserverNode,
