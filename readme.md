@@ -230,15 +230,15 @@ These files are created by the great folks at [daplie](https://github.com/Daplie
 Note that in the default (online) `config.js`, we have:
 
     wsHost: "wss://localhost.daplie.com:13900",
-    mserverNode: "overlay"
+    mserverNode: "default"
 
 All api functions are automatically exposed as mhub topics. For example, where we used `displaySystem.modules.clock.show()` via the command line before, we can now do the same via websockets:
 
-    mhub-client -n overlay -t clock:show
+    mhub-client -n default -t clock:show
 
 When data needs to be added, for example when arming the clock via `displaySystem.modules.clock.arm(30)`, we need to add a data segment to the `mhub-client` message:
 
-    mhub-client -n overlay -t clock:arm -d '{"countdown":30}'
+    mhub-client -n default -t clock:arm -d '{"countdown":30}'
 
 ### Adding a twitter feed to your display
 
@@ -262,7 +262,7 @@ This would start streaming live twitter messages in your console. You are now on
 
 This command uses [pipes](http://en.wikipedia.org/wiki/Pipeline_(Unix)) to take the output of the `tweet` utility and *pipe* it into `mhub-client`.
 
-**By the way...** the hosted version listens to `ws://localhost:13900/` on the `overlay` node. So you can set up `node-tweet-cli` and `mhub-server` locally and still use the hosted version of the display system. Isn't that sweet?
+**By the way...** the hosted version listens to `ws://localhost:13900/` on the `default` node. So you can set up `node-tweet-cli` and `mhub-server` locally and still use the hosted version of the display system. Isn't that sweet?
 
 ### Controlling time
 
