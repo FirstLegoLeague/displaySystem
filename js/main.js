@@ -57,7 +57,8 @@ var displaySystem = (function() {
             if (pendingConnection) {
                 clearTimeout(pendingConnection);
             }
-            ws = new WebSocket(config.wsHost);
+            var protocol = (window.location.protocol === 'https:')?'wss://':'ws://';
+            ws = new WebSocket(protocol + config.wsHost);
 
             ws.onopen = function() {
                 if (config.mserverNode) {

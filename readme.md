@@ -202,7 +202,7 @@ Send a message:
 
 In your `config.js`, make sure you have the following options:
 
-    wsHost: "ws://localhost:13900",
+    wsHost: "localhost:13900",
     mserverNode: "overlay"
 
 Note that in the mhub-server config (`server.conf.json`), the `twitter` node is forwarded to the `overlay` node. That makes this setup work.
@@ -262,7 +262,7 @@ This would start streaming live twitter messages in your console. You are now on
 
 This command uses [pipes](http://en.wikipedia.org/wiki/Pipeline_(Unix)) to take the output of the `tweet` utility and *pipe* it into `mhub-client`.
 
-**By the way...** the hosted version listens to `ws://localhost:13900/` on the `default` node. So you can set up `node-tweet-cli` and `mhub-server` locally and still use the hosted version of the display system. Isn't that sweet?
+**By the way...** the hosted version listens to `localhost:13900/` on the `default` node. So you can set up `node-tweet-cli` and `mhub-server` locally and still use the hosted version of the display system. Isn't that sweet?
 
 ### Controlling time
 
