@@ -4,7 +4,7 @@
   "description": "Display Systems",
   "main": "config.js",
   "scripts": {
-    "start": "static -a 0.0.0.0 -p 1391 ."
+    "start": "node displayserver.js"
   },
   "repository": {
     "type": "git",
@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/FirstLegoLeague/displaySystem#readme",
   "dependencies": {
-    "node-static": "^0.7.7"
+    "connect": "^3.5.0",
+    "serve-static": "^1.11.1"
   }
 }
