@@ -351,6 +351,9 @@ mhub topics:
 
 A gallery of images. Partially transparent images may be used to display for example some logos in corners of the screen. Note that in addition to displaying images, you can use a custom css stylesheet to completely customize your experience (this is somewhat of a more advanced usage though).
 
+To store images online, use any image hosting service, like [imgur](http://imgur.com/), [postimage](https://postimage.io) or [tinypic](http://tinypic.com/)
+
+
 Another option for gallery is to display arbitrary pages. These will be displayed in an `iframe`. Note that not all websites can be displayed this way. Some of them do not allow rendering in an iframe.
 
 Configuration options:
