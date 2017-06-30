@@ -202,9 +202,9 @@ var displaySystem = (function() {
         // add html
         if (def.template) {
             var d = document.createElement('div');
-            d.className = 'moduleContainer';
+            d.className = 'moduleContainer '+def.name;
             d.innerHTML = def.template;
-            document.body.appendChild(d);
+            document.getElementById('mainContainer').appendChild(d);
         }
         // add styles
         if (def.style) {

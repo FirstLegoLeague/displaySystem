@@ -36,6 +36,7 @@ Contents
     - [lowThird](#lowthird)
     - [twitter](#twitter)
     - [css](#css)
+    - [geometry](#geometry)
     - [keybindings](#keybindings)
 - [Theming](#theming)
     - [Included themes](#included-themes)
@@ -531,6 +532,33 @@ Exposed api:
 - `set`: set the stylesheet, passing in the `href` parameter
 - `gist`: load a stylesheet from a gist id. All css files are concatenated and used as data url
 - `reset`: resets the stylesheet back to the `config.js` option
+
+### geometry
+
+This module controls screen geometry. It allows you to rotate the display, control overscan parameters and zoom.
+
+Configuration options:
+
+- `zoom`: zoom level of the window
+- `aspect`: either the string "native" or the aspect ratio of the device used. This can be used to compensate for aspect ratio problems
+- `rotation`: rotation of the display in degrees
+- `overscan`: array of overscan amount in pixels
+
+Exposed api:
+
+- `right`: rotate right
+- `left`: rotate left
+- `zoomin`: zoom in with 10%
+- `zoomout`: zoom out with 10%
+- `zoomreset`: reset the zoom level to 1
+
+mhub topics:
+
+- `geometry:right`
+- `geometry:left`
+- `geometry:zoomin`
+- `geometry:zoomout`
+- `geometry:zoomreset`
 
 ### keybindings
 

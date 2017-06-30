@@ -70,6 +70,12 @@ displaySystem.config({
             // href: 'themes/default.css',
             // gist: '9c7e4efaba9dbbc4831b'
         },
+        'geometry': {
+            zoom: 1,
+            aspect: 'native',
+            rotation: 0,
+            overscan: [0,0,0,0]
+        },
         'keybindings': {
             'q': 'time.show()',
             'a': 'time.hide()',
