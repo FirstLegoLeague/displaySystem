@@ -43,7 +43,7 @@ displaySystem.registerModule({
 
         function load(images) {
             if (typeof images === 'string') {
-                load(images.split(/(\r\n|\r|\n/gi));
+                load(images.split(/(\r\n|\r|\n)/gi));
             }
             var container = getElement();
             container.innerHTML = '';
