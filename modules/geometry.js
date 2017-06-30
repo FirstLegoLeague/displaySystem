@@ -90,6 +90,8 @@ displaySystem.registerModule({
 
         redraw();
 
+        window.addEventListener('resize', redraw);
+
         return {
             left,
             right,
