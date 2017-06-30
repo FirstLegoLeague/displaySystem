@@ -100,9 +100,11 @@ var displaySystem = (function() {
 
     function connect() {
         ws = initWebsocket(config);
-        system.ws = {
-            sendMessage: sendMessage
-        };
+        if (ws) {
+            system.ws = {
+                sendMessage: sendMessage
+            };
+        }
     }
 
     function getArguments(f) {
