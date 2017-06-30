@@ -27,7 +27,10 @@ displaySystem.config({
                 'http://lorempixel.com/640/480/people/2',
                 'http://lorempixel.com/640/480/people/3',
                 'http://lorempixel.com/640/480/people/4'
-            ]
+            ],
+            pages: [
+                // 'http://www.fll-tools.com/'
+            ],
         },
         'clock': {
             // visible: true,
