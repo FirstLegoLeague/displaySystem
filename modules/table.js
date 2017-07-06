@@ -136,7 +136,7 @@ displaySystem.registerModule({
             show();
         }
 
-        onMessage('setArray',function(msg) {
+        onMessage('setData',function(msg) {
             set(msg.data.data,msg.data.header);
         });
 
