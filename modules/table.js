@@ -39,11 +39,12 @@ displaySystem.registerModule({
             stop();
         }
 
-        function setFromString(pasteFromExcel,header) {
+        function setFromString(pasteFromExcel) {
             var lines = pasteFromExcel.trim().split(/[\n\r]+/);
             var data = lines.map(function(line) {
                 return line.split(/\t/);
             });
+            header = data.shift();
             set(data,header);
         }
 
