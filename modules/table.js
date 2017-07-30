@@ -5,14 +5,35 @@ displaySystem.registerModule({
     */}),
     style: multiline(function() {/*
         #table {
-            color: white;
+            background: darkblue;
             margin: 20vh auto;
-            font-size: 30px;
+            font-size: 5vh;
+            width: calc(100% - 1em);
+            color: white;
+            border-collapse: collapse;
         }
         #table.hidden {
             display: none;
         }
+        table#table td {
+            border: white 1px solid;
+            text-align: center;
+            white-space: nowrap;
+            overflow: hidden;
+            max-width: 0;
+            width: 0;
+            text-overflow: ellipsis;
+        }
     */}),
+    /*  Add this to the style to cause the second column on each
+        row to take the most space. Replace the number 2 i the selector
+        for a similar effect on a different column
+        table#table td:nth-child(2) {
+            width:100%;
+            //optional
+            //text-align: left;
+        }
+    */
     factory: function(config,onMessage) {
         var numberOfLines = 8;
         var pageTimeout = 5000;
