@@ -463,6 +463,29 @@ mhub topics:
 - `list:set` data: `{pasteFromExcel:<csvData>,header:<string>}`
 - `list:setArray` data: `{data:[[<string>]],header:<string>}`
 
+### table
+
+Shows a table of data, similar to list, but more generic in it's data format
+
+Configuration options:
+
+- `visible`: initial visibility, defaults to false
+- `header`: header of the list
+- `data`: data of the list, an array of arrays of strings
+
+Exposed api:
+
+- `show()`: show the list
+- `hide()`: hide the list
+- `set(pasteFromExcel)`: set the table, paste data from excel. The program assumes the headers are in the first row of the excel.
+
+mhub topics:
+
+- `table:show`
+- `table:hide`
+- `table:set` data: `{pasteFromExcel:<csvData>}`
+- `table:setData` data: `{data:[[<string>]],header:<string>}`
+
 ### lowThird
 
 Configuration options:
