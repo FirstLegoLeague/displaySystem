@@ -1,6 +1,6 @@
 {
-  "name": "@first-lego-league/displaysystem",
-  "version": "0.0.1",
+  "name": "@first-lego-league/display",
+  "version": "0.0.3",
   "description": "Display Systems",
   "main": "config.js",
   "scripts": {
