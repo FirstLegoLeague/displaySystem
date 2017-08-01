@@ -115,6 +115,17 @@ body {
     padding-right: 3vh;
 }
 
+/* table defenitions */
+#table {
+    color: #FFD204;
+    background: black;
+    direction: rtl;
+}
+
+#table td {
+    border: #FFD204 1px solid;
+}
+
 /* lowThird definitions */
 #lowThird {
     background-image: url(fll_lowThird_bkg-rtl.png);
