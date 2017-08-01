@@ -465,12 +465,12 @@ mhub topics:
 
 ### table
 
-Shows a table of data, similar to list, but more generic in it's data format
+Shows a table of data, similar to list, but more generic in its data format
 
 Configuration options:
 
 - `visible`: initial visibility, defaults to false
-- `header`: header of the list
+- `header`: array of titles for the columns
 - `data`: data of the list, an array of arrays of strings
 
 Exposed api:
@@ -484,7 +484,7 @@ mhub topics:
 - `table:show`
 - `table:hide`
 - `table:set` data: `{pasteFromExcel:<csvData>}`
-- `table:setData` data: `{data:[[<string>]],header:<string>}`
+- `table:setData` data: `{data:[[<string>]],header:[<string>]}`
 
 ### lowThird
 
