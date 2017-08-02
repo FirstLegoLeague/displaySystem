@@ -1,4 +1,4 @@
-Display System, FirstLegoLeague Module
+Display System, a FirstLegoLeague Module
 ================
 
 ## FLL Modules
