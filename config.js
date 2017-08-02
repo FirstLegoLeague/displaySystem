@@ -68,6 +68,25 @@ displaySystem.config({
             timer: 5000,
             lines: 8
         },
+        'table': {
+            // visible: true,
+            header: ['team name', 'number', 'score 1', 'score 2'],
+            data: [
+                ['yuby',1, 100, 167],
+                ['ahgf',2, 120, 198],
+                ['butny',3, 10, 387],
+                ['batey',4, 140, 243],
+                ['meroy',5, 101, 543],
+                ['marnc',6, 123, 198],
+                ['arben',7, 189, 123],
+                ['opic',8, 203, 431],
+                ['poner',9, 403, 142],
+                ['notar',10, 257, 289],
+                ['serminc',11, 143, 365],
+            ],
+            timer: 10000,
+            lines: 8
+        },
         'css': {
             href: 'themes/rednblue.css',
             // href: 'themes/default.css',

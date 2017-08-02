@@ -180,6 +180,17 @@ body {
     padding-right: 3vh;
 }
 
+/* table defenitions */
+#table {
+    color: white;
+    background: darkblue;
+    direction: rtl;
+}
+
+#table td {
+    border: white 1px solid;
+}
+
 /* lowThird definitions */
 #lowThird {
     background: none;

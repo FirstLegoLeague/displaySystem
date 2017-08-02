@@ -167,6 +167,16 @@ body {
     padding-left: 3vh;
 }
 
+/* table defenitions */
+#table {
+    color: white;
+    background: darkblue;
+}
+
+#table td {
+    border: white 1px solid;
+}
+
 /* lowThird definitions */
 #lowThird {
     background: none;
