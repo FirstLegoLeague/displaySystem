@@ -1,5 +1,13 @@
-Display Systems
+Display System, FirstLegoLeague Module
 ================
+
+## FLL Modules
+
+![](https://github.com/FirstLegoLeague/Coordination/wiki/National-setup.png)
+
+Display System can be a block in a larger framework of cooperating modules. Read more about it [here](https://github.com/FirstLegoLeague/Coordination/wiki)
+
+## Display System
 
 ![rednblue theme](themes/rednblue.png)
 
