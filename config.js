@@ -14,11 +14,11 @@ displaySystem.config({
             // color: "lime",
         },
         'camera': {
-            visible: true,
+            // visible: true,
             // audio: true,
         },
         'gallery': {
-            // visible: true,
+            visible: true,
             transition: 'fade',
             size: 'cover',
             timeout: 4,
@@ -33,11 +33,11 @@ displaySystem.config({
             ],
         },
         'clock': {
-            // visible: true,
+            visible: true,
             // countdown: 20,
         },
         'time': {
-            // visible: true,
+            visible: true,
             // format: "MM:ss",
         },
         'twitter': {
