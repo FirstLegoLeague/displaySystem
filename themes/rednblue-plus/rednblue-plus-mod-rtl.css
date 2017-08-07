@@ -1,0 +1,131 @@
+body {
+    direction: rtl;
+}
+
+/* time definitions */
+@media screen {
+    #time {
+        left: auto !important;
+        right: -11em;
+        transform: translate(-10em);
+        padding-left: 1.5em;
+        padding-right: 0;
+        text-align: left;
+    }
+    #time::before {
+        transform: skew(20deg);
+    }
+    #time::after {
+        background: linear-gradient(to left,
+            transparent 0%,
+            transparent 84%,
+            crimson 85%,
+            crimson 89%,
+            white 90%,
+            white 94%,
+            darkblue 95%,
+            darkblue 100%
+        );
+        transform: skew(20deg);
+        border-radius: 0.5em / 1em;
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+}
+
+/* clock */
+@media screen {
+    #clock {
+        left: -11em;
+        right: auto !important;
+        transform: translate(10em);
+        padding-left: 0;
+        padding-right: 0.5em;
+        text-align: right;
+    }
+
+    #clock::before {
+        transform: skew(20deg);
+    }
+}
+
+/* table definitions */
+@media screen {
+    #table {
+        background: linear-gradient(to left, rgba(0,0,139,0.9) 0%,rgba(0,0,139,0.7) 100%);
+    }
+    #table thead tr {
+        background: linear-gradient(to left, rgba(255,255,255,1) 0%,rgba(214,214,214,0.8) 100%);
+    }
+}
+
+/* list */
+@media screen {
+    #list .list-row {
+        background: linear-gradient(to left, rgba(0,0,139,0.9) 0%,rgba(0,0,139,0.7) 100%);
+        transform: skew(20deg);
+    }
+    #list .list-cell {
+        text-align: right;
+    }
+    #list .list-cell.number {
+        text-align: left;
+    }
+    #list.hidden .list-row.list-row-even {
+        transform: translateX(120vw) scaleY(0.1);
+    }
+    #list.hidden .list-cell.list-row-even {
+        transform: translateX(120vw) scaleY(0.1);
+    }
+    #list.hidden .list-row.list-row-odd {
+        transform: translateX(-120vw) scaleY(0.1);
+    }
+    #list.hidden .list-cell.list-row-odd {
+        transform: translateX(-120vw) scaleY(0.1);
+    }
+}
+
+/* lowThird definitions */
+@media screen {
+    #lowThird .line {
+        left: auto;
+        right: -4vh;
+        padding-left: 0;
+        padding-right: 8vh;
+    }
+    #lowThird.hidden .line {
+        transform: translate(120%);
+    }
+
+    #lowThird .line1::before {
+        left: auto;
+        right: 0;
+        background: linear-gradient(to left, rgba(0,0,139,0.9) 0%,rgba(0,0,139,0.7) 100%);
+        transform: skew(20deg);
+    }
+
+    #lowThird .line2::before {
+        left: auto;
+        right: 0;
+        background: linear-gradient(to left, rgba(237,20,61,0.9) 0%,rgba(237,20,61,0.7) 100%);
+        transform: skew(20deg);
+    }
+}
+
+/* ticker */
+@media screen {
+    #twitter, #twitter .tweet {
+        -moz-transform: scaleX(-1);
+        -o-transform: scaleX(-1);
+        -webkit-transform: scaleX(-1);
+        transform: scaleX(-1);
+        filter: "FlipH";
+        -ms-filter: "FlipH";
+    }
+
+    #twitter .tweet {
+        display: inline-block;
+        padding-right: inherit !important;
+        padding-left: 1.5em;
+    }
+}

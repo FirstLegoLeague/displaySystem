@@ -1,0 +1,61 @@
+/**
+ * this is an opaque modifier for the rednblue-plus theme
+ * it is designed to be included with the core theme file
+ *
+ * this makes all the transparent backgrounds fully opaque
+ * so it can be used with chromakeying
+ */
+
+/* time definitions */
+@media screen {
+    #time::before {
+        background: linear-gradient(to bottom, rgba(255,255,255,1) 0%,rgba(214,214,214,1) 100%);
+    }
+}
+
+/* clock */
+@media screen {
+    #clock::before {
+        background: linear-gradient(to bottom, rgba(255,255,255,1) 0%,rgba(214,214,214,1) 100%);
+    }
+    #clock.stopped::before {
+        background: linear-gradient(to bottom, rgba(237,20,61,1) 0%,rgba(237,20,61,1) 100%);
+    }
+}
+
+/* table definitions */
+@media screen {
+    #table {
+        background: linear-gradient(to right, rgba(0,0,139,1) 0%,rgba(0,0,139,1) 100%);
+    }
+    #table thead tr {
+        background: linear-gradient(to bottom, rgba(255,255,255,1) 0%,rgba(214,214,214,1) 100%);
+    }
+}
+
+/* list */
+@media screen {
+    #list .list-row {
+        background: linear-gradient(to right, rgba(0,0,139,1) 0%,rgba(0,0,139,1) 100%);
+    }
+    #list .list-head.list-row {
+        background: linear-gradient(to bottom, rgba(255,255,255,1) 0%,rgba(214,214,214,1) 100%);
+    }
+    #list.hidden .list-cell.list-row-even {
+        opacity: 1;
+    }
+    #list.hidden .list-cell.list-row-odd {
+        opacity: 1;
+    }
+}
+
+/* lowThird definitions */
+@media screen {
+    #lowThird .line1::before {
+        background: linear-gradient(to right, rgba(0,0,139,1) 0%,rgba(0,0,139,1) 100%);
+    }
+
+    #lowThird .line2::before {
+        background: linear-gradient(to right, rgba(237,20,61,1) 0%,rgba(237,20,61,1) 100%);
+    }
+}
