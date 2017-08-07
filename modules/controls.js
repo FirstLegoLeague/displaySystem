@@ -68,7 +68,7 @@ displaySystem.registerModule({
             document.body.appendChild(p);
         }
 
-        var html = multiline(function() {/*
+        var html = `
             <!DOCTYPE html>
             <html lang="en">
             <head>
@@ -82,7 +82,7 @@ displaySystem.registerModule({
                 </p>
             </body>
             </html>
-        */})
+        `
 
         function open() {
             if (config.url) {
