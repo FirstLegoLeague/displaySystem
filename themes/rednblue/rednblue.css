@@ -86,45 +86,7 @@ body {
 #list.hidden {
     opacity: 0;
 }
-#list .header {
-    text-align: center;
-    margin-bottom: 0.8vh;
-}
-#list .header span {
-    display: inline-block;
-    background-color: crimson;
-    color: white;
-    line-height: 7.2vh;
-    height: 7.2vh;
-    vertical-align: top;
-}
-#list .header span::before {
-    content: '';
-    width: 4.8vh;
-    display: inline-block;
-    height: 7.2vh;
-    /*position: absolute;*/
-    margin-left: -4.8vh;
-    top: 0;
-    border: 2px solid black;
-    box-sizing: border-box;
-    border-width: 0 0 7.2vh 1.8vh;
-    border-color: crimson transparent;
-}
-#list .header span::after {
-    content: '';
-    width: 4.8vh;
-    display: inline-block;
-    height: 7.2vh;
-    /*position: absolute;*/
-    margin-right: -4.8vh;
-    top: 0;
-    border: 2px solid black;
-    box-sizing: border-box;
-    border-width: 0 1.8vh 7.2vh 0;
-    border-color: crimson transparent;
-}
-#list .row {
+#list .list-row {
     height: 6.4vh;
     font-size: 5.0vh;
     background-color: darkblue;
@@ -134,10 +96,10 @@ body {
     line-height: 6.4vh;
     transition: transform 0.3s;
 }
-#list.hidden .row {
+#list.hidden .list-row {
     transform: rotateX(90deg);
 }
-#list .row::before {
+#list .list-row::before {
     content: '';
     width: 1.6vh;
     display: block;
@@ -150,7 +112,7 @@ body {
     border-width: 6.4vh 1.6vh 0 0;
     border-color: transparent darkblue;
 }
-#list .row::after {
+#list .list-row::after {
     content: '';
     width: 1.6vh;
     display: block;
@@ -163,8 +125,53 @@ body {
     border-width: 6.4vh 1.6vh 0 0;
     border-color: darkblue transparent;
 }
-#list .cell {
+#list .list-cell {
+    transform: scale(1);
     padding-left: 3vh;
+}
+#list .list-cell.number {
+    text-align: right;
+    padding-left: 0;
+    padding-right: 3vh;
+}
+
+#list .list-head {
+    text-align: center;
+    margin-bottom: 0.8vh;
+    margin-left: 7em;
+    margin-right: 7em;
+}
+#list .list-head.list-row {
+    display: inline-block;
+    background-color: crimson;
+    color: white;
+    line-height: 7.2vh;
+    height: 7.2vh;
+    vertical-align: top;
+}
+#list .list-head.list-row::before {
+    content: '';
+    width: 4.8vh;
+    display: inline-block;
+    height: 7.2vh;
+    margin-left: -2.8vh;
+    top: 0;
+    border: 2px solid black;
+    box-sizing: border-box;
+    border-width: 0 0 7.2vh 1.8vh;
+    border-color: crimson transparent;
+}
+#list .list-head.list-row::after {
+    content: '';
+    width: 4.8vh;
+    display: inline-block;
+    height: 7.2vh;
+    margin-right: -2.8vh;
+    top: 0;
+    border: 2px solid black;
+    box-sizing: border-box;
+    border-width: 0 1.8vh 7.2vh 0;
+    border-color: crimson transparent;
 }
 
 /* table defenitions */

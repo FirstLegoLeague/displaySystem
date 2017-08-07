@@ -5,16 +5,13 @@ displaySystem.registerModule({
     `,
     style: `
         #list {
-            position: absolute;
-            left: 25vw;
-            top: 10vh;
-            width: 50vw;
-            font-size: 6vh;
-            box-sizing: border-box;
-        }
-        #list .cell {
-            display: inline-block;
-            box-sizing: border-box;
+            margin: 15vh auto;
+            width: calc(100% - 1em);
+            font-size: 5vh;
+            color: white;
+            display: grid;
+            grid-auto-columns: auto;
+            grid-auto-rows: auto;
         }
     `,
     factory: function(config,onMessage) {
@@ -53,9 +50,14 @@ displaySystem.registerModule({
 
         function setPage(data,header,page) {
             var pageData = data.slice(page*numberOfLines,(page+1)*numberOfLines);
+            var colTypes = (pageData[0]||[]).map(cell => {
+                return typeof cell;
+            });
             var head = '';
             if (header) {
-                head = '<div class="header"><span>'+header+'</span></div>';
+                head = `<div class="list-head list-row list-row-odd" style="grid-column: 1 / span ${colTypes.length}; grid-row: 1"></div>`;
+                let style = `grid-column: 1 / span ${colTypes.length}; grid-row: 1;`;
+                head += `<div class="list-row-odd list-head list-cell" style="${style}">${header}</div>`;
             }
 
             //crude estimation of width fractions by string length
@@ -67,21 +69,16 @@ displaySystem.registerModule({
             },[]);
             var totalWidth = widths.reduce(function(all,w) {return all+w;},0);
 
-            var html = pageData.slice(0,numberOfLines).map(function(row) {
+            var html = pageData.slice(0,numberOfLines).map((cells, row) => {
+                let rowClass = (row%2)?'list-row-odd':'list-row-even';
+                let r = header? row+2: row+1;
                 return [
-                    '<div class="row">',
-                    row.map(function(cell,i,a) {
-                        return [
-                            '<div class="cell" style="width:',
-                            (100*(widths[i])/totalWidth)+'%',
-                            '">',
-                            '<span>',
-                            cell,
-                            '</span>',
-                            '</div>'
-                        ].join('');
+                    `<div class="list-row ${rowClass}" style="grid-column: 1 / span ${cells.length}; grid-row: ${r + 1}"></div>`,
+                    cells.map((cell,column) => {
+                        let style = `grid-column: ${column + 1}; grid-row: ${r + 1};`;
+                        let cellClass = colTypes[column];
+                        return `<div class="list-cell ${rowClass} ${cellClass}" style="${style}">${cell}</div>`;
                     }).join(''),
-                    '</div>'
                 ].join('');
             }).join('');
             getElement().innerHTML = head + html;
