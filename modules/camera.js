@@ -1,12 +1,12 @@
 displaySystem.registerModule({
     name: 'camera',
-    template: multiline(function() {/*
+    template: `
         <div id="camera" class="hidden">
             <video id="camera" autoplay></video>
             <div id="cameraError"></div>
         </div>
-    */}),
-    style: multiline(function() {/*
+    `,
+    style: `
         #camera {
             position: absolute;
             left: 0;
@@ -38,7 +38,7 @@ displaySystem.registerModule({
             }
 
         }
-    */}),
+    `,
     factory: function(config) {
         var el;
         var useAudio = false;

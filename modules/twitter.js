@@ -1,9 +1,9 @@
 displaySystem.registerModule({
     name: 'twitter',
-    template: multiline(function() {/*
+    template: `
         <div id="twitter" class="hidden"><span class="container"></span></div>
-    */}),
-    style: multiline(function() {/*
+    `,
+    style: `
         #twitter {
             position: absolute;
             bottom: 0;
@@ -22,7 +22,7 @@ displaySystem.registerModule({
             padding-right: 1.5em;
             font-size: 6vh;
         }
-    */}),
+    `,
     factory: function(config,onMessage) {
 
         var tweetsIndex = {};

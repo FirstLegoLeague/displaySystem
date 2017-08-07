@@ -1,9 +1,9 @@
 displaySystem.registerModule({
     name: 'lowThird',
-    template: multiline(function() {/*
+    template: `
         <div id="lowThird" class="hidden"></div>
-    */}),
-    style: multiline(function() {/*
+    `,
+    style: `
         #lowThird {
             position: absolute;
             left: 0;
@@ -11,7 +11,7 @@ displaySystem.registerModule({
             bottom: 0;
             font-size: 10vh;
         }
-    */}),
+    `,
     factory: function(config, onMessage) {
         var visible = false;
         var timer;

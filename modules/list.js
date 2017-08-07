@@ -1,9 +1,9 @@
 displaySystem.registerModule({
     name: 'list',
-    template: multiline(function() {/*
+    template: `
         <div id="list" class="hidden"></div>
-    */}),
-    style: multiline(function() {/*
+    `,
+    style: `
         #list {
             position: absolute;
             left: 25vw;
@@ -16,7 +16,7 @@ displaySystem.registerModule({
             display: inline-block;
             box-sizing: border-box;
         }
-    */}),
+    `,
     factory: function(config,onMessage) {
         var numberOfLines = 8;
         var pageTimeout = 5000;

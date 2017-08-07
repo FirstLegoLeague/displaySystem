@@ -1,9 +1,9 @@
 displaySystem.registerModule({
     name: 'table',
-    template: multiline(function() {/*
+    template: `
         <table id="table" class="hidden"></table>
-    */}),
-    style: multiline(function() {/*
+    `,
+    style: `
         #table {
             border-collapse: collapse;
             margin: 20vh auto;
@@ -23,7 +23,7 @@ displaySystem.registerModule({
             max-width: 0;
             width: 0;
         }
-    */}),
+    `,
     /*  Add this to the style to cause the second column on each
         row to take the most space. Replace the number 2 in the selector
         for a similar effect on a different column

@@ -1,9 +1,9 @@
 displaySystem.registerModule({
     name: 'clock',
-    template: multiline(function() {/*
+    template: `
         <div id="clock" class="hidden">02:30</div>
-    */}),
-    style: multiline(function() {/*
+    `,
+    style: `
         @import url('fonts/lcd-bold.css');
 
         #clock {
@@ -13,7 +13,7 @@ displaySystem.registerModule({
             color: white;
             font-size: 96px;
         }
-    */}),
+    `,
     factory: function(config) {
         var div;
         var bgColor = 'black';

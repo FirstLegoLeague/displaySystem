@@ -1,9 +1,9 @@
 displaySystem.registerModule({
     name: 'time',
-    template: multiline(function() {/*
+    template: `
         <div id="time" class="hidden">12:00</div>
-    */}),
-    style: multiline(function() {/*
+    `,
+    style: `
         @import url('fonts/lcd-bold.css');
 
         #time {
@@ -13,7 +13,7 @@ displaySystem.registerModule({
             color: white;
             font-size: 96px;
         }
-    */}),
+    `,
     factory: function(config) {
 
         var offset = 0;
