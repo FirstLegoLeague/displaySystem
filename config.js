@@ -89,7 +89,8 @@ displaySystem.config({
         },
         'css': {
             href: [
-                'themes/rednblue/rednblue.css'
+                'themes/rednblue/rednblue.css',
+                // 'themes/rednblue/rednblue-mod-rtl.css'
             ],
             // href: 'themes/default/default.css',
             // gist: '9c7e4efaba9dbbc4831b'

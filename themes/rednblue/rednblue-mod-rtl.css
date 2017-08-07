@@ -1,0 +1,116 @@
+@import url('../fonts/lcd-bold.css');
+
+body {
+    direction: rtl;
+}
+
+/* time definitions */
+#time {
+    left: auto !important;
+    right: 0.5em;
+}
+
+#time {
+    right: -20vw;
+    transform: translate(-20vw);
+    padding-left: 1vh;
+    padding-right: 3vh;
+}
+#time::after {
+    right: auto;
+    left: -2.5vh;
+    border-width: 10vh 0 0 2.5vh;
+}
+
+/* clock */
+#clock {
+    left: 0.5em;
+    right: auto !important;
+}
+
+#clock {
+    left: -20vw;
+    transform: translate(20vw);
+    padding-left: 3vh;
+    padding-right: 0;
+    text-align: left;
+}
+
+#clock::before {
+    left: auto;
+    right: -2.5vh;
+    border-width: 0 2.5vh 10vh 0;
+}
+
+/* list */
+#list .list-row::before {
+    left: auto;
+    right: -1.6vh;
+    border-width: 6.4vh 0 0 1.6vh;
+}
+#list .list-row::after {
+    right: auto;
+    left: -1.6vh;
+    border-width: 6.4vh 0 0 1.6vh;
+}
+#list .list-cell {
+    padding-left: 0;
+    padding-right: 3vh;
+}
+#list .list-cell.number {
+    text-align: right;
+    padding-right: 0;
+    padding-left: 3vh;
+}
+#list .list-head.list-row::before {
+    margin-left: 0;
+    margin-right: -2.8vh;
+    border-width: 0 1.8vh 7.2vh 0;
+}
+#list .list-head.list-row::after {
+    margin-left: -2.8vh;
+    margin-right: 0;
+    border-width: 0 0 7.2vh 1.8vh;
+}
+
+/* table defenitions */
+#table {
+    direction: rtl;
+}
+
+/* lowThird definitions */
+#lowThird .line {
+    padding-left: 0;
+    padding-right: 3vh;
+}
+#lowThird.hidden .line {
+    transform: translate(120%);
+}
+
+#lowThird .line1::after {
+    right: auto;
+    left: -2.5vh;
+    border-width: 10vh 0 0 2.5vh;
+}
+
+#lowThird .line2::after {
+    right: auto;
+    left: -2vh;
+    border-width: 8vh 0 0 2vh;
+}
+
+/* ticker */
+#twitter, #twitter .tweet {
+    -moz-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+    filter: "FlipH";
+    -ms-filter: "FlipH";
+}
+
+#twitter .tweet {
+    display: inline-block;
+    padding-right: inherit !important;
+    padding-left: 1.5em;
+}

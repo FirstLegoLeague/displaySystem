@@ -1,3 +1,5 @@
+@import url('../fonts/lcd-bold.css');
+
 body {
     font-family: verdana, helvetica, sans-serif;
 }
@@ -11,7 +13,7 @@ body {
     left: -20vw;
     transform: translate(20vw);
     background-color: darkblue;
-    font-family: lcdbold;
+    font-family: lcdbold, sans-serif;
     color: white;
     transition: transform 0.3s;
     height: 10vh;
@@ -43,7 +45,7 @@ body {
     right: -20vw;
     transform: translate(-20vw);
     background-color: darkblue;
-    font-family: lcdbold;
+    font-family: lcdbold, sans-serif;
     color: white;
     transition: transform 0.3s;
     height: 10vh;
