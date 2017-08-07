@@ -5,10 +5,7 @@ displaySystem.registerModule({
     `,
     style: `
         #table {
-            border-collapse: collapse;
-            margin: 20vh auto;
             width: calc(100% - 1em);
-            font-size: 5vh;
             color: white;
             background: black;
         }
@@ -72,7 +69,7 @@ displaySystem.registerModule({
             var pageData = data.slice(page*numberOfLines,(page+1)*numberOfLines);
             var head = '';
             if (header) {
-                head = '<tr><th>'+header.join('</th><th>')+'</th></tr>';
+                head = '<thead><tr><th>'+header.join('</th><th>')+'</th></tr></thead>';
             }
 
             var html = pageData.slice(0,numberOfLines).map(function(row) {

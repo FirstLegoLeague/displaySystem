@@ -5,9 +5,7 @@ displaySystem.registerModule({
     `,
     style: `
         #list {
-            margin: 15vh auto;
             width: calc(100% - 1em);
-            font-size: 5vh;
             color: white;
             display: grid;
             grid-auto-columns: auto;
