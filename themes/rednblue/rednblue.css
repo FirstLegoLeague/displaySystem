@@ -191,6 +191,10 @@ body {
     font-size: 5vh;
 }
 
+#table.hidden {
+    display: none;
+}
+
 #table td {
     border: white 1px solid;
 }

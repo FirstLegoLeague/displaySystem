@@ -9,9 +9,6 @@ displaySystem.registerModule({
             color: white;
             background: black;
         }
-        #table.hidden {
-            display: none;
-        }
         #table td {
             text-align: center;
             white-space: nowrap;
