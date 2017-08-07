@@ -2,6 +2,10 @@ body {
     font-family: verdana, helvetica, sans-serif;
 }
 
+.hidden {
+    visibility: inherit;
+}
+
 /* time definitions */
 #time {
     left: -20vw;

@@ -9,6 +9,11 @@ html, body {
     visibility: hidden;
 }
 
+/* hides elements that are supposed to be hidden at least until theme is loaded and overrides the behavior */
+.hidden {
+    visibility: hidden;
+}
+
 .moduleContainer {
     position: absolute;
     left: 0;
