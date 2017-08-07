@@ -41,6 +41,7 @@ Contents
     - [clock](#clock)
     - [time](#time)
     - [list](#list)
+    - [table](#table)
     - [lowThird](#lowthird)
     - [twitter](#twitter)
     - [css](#css)
