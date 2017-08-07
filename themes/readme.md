@@ -4,9 +4,9 @@ Themes
 default
 -----
 
-![default theme screenshot](default.png)
+![default theme screenshot](default/default.png)
 
 rednblue
 -----
 
-![rednblue theme screenshot](rednblue.png)
+![rednblue theme screenshot](default/rednblue.png)

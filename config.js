@@ -88,8 +88,8 @@ displaySystem.config({
             lines: 8
         },
         'css': {
-            href: 'themes/rednblue.css',
-            // href: 'themes/default.css',
+            href: 'themes/rednblue/rednblue.css',
+            // href: 'themes/default/default.css',
             // gist: '9c7e4efaba9dbbc4831b'
         },
         'geometry': {
