@@ -1,3 +1,10 @@
+/**
+ * this is an rtl modifier for the rednblue-plus theme
+ * it is designed to be included with the core theme file
+ *
+ * this all text directions rtl, as well as gradients
+ */
+
 body {
     direction: rtl;
 }
