@@ -68,6 +68,17 @@ displaySystem.config({
             timer: 5000,
             lines: 8
         },
+        'sprite': {
+            // visible: true,
+            sprites: [{
+                width: '100%',
+                top: '3.5vh',
+                fontSize: '8vh',
+                textAlign: 'center',
+                color: 'rgba(255,255,255,0.5)',
+                html: 'FIRST LEGO League'
+            }]
+        },
         'table': {
             // visible: true,
             header: ['team name', 'number', 'score 1', 'score 2'],

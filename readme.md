@@ -7,6 +7,8 @@ Display System, a FirstLegoLeague Module
 
 Display System can be a block in a larger framework of cooperating modules. Read more about it [here](https://github.com/FirstLegoLeague/Coordination/wiki)
 
+However, it can also be used standalone.
+
 ## Display System
 
 ![rednblue theme](themes/rednblue.png)
@@ -38,6 +40,7 @@ Contents
     - [background](#background)
     - [camera](#camera)
     - [gallery](#gallery)
+    - [sprite](#sprite)
     - [clock](#clock)
     - [time](#time)
     - [list](#list)
@@ -397,6 +400,33 @@ mhub topics:
 - `gallery:set` data: `{"index":<number>}`
 - `gallery:load` data: `{"images":[<string>]}`
 - `gallery:pages` data: `{"pages":[<string>]}`
+
+### sprite
+
+Simple individual images or bits of text that can be placed anywhere on the screen. This is useful for displaying watermarks or logos.
+
+To store images online, use any image hosting service, like [imgur](http://imgur.com/), [postimage](https://postimage.io) or [tinypic](http://tinypic.com/)
+
+Configuration options:
+
+- `visible`: initial visibility, defaults to false,
+- `sprites`: an array of objects, containing
+    - `html` (optional): html content of the sprite. This can be text or more elaborate content
+    - `<cssProps>`: any css property to set. For example `left` or `top`. Note that the property names should be camelCased, like `marginLeft`
+
+Exposed api:
+
+- `show()`: show all sprites
+- `hide()`: hide all sprites
+- `showSprite(index)`: show a particular sprite
+- `hideSprite(index)`: hide a particular sprite
+
+mhub topics:
+
+- `gallery:show`
+- `gallery:hide`
+- `gallery:showSprite` data: `{"index":<number>}`
+- `gallery:hideSprite` data: `{"index":<number>}`
 
 ### clock
 
