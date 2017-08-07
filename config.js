@@ -109,6 +109,8 @@ displaySystem.config({
             'f': 'twitter.hide()',
             't': 'list.show()',
             'g': 'list.hide()',
+            'y': 'table.show()',
+            'h': 'table.hide()',
             'c': 'controls.open()',
             // 'c': function() {
             //     window.open('controls.html','fllDisplayControlWindow','resize=yes,width=800,height=350');
