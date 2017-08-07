@@ -15,8 +15,8 @@ body {
         left: auto !important;
         right: -11em;
         transform: translate(-10em);
-        padding-left: 1.5em;
-        padding-right: 0;
+        padding-left: 1.25em;
+        padding-right: 1.25em;
         text-align: left;
     }
     #time::before {

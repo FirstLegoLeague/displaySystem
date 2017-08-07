@@ -21,10 +21,10 @@ body {
         height: 1.2em;
         font-size: 8vh;
         line-height: 1.2em;
-        padding-right: 1.5em;
+        padding-left: 1.25em;
+        padding-right: 1.25em;
         padding-top: 0.05em;
         text-align: right;
-        width: 4.5em;
         box-sizing: border-box;
         color: black;
         text-shadow: 0.05em 0.05em 0.1em rgba(0,0,0,0.5);
