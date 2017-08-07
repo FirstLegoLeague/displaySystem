@@ -206,9 +206,9 @@ Start:
 Send a message:
 
     //*nix
-    mhub-client -n twitter -t twitter:addMessage -d '{"id":123,"user":{"screen_name":"FLL"},"text":"FLL is great"}'
+    mhub-client -n default -t twitter:addMessage -d '{"id":123,"user":{"screen_name":"FLL"},"text":"FLL is great"}'
     //windows
-    mhub-client -n twitter -t twitter:addMessage -d "{""id"":123,""user"":{""screen_name"":""FLL""},""text"":""FLL is great""}"
+    mhub-client -n default -t twitter:addMessage -d "{""id"":123,""user"":{""screen_name"":""FLL""},""text"":""FLL is great""}"
 
 In your `config.js`, make sure you have the following options:
 
@@ -268,7 +268,7 @@ Now test your twitter stream in the console:
 
 This would start streaming live twitter messages in your console. You are now one step away from connecting everything:
 
-    tweet stream lego --json | mhub-client -n twitter -t twitter:addMessage -i json
+    tweet stream lego --json | mhub-client -n default -t twitter:addMessage -i json
 
 This command uses [pipes](http://en.wikipedia.org/wiki/Pipeline_(Unix)) to take the output of the `tweet` utility and *pipe* it into `mhub-client`.
 
@@ -292,14 +292,14 @@ Then make sure that in the mhub-server config (`server.conf.json`), the `time` n
 
 Then pipe it through to an mhub-client instance:
 
-    cli-time -m json -i | mhub-client -n time -t time:set -i json
+    cli-time -m json -i | mhub-client -n default -t time:set -i json
 
 To set the time to 0 and start counting:
 
     //*nix
-    mhub-client -n time -t time:set -d '{"timestamp":"0"}'
+    mhub-client -n default -t time:set -d '{"timestamp":"0"}'
     //windows
-    mhub-client -n time -t time:set -d "{""timestamp"":""0""}"
+    mhub-client -n default -t time:set -d "{""timestamp"":""0""}"
 
 Note that the `"0"` is quoted and it actually means setting the time to Jan 1 2000 at 00:00 in your local timezone.
 
