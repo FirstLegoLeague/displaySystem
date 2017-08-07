@@ -18,11 +18,22 @@ var displaySystem = (function() {
         h.insertBefore(el,h.firstChild);
     }
 
+    function appendToHead(el) {
+        var h = document.getElementsByTagName('head')[0];
+        h.appendChild(el);
+    }
+
     function loadScript(src,onload) {
         var el = document.createElement('script');
         el.src = src;
         el.onload = onload;
-        prependToHead(el);
+        appendToHead(el);
+    }
+
+    function loadCss(src,onLoad) {
+        var el = document.createElement('link');
+        el.href = src;
+        appendToHead(el);
     }
 
     var connected = false;
