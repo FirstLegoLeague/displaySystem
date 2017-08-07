@@ -1,21 +1,29 @@
 displaySystem.registerModule({
     name: 'css',
     factory: function(config) {
-        var el, gistEl;
+        var els = [], gistEl;
 
-        function createElements() {
+        function appendSheet(href) {
             el = document.createElement('link');
             el.rel = 'stylesheet';
+            el.href = href;
             document.head.appendChild(el);
+            return el;
+        }
+
+        function removeSheet(el) {
+            document.head.removeChild(el);
+        }
+
+        function createElements() {
             gistEl = document.createElement('link');
             gistEl.rel = 'stylesheet';
             document.head.appendChild(gistEl);
         }
 
         function setCss(href) {
-            if (href) {
-                el.href = href;
-            }
+            els.forEach(removeSheet);
+            els = [].concat(href).map(appendSheet);
         }
 
         function setGist(id) {

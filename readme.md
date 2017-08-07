@@ -564,7 +564,7 @@ To include custom styling, create a custom stylesheet to override a default styl
 
 Configuration options:
 
-- `href`: url to a stylesheet, can be local, or hosted somewhere
+- `href`: url to a stylesheet, can be local, or hosted somewhere. It can also be an array of stylesheets, which is used for theme modifiers.
 - `gist`: gist id to load alongside the stylesheet, can be used to customize themes
 
 Exposed api:
