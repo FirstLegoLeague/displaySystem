@@ -11,7 +11,7 @@ However, it can also be used standalone.
 
 ## Display System
 
-![rednblue theme](themes/rednblue.png)
+![rednblue-plus theme](themes/rednblue-plus/rednblue-plus.png)
 
 This is a general purpose, configurable system for data display. It currently contains 8 modules, which are explained further on.
 
@@ -675,7 +675,8 @@ Themes can be used by pointing the `css` module configuration to a stylesheet. T
 
 ### Included themes
 
-- `themes/rednblue.css`: a simple red and blue theme with slanted edges
+- `themes/rednblue/rednblue.css`: a simple red and blue theme with slanted edges
+- `themes/rednblue-plus/rednblue-plus.css`: an extra fancy red and blue theme
 
 For screenshots, see the `themes` [folder](themes)
 
