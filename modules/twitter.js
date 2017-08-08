@@ -39,20 +39,22 @@ displaySystem.registerModule({
         var speed = 100;
         var seq = 0;
 
-        function getTwitterDiv() {
+        function getElement() {
             return div?div:(div=document.getElementById('twitter'));
         }
 
         function getContainer() {
-            return container?container:(container = getTwitterDiv().firstChild);
+            return container?container:(container = getElement().firstChild);
         }
 
         function show() {
-            getTwitterDiv().className = '';
+            getElement().classList.remove('hidden');
+            getElement().classList.add('visible');
         }
 
         function hide() {
-            getTwitterDiv().className = 'hidden';
+            getElement().classList.add('hidden');
+            getElement().classList.remove('visible');
         }
 
         //sorting

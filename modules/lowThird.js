@@ -22,20 +22,23 @@ displaySystem.registerModule({
             return document.getElementById('lowThird');
         }
         function persist() {
-            getElement().className = '';
+            getElement().classList.remove('hidden');
+            getElement().classList.add('visible');
             visible = true;
             if (timer) {
                 clearTimeout(timer);
                 timer = null;
             }
         }
+
         function show() {
             persist();
             timer = setTimeout(hide,5000);
         }
         function hide() {
             visible = false;
-            getElement().className = 'hidden';
+            getElement().classList.add('hidden');
+            getElement().classList.remove('visible');
         }
         function setText(line1,line2) {
             line1text = line1||line1text;

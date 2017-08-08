@@ -46,10 +46,12 @@ displaySystem.registerModule({
         }
         function show() {
             getElement().classList.remove('hidden');
+            getElement().classList.add('visible');
             start();
         }
         function hide() {
             getElement().classList.add('hidden');
+            getElement().classList.remove('visible');
             stop();
         }
 

@@ -87,14 +87,16 @@ displaySystem.registerModule({
         }
 
         function show() {
-            getElement().className = '';
+            getElement().classList.remove('hidden');
+            getElement().classList.add('visible');
             if (config.timeout && !timer) {
                 timer = window.setInterval(next,config.timeout * 1000);
             }
         }
 
         function hide() {
-            getElement().className = 'hidden';
+            getElement().classList.add('hidden');
+            getElement().classList.remove('visible');
             if (timer) {
                 window.clearInterval(timer);
                 timer = null;
