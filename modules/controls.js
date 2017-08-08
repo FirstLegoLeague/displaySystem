@@ -36,17 +36,11 @@ displaySystem.registerModule({
             system.ws.sendMessage({name:name},action,data);
         }
 
-        function renderModuleControls(name, document) {
-            var module = system.modules[name];
-            if (module.hidden) {
-                return;
-            }
-            var p = document.createElement('p');
-            p.innerHTML = '<label>'+name+'</label>';
-            Object.keys(module).forEach(function(fn) {
+        function renderModule(module, name, container) {
+            return (fn) => {
                 var f = module[fn];
                 if (typeof f === 'function' && !f.hidden) {
-                    var s = p.appendChild(document.createElement('span'));
+                    var s = container.appendChild(document.createElement('span'));
                     var args = getArguments(f);
                     var inps = args.map(createInput);
                     var btn = document.createElement('button');
@@ -64,7 +58,17 @@ displaySystem.registerModule({
                     inps.forEach(appendTo(s));
                     s.appendChild(btn);
                 }
-            });
+            }
+        }
+
+        function renderModuleControls(name, document) {
+            var module = system.modules[name];
+            if (module.hidden) {
+                return;
+            }
+            var p = document.createElement('p');
+            p.innerHTML = '<label>'+name+'</label>';
+            Object.keys(module).forEach(renderModule(module, name, p));
             document.body.appendChild(p);
         }
 
