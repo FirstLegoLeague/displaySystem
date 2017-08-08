@@ -36,6 +36,19 @@ displaySystem.registerModule({
             system.ws.sendMessage({name:name},action,data);
         }
 
+        function handleButton(module, f, inputs) {
+            return () => {
+                var data = inputs.map(getValue);
+                if (system.ws) {
+                    //handle via websocket
+                    sendMessage(name,fn,args,data);
+                } else {
+                    //handle directly
+                    f.apply(module,data);
+                }
+            }
+        }
+
         function renderModule(module, name, container) {
             return (fn) => {
                 var f = module[fn];
@@ -45,16 +58,7 @@ displaySystem.registerModule({
                     var inps = args.map(createInput);
                     var btn = document.createElement('button');
                     btn.innerHTML = fn;
-                    btn.addEventListener('click',function() {
-                        var data = inps.map(getValue);
-                        if (system.ws) {
-                            //handle via websocket
-                            sendMessage(name,fn,args,data);
-                        } else {
-                            //handle directly 
-                            f.apply(module,data);
-                        }
-                    });
+                    btn.addEventListener('click', handleButton(module, f, inps));
                     inps.forEach(appendTo(s));
                     s.appendChild(btn);
                 }
