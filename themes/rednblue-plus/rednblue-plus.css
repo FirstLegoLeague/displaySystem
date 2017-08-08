@@ -26,7 +26,7 @@ img.emojione {
         font-size: 8vh;
         line-height: 1.2em;
         padding-left: 1.25em;
-        padding-right: 1.25em;
+        padding-right: 0.5em;
         padding-top: 0.05em;
         text-align: right;
         box-sizing: border-box;
@@ -48,31 +48,6 @@ img.emojione {
         border-radius: 0.5em / 1em;
         transition: all 1s;
         z-index: -1;
-    }
-    #time::after {
-        background: linear-gradient(to right,
-            transparent 0%,
-            transparent 84%,
-            crimson 85%,
-            crimson 89%,
-            white 90%,
-            white 94%,
-            darkblue 95%,
-            darkblue 100%
-        );
-        /*border: 0.05em solid rgba(255,255,255,0.5);*/
-        box-sizing: border-box;
-        transform: skew(-20deg);
-        content: '';
-        position: absolute;
-        right: 0;
-        top: 0;
-        height: 100%;
-        width: 100%;
-        border-radius: 0.5em / 1em;
-        z-index: -1;
-        border-top-left-radius: 0;
-        border-bottom-left-radius: 0;
     }
 
     #time.hidden {
