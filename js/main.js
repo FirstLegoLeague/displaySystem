@@ -32,6 +32,7 @@ var displaySystem = (function() {
 
     function loadCss(src,onLoad) {
         var el = document.createElement('link');
+        el.rel = 'stylesheet';
         el.href = src;
         appendToHead(el);
     }
@@ -227,9 +228,11 @@ var displaySystem = (function() {
 
     system = {
         config: setConfig,
-        registerModule: registerModule,
-        modules: modules,
-        definitions: moduleDefs
+        registerModule,
+        modules,
+        definitions: moduleDefs,
+        loadScript,
+        loadCss
     };
 
     return system;

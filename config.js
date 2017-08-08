@@ -46,7 +46,7 @@ displaySystem.config({
         },
         'lowThird': {
             visible: true,
-            line1: 'press \'C\'',
+            line1: '❤️ press \'C\'',
             line2: 'to show the control window',
         },
         'list': {
@@ -137,6 +137,10 @@ displaySystem.config({
         },
         'controls': {
             //url: <your own control window>
+        },
+        'emojione': {
+            // displays emoji characters
+            selector: '.line1, .list-cell, .tweet'
         }
     },
     //path to the modules, can even be a full url

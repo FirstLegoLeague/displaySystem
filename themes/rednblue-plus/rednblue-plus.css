@@ -9,6 +9,10 @@ body {
     font-family: benchnineregular, verdana, helvetica, sans-serif;
 }
 
+img.emojione {
+    height: 1em;
+}
+
 /* time definitions */
 @media screen {
     #time {
