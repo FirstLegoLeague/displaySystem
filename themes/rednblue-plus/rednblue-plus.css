@@ -215,7 +215,7 @@ img.emojione {
 
 @keyframes swirl {
     from {
-        transform: scale(4,1) translate(20vh, 10vh) rotate(45deg);
+        transform: scale(3,1) translate(5vh, 10vh) rotate(30deg);
     }
     20% {
         transform: scale(1,2) translate(-20vh, -8vh) rotate(-3deg);
@@ -224,7 +224,7 @@ img.emojione {
         transform: scale(2,2) translate(10vh, 0vh) rotate(-10deg);
     }
     to {
-        transform: scale(4,1) translate(20vh, 10vh) rotate(45deg);
+        transform: scale(3,1) translate(5vh, 10vh) rotate(30deg);
     }
 }
 
