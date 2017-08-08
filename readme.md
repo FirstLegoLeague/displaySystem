@@ -675,7 +675,6 @@ Themes can be used by pointing the `css` module configuration to a stylesheet. T
 
 ### Included themes
 
-- `themes/default.css`: a colorful default theme that can be used to create your own
 - `themes/rednblue.css`: a simple red and blue theme with slanted edges
 
 For screenshots, see the `themes` [folder](themes)

@@ -1,10 +1,8 @@
 Themes
 ======
 
-default
 -----
 
-![default theme screenshot](default/default.png)
 
 rednblue
 -----
