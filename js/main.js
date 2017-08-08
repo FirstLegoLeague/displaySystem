@@ -9,7 +9,6 @@ var displaySystem = (function() {
 
     function setConfig(_config) {
         config = _config;
-        closeCurtain();
         setTimeout(init,0);
     }
 
@@ -175,20 +174,11 @@ var displaySystem = (function() {
             pending.forEach(function(module) {
                 initializeModule(module.def);
             });
-            openCurtain();
         }
     }
 
     function registerModule(def) {
         lastModule = def;
-    }
-
-    function closeCurtain(){
-        document.body.classList.add('curtain');
-    }
-
-    function openCurtain(){
-        document.body.classList.remove('curtain');
     }
 
     function initializeModule(def) {

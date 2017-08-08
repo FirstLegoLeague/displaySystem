@@ -4,8 +4,8 @@ html, body {
     margin: 0;
     padding: 0;
 }
-/* hides screen during initialization */
-.curtain {
+/* hides screen during initialization, overridden in themes */
+body {
     visibility: hidden;
 }
 
