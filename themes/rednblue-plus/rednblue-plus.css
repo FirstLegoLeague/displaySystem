@@ -268,6 +268,7 @@ img.emojione {
         box-sizing: border-box;
         position: relative;
         padding-left: 8vh;
+        padding-top: 0.05em;
         overflow: hidden;
     }
     #lowThird.hidden .line {
@@ -281,6 +282,7 @@ img.emojione {
         font-size: 8vh;
         height: 10vh;
         line-height: 10vh;
+        z-index: 2;
     }
     #lowThird .line1::before {
         content: '';
@@ -341,26 +343,33 @@ img.emojione {
 @media screen {
 
 }
-#twitter {
-    font-size: 6vh;
-    padding: 0.2em;
-    background: linear-gradient(to right, rgba(0,0,139,0.9) 0%,rgba(0,0,139,0.7) 100%);
-    border-top: 0.05em solid rgba(255,255,255,0.5);
-    color: white;
-    transition: bottom 0.3s;
-}
 
-#twitter.hidden {
-    bottom: -4em;
-}
+@media screen {
+    #twitter {
+        font-size: 6vh;
+        height: 1.2em;
+        padding: 0.2em;
+        background: linear-gradient(to right, rgba(0,0,139,0.9) 0%,rgba(0,0,139,0.7) 100%);
+        border-top: 0.05em solid rgba(255,255,255,0.5);
+        color: white;
+        transition: bottom 0.3s;
+    }
 
-#twitter .tweet {
-    font-size: 6vh;
-}
+    #twitter.hidden {
+        bottom: -4em;
+    }
 
-#twitter .author {
-    font-weight: bold;
-}
+    #twitter .tweet {
+        font-size: 6vh;
+        line-height: 1.2em;
+        height: 1.2em;
+        padding-top: 0.05em;
+    }
 
-#twitter .message {
+    #twitter .author {
+        font-weight: bold;
+    }
+
+    #twitter .message {
+    }
 }
