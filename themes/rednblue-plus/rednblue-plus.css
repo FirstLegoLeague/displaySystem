@@ -109,7 +109,6 @@ img.emojione {
 @media screen {
     #table {
         color: white;
-        /*background: darkblue;*/
         background: linear-gradient(to right, rgba(0,0,139,0.9) 0%,rgba(0,0,139,0.7) 100%);
         border: 0.05em solid rgba(255,255,255,0.5);
         border-radius: 0.5em / 1em;
@@ -120,8 +119,8 @@ img.emojione {
         margin: 15vh auto;
         overflow: hidden;
         font-size: 5vh;
-        opacity: 1;
-        transition: opacity 1s;
+        opacity: 0;
+        transition: all 1s;
     }
     #table thead tr {
         background: linear-gradient(to bottom, rgba(255,255,255,1) 0%,rgba(214,214,214,0.8) 100%);
@@ -134,7 +133,9 @@ img.emojione {
     }
     #table.hidden {
         opacity: 0;
-        visibility: visible;
+    }
+    #table.visible {
+        opacity: 1;
     }
 }
 

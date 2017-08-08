@@ -4,8 +4,8 @@ body {
     font-family: verdana, helvetica, sans-serif;
 }
 
-.hidden {
-    visibility: inherit;
+img.emojione {
+    height: 1em;
 }
 
 /* time definitions */
@@ -87,7 +87,7 @@ body {
 /* list */
 #list {
     opacity: 1;
-    transition: opacity 0.3s;
+    transition: all 0.3s;
     margin: 15vh auto;
     font-size: 5vh;
 }
