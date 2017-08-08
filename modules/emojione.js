@@ -19,7 +19,6 @@ displaySystem.registerModule({
                     record.addedNodes.forEach(node => {
                         if (node.matches && node.matches(config.selector)) {
                             convertNode(node);
-                            console.log(node);
                         }
                     })
                 })
