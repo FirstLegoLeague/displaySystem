@@ -28,6 +28,7 @@ body {
         font-family: verdana, helvetica, sans-serif;
         font-size: 12px;
         padding: 12px;
+        visibility: visible;
     }
     body.controls .instructions {
         text-align: right;
