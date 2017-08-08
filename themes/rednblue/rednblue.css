@@ -16,7 +16,7 @@ img.emojione {
     background-color: darkblue;
     font-family: lcdbold, sans-serif;
     color: white;
-    transition: transform 0.3s;
+    transition: transform 0.3s, visibility 0.3s;
     height: 10vh;
     font-size: 8vh;
     line-height: 12vh;
@@ -48,7 +48,7 @@ img.emojione {
     background-color: darkblue;
     font-family: lcdbold, sans-serif;
     color: white;
-    transition: transform 0.3s;
+    transition: transform 0.3s, visibility 0.3s;
     height: 10vh;
     font-size: 8vh;
     line-height: 12vh;
@@ -209,7 +209,7 @@ img.emojione {
 #lowThird .line {
     color: white;
     padding-left: 3vh;
-    transition: transform 0.3s;
+    transition: transform 0.3s, visibility 0.3s;
     transform: translate(0);
     box-sizing: border-box;
     position: relative;
@@ -270,7 +270,7 @@ img.emojione {
     padding: 0.2em;
     background-color: darkblue;
     color: white;
-    transition: bottom 0.3s;
+    transition: bottom 0.3s, visibility 0.3s;
 }
 
 #twitter.hidden {

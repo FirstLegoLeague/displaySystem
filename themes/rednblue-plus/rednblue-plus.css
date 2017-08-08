@@ -329,7 +329,7 @@ img.emojione {
         background: linear-gradient(to right, rgba(0,0,139,0.9) 0%,rgba(0,0,139,0.7) 100%);
         border-top: 0.05em solid rgba(255,255,255,0.5);
         color: white;
-        transition: bottom 0.3s;
+        transition: bottom 0.3s, visibility 0.3s;
     }
 
     #twitter.hidden {
