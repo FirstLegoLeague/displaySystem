@@ -4,12 +4,17 @@ html, body {
     margin: 0;
     padding: 0;
 }
+
+
 /* hides screen during initialization, overridden in themes */
+
 body {
     visibility: hidden;
 }
 
+
 /* hides elements that are supposed to be hidden at least until theme is loaded and overrides the behavior */
+
 .hidden {
     visibility: hidden;
 }
@@ -22,7 +27,9 @@ body {
     bottom: 0;
 }
 
+
 /* control window */
+
 @media screen {
     body.controls {
         font-family: verdana, helvetica, sans-serif;
@@ -41,8 +48,7 @@ body {
         display: inline-block;
         white-space: nowrap;
     }
-    body.controls input,
-    body.controls textarea {
+    body.controls input, body.controls textarea {
         width: 75px;
         border: 1px solid silver;
         border-right: none;
@@ -56,4 +62,38 @@ body {
     body.controls button {
         margin-right: 4px;
     }
+}
+
+tr{
+    padding-left: 1em;
+    padding-right: 1em;
+}
+
+table#table td:first-child {
+    width: 4%;
+}
+
+table#table td:nth-child(2) {
+    width: 7%;
+}
+
+table#table td:nth-child(4) {
+    width: 7%;
+}
+
+table#table td:nth-child(5) {
+    width: 7%;
+}
+
+table#table td:nth-child(6) {
+    width: 7%;
+}
+
+table#table td:nth-child(7) {
+    width: 7%;
+}
+
+table td {
+    border-left: 1px solid #000;
+    border-right: 1px solid #000;
 }
