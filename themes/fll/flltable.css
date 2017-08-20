@@ -14,7 +14,9 @@ img.emojione {
     height: 1em;
 }
 
+
 /* time definitions */
+
 @media screen {
     #time {
         left: -11em;
@@ -32,7 +34,7 @@ img.emojione {
         text-align: right;
         box-sizing: border-box;
         color: black;
-        text-shadow: 0.05em 0.05em 0.1em rgba(0,0,0,0.5);
+        text-shadow: 0.05em 0.05em 0.1em rgba(0, 0, 0, 0.5);
     }
     #time::before {
         content: '';
@@ -41,22 +43,23 @@ img.emojione {
         position: absolute;
         left: 0;
         top: 0;
-        background: linear-gradient(to right, rgba(0,0,139,0.9) 0%,rgba(0,0,139,0.7) 100%);
-        background: linear-gradient(to bottom, rgba(255,255,255,1) 0%,rgba(214,214,214,0.8) 100%);
+        background: linear-gradient(to right, rgba(0, 0, 139, 0.9) 0%, rgba(0, 0, 139, 0.7) 100%);
+        background: linear-gradient(to bottom, rgba(255, 255, 255, 1) 0%, rgba(214, 214, 214, 0.8) 100%);
         box-sizing: border-box;
-        border: 0.05em solid rgba(255,255,255,0.5);
+        border: 0.05em solid rgba(255, 255, 255, 0.5);
         transform: skew(-20deg);
         border-radius: 0.5em / 1em;
         transition: all 1s;
         z-index: -1;
     }
-
     #time.hidden {
         transform: translate(0);
     }
 }
 
+
 /* clock */
+
 @media screen {
     #clock {
         right: -11em;
@@ -75,9 +78,8 @@ img.emojione {
         width: 3.5em;
         box-sizing: border-box;
         color: black;
-        text-shadow: 0.05em 0.05em 0.1em rgba(0,0,0,0.5);
+        text-shadow: 0.05em 0.05em 0.1em rgba(0, 0, 0, 0.5);
     }
-
     #clock::before {
         content: '';
         width: 100%;
@@ -85,52 +87,54 @@ img.emojione {
         position: absolute;
         left: 0;
         top: 0;
-        background: linear-gradient(to bottom, rgba(255,255,255,1) 0%,rgba(214,214,214,0.8) 100%);
+        background: linear-gradient(to bottom, rgba(255, 255, 255, 1) 0%, rgba(214, 214, 214, 0.8) 100%);
         box-sizing: border-box;
-        border: 0.05em solid rgba(255,255,255,0.5);
+        border: 0.05em solid rgba(255, 255, 255, 0.5);
         transform: skew(-20deg);
         border-radius: 0.5em / 1em;
         transition: all 1s;
         z-index: -1;
     }
-
     #clock.hidden {
         transform: translate(0);
     }
-
     #clock.stopped::before {
-        background: linear-gradient(to bottom, rgba(237,20,61,1) 0%,rgba(237,20,61,0.8) 100%);
+        background: linear-gradient(to bottom, rgba(237, 20, 61, 1) 0%, rgba(237, 20, 61, 0.8) 100%);
     }
     #clock.armed {
         color: crimson;
     }
 }
 
+
 /* table definitions */
+
 @media screen {
     #table {
         color: white;
-        background: linear-gradient(to right, rgba(0,0,139,0.9) 0%,rgba(0,0,139,0.7) 100%);
-        border: 0.05em solid rgba(255,255,255,0.5);
+        background: linear-gradient(to right, rgba(0, 0, 139, 0.9) 0%, rgba(0, 0, 139, 0.7) 100%);
+        border: 0.05em solid rgba(255, 255, 255, 0.5);
         border-radius: 0.5em / 1em;
-        text-shadow: 0.05em 0.05em 0.1em rgba(0,0,0,1);
+        text-shadow: 0.05em 0.05em 0.1em rgba(0, 0, 0, 1);
         text-transform: uppercase;
         line-height: 1.2em;
         border-spacing: 0;
         margin: 20vh auto;
         overflow: hidden;
-        font-size: 5vh;
+        font-size: 4vh;
         opacity: 0;
         transition: all 1s;
     }
     #table thead tr {
-        background: linear-gradient(to bottom, rgba(255,255,255,1) 0%,rgba(214,214,214,0.8) 100%);
+        background: linear-gradient(to bottom, rgba(255, 255, 255, 1) 0%, rgba(214, 214, 214, 0.8) 100%);
         color: black;
-        text-shadow: 0.05em 0.05em 0.1em rgba(0,0,0,0.5);
+        text-shadow: 0.05em 0.05em 0.1em rgba(0, 0, 0, 0.5);
     }
-    #table th,
-    #table td {
-        border-bottom: 1px solid rgba(255,255,255,0.5);
+    #table th{
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+    #table th, #table td {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.5);
     }
     #table.hidden {
         opacity: 0;
@@ -138,22 +142,81 @@ img.emojione {
     #table.visible {
         opacity: 1;
     }
+    tr {
+        padding-left: 1em;
+        padding-right: 1em;
+    }
+    table#table td:first-child {
+        width: 4%;
+    }
+    table#table td:nth-child(2) {
+        width: 7%;
+    }
+    table#table td:nth-child(3) {
+        text-align: left;
+    }
+    table#table td:nth-child(4) {
+        width: 3.5em;
+        font-size: 4.5vh;
+        font-weight: bold;
+        color: #1cce1e;
+    }
+    table#table td:nth-child(5) {
+        width: 2.8em;
+    }
+    table#table td:nth-child(6) {
+        width: 2.8em;
+    }
+    table#table td:nth-child(7) {
+        width: 2.8em;
+    }
+    table td {
+        border-left: 1px solid #000;
+        border-right: 1px solid #000;
+    }
 }
 
+#FIRST {
+    width: 100%;
+    top: 1.5vh;
+    font-size: 8vh;
+    text-align: left;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+#challenge {
+    width: 100%;
+    top: 0.5vh;
+    font-size: 8vh;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+#LEGOEd {
+    width: 100%;
+    top: 3.5vh;
+    font-size: 8vh;
+    right: 0.5vh;
+    text-align: right;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+
 /* list */
+
 @media screen {
     #list {
         color: white;
-        text-shadow: 0.05em 0.05em 0.1em rgba(0,0,0,1);
+        text-shadow: 0.05em 0.05em 0.1em rgba(0, 0, 0, 1);
         text-transform: uppercase;
         line-height: 1.2em;
         font-size: 5vh;
         margin: 15vh auto;
     }
     #list .list-row {
-        background-color: rgba(0,0,139,1);
-        background: linear-gradient(to right, rgba(0,0,139,0.9) 0%,rgba(0,0,139,0.7) 100%);
-        border: 0.05em solid rgba(255,255,255,0.5);
+        background-color: rgba(0, 0, 139, 1);
+        background: linear-gradient(to right, rgba(0, 0, 139, 0.9) 0%, rgba(0, 0, 139, 0.7) 100%);
+        border: 0.05em solid rgba(255, 255, 255, 0.5);
         transform: skew(-20deg);
         border-radius: 0.5em / 1em;
         transition: all 1s;
@@ -164,19 +227,20 @@ img.emojione {
         transition: all 1s;
         padding-left: 1em;
         padding-right: 1em;
-        padding-top: 0.15em; /* benchnine uppercase is slighly off center */
+        padding-top: 0.15em;
+        /* benchnine uppercase is slighly off center */
         white-space: nowrap;
     }
     #list .list-cell.number {
         text-align: right;
     }
     #list .list-head.list-row {
-        background: linear-gradient(to bottom, rgba(255,255,255,1) 0%,rgba(214,214,214,0.8) 100%);
+        background: linear-gradient(to bottom, rgba(255, 255, 255, 1) 0%, rgba(214, 214, 214, 0.8) 100%);
         opacity: 1;
     }
     #list .list-head.list-cell {
         color: black;
-        text-shadow: 0.05em 0.05em 0.1em rgba(0,0,0,0.5);
+        text-shadow: 0.05em 0.05em 0.1em rgba(0, 0, 0, 0.5);
         font-size: 6vh;
         line-height: 1.2em;
         text-align: center;
@@ -217,20 +281,22 @@ img.emojione {
 
 @keyframes swirl {
     from {
-        transform: scale(3,1) translate(5vh, 10vh) rotate(30deg);
+        transform: scale(3, 1) translate(5vh, 10vh) rotate(30deg);
     }
     20% {
-        transform: scale(1,2) translate(-20vh, -8vh) rotate(-3deg);
+        transform: scale(1, 2) translate(-20vh, -8vh) rotate(-3deg);
     }
     60% {
-        transform: scale(2,2) translate(10vh, 0vh) rotate(-10deg);
+        transform: scale(2, 2) translate(10vh, 0vh) rotate(-10deg);
     }
     to {
-        transform: scale(3,1) translate(5vh, 10vh) rotate(30deg);
+        transform: scale(3, 1) translate(5vh, 10vh) rotate(30deg);
     }
 }
 
+
 /* lowThird definitions */
+
 @media screen {
     #lowThird {
         background: none;
@@ -251,7 +317,6 @@ img.emojione {
     #lowThird.hidden .line {
         transform: translate(-120%);
     }
-
     /* used ceaser to create custom easing functions: http://matthewlein.com/ceaser/ */
     #lowThird .line1 {
         width: 80%;
@@ -269,8 +334,8 @@ img.emojione {
         position: absolute;
         left: 0;
         top: 0;
-        background: linear-gradient(to right, rgba(0,0,139,0.9) 0%,rgba(0,0,139,0.7) 100%);
-        border: 0.05em solid rgba(255,255,255,0.5);
+        background: linear-gradient(to right, rgba(0, 0, 139, 0.9) 0%, rgba(0, 0, 139, 0.7) 100%);
+        border: 0.05em solid rgba(255, 255, 255, 0.5);
         transform: skew(-20deg);
         border-radius: 0.5em / 1em;
         transition: all 1s;
@@ -282,7 +347,7 @@ img.emojione {
         width: 20vh;
         height: 40vh;
         border-radius: 50%;
-        border: 2px solid rgba(255,255,255,0.2);
+        border: 2px solid rgba(255, 255, 255, 0.2);
         border-width: 1vh 0.5vh;
         top: 50%;
         margin-top: -20vh;
@@ -290,7 +355,6 @@ img.emojione {
         margin-left: -10vh;
         animation: 40s linear infinite normal swirl;
     }
-
     #lowThird .line2 {
         width: 70%;
         transition-timing-function: cubic-bezier(1.000, 0.000, 0.695, 1.000);
@@ -298,7 +362,6 @@ img.emojione {
         height: 8vh;
         line-height: 8vh;
     }
-
     #lowThird .line2::before {
         content: '';
         width: 99%;
@@ -307,8 +370,8 @@ img.emojione {
         position: absolute;
         left: 0;
         top: 0;
-        background: linear-gradient(to right, rgba(237,20,61,0.9) 0%,rgba(237,20,61,0.7) 100%);
-        border: 0.05em solid rgba(255,255,255,0.5);
+        background: linear-gradient(to right, rgba(237, 20, 61, 0.9) 0%, rgba(237, 20, 61, 0.7) 100%);
+        border: 0.05em solid rgba(255, 255, 255, 0.5);
         transform: skew(-20deg);
         border-radius: 0.5em / 1em;
         transition: all 1s;
@@ -316,37 +379,32 @@ img.emojione {
     }
 }
 
-/* ticker */
-@media screen {
 
-}
+/* ticker */
+
+@media screen {}
 
 @media screen {
     #twitter {
         font-size: 6vh;
         height: 1.2em;
         padding: 0.2em;
-        background: linear-gradient(to right, rgba(0,0,139,0.9) 0%,rgba(0,0,139,0.7) 100%);
-        border-top: 0.05em solid rgba(255,255,255,0.5);
+        background: linear-gradient(to right, rgba(0, 0, 139, 0.9) 0%, rgba(0, 0, 139, 0.7) 100%);
+        border-top: 0.05em solid rgba(255, 255, 255, 0.5);
         color: white;
         transition: bottom 0.3s, visibility 0.3s;
     }
-
     #twitter.hidden {
         bottom: -4em;
     }
-
     #twitter .tweet {
         font-size: 6vh;
         line-height: 1.2em;
         height: 1.2em;
         padding-top: 0.05em;
     }
-
     #twitter .author {
         font-weight: bold;
     }
-
-    #twitter .message {
-    }
+    #twitter .message {}
 }

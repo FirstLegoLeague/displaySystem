@@ -8,17 +8,17 @@ displaySystem.config({
     //modules, order determines z stacking
     modules: {
         'background': {
-            // visible: false
+            visible: false,
             color: 'black',
             //optional chromakey background color
             // color: "lime",
         },
         'camera': {
-            // visible: true,
+            visible: false,
             // audio: true,
         },
         'gallery': {
-            visible: true,
+            visible: false,
             transition: 'fade',
             size: 'cover',
             timeout: 4,
@@ -33,11 +33,11 @@ displaySystem.config({
             ],
         },
         'clock': {
-            visible: true,
+            visible: false,
             // countdown: 20,
         },
         'time': {
-            visible: true,
+            visible: false,
             // format: "MM:ss",
         },
         'twitter': {
@@ -45,7 +45,7 @@ displaySystem.config({
             // speed: 500,
         },
         'lowThird': {
-            visible: true,
+            visible: false,
             line1: '❤️ press \'C\'',
             line2: 'to show the control window',
         },
@@ -53,54 +53,83 @@ displaySystem.config({
             // visible: true,
             header: 'results round 1',
             data: [
-                ['🇳🇱 just try',1],
-                ['🇳🇱 to copy',2],
-                ['🇪🇬 and paste',3],
-                ['🇪🇬 some cells',4],
-                ['🇪🇬 from excel',5],
-                ['🇺🇸 into the control',6],
-                ['🇺🇸 window! You\'ll be',7],
-                ['🇺🇸 amazed!',8],
-                ['🇳🇱 It even has',8],
-                ['🇳🇱 automatic',8],
-                ['🇳🇱 paging',8],
+                ['🇳🇱 just try', 1],
+                ['🇳🇱 to copy', 2],
+                ['🇪🇬 and paste', 3],
+                ['🇪🇬 some cells', 4],
+                ['🇪🇬 from excel', 5],
+                ['🇺🇸 into the control', 6],
+                ['🇺🇸 window! You\'ll be', 7],
+                ['🇺🇸 amazed!', 8],
+                ['🇳🇱 It even has', 8],
+                ['🇳🇱 automatic', 8],
+                ['🇳🇱 paging', 8],
             ],
             timer: 5000,
             lines: 8
         },
         'sprite': {
-            // visible: true,
+            visible: true,
             sprites: [{
+                id:'FIRST',
+                
+                html: '<img style="width:6.8em; margin-left:5vh;" src="http://10.100.102.8:8080/firstLegoLeague" />'
+
+            },
+            {
+                id:'challenge',
+                // width: '100%',
+                // top: '0.5vh',
+                // fontSize: '8vh',
+                // textAlign: 'center',
+                // color: 'rgba(255,255,255,0.5)',
+                html: '<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXP0i9vQkJbGukXsb0NsCQGyHVzp24Eb5d2HBd2FO7g46Dit9cfmEW53U" />'
+
+            }, {
+                id:'LEGOEd',
+                html: '<img style="width:7.1em; margin-right:5vh;" src="https://lc-www-live-s.legocdn.com/r/www/r/careers/-/media/careers/images/logo/legoeducationlogo.png?l.r2=553377664" />'
+
+            },
+            {
                 width: '100%',
-                top: '3.5vh',
+                bottom: '0.5vh',
                 fontSize: '8vh',
-                textAlign: 'center',
+                textAlign: 'left',
                 color: 'rgba(255,255,255,0.5)',
-                html: 'FIRST LEGO League'
+                html: '<img style="width:6.1em; margin-left:5vh;" src="http://10.100.102.8:8080/sponsor1" />'
+
+            }, {
+                width: '100%',
+                bottom: '0.5vh',
+                fontSize: '8vh',
+                textAlign: 'right',
+                color: 'rgba(255,255,255,0.5)',
+                html: '<img style="width:6.1em; margin-right:5vh;" src="http://10.100.102.8:8080/sponsor2" />'
+
             }]
         },
         'table': {
-            // visible: true,
+            visible: true,
             header: ['team name', 'number', 'score 1', 'score 2'],
             data: [
-                ['yuby',1, 100, 167],
-                ['ahgf',2, 120, 198],
-                ['butny',3, 10, 387],
-                ['batey',4, 140, 243],
-                ['meroy',5, 101, 543],
-                ['marnc',6, 123, 198],
-                ['arben',7, 189, 123],
-                ['opic',8, 203, 431],
-                ['poner',9, 403, 142],
-                ['notar',10, 257, 289],
-                ['serminc',11, 143, 365],
+                ['yuby', 1, 100, 167],
+                ['ahgf', 2, 120, 198],
+                ['butny', 3, 10, 387],
+                ['batey', 4, 140, 243],
+                ['meroy', 5, 101, 543],
+                ['marnc', 6, 123, 198],
+                ['arben', 7, 189, 123],
+                ['opic', 8, 203, 431],
+                ['poner', 9, 403, 142],
+                ['notar', 10, 257, 289],
+                ['serminc', 11, 143, 365],
             ],
             timer: 10000,
             lines: 8
         },
         'css': {
             href: [
-                'themes/rednblue-plus/rednblue-plus.css',
+                'themes/fll/flltable.css',
                 // 'themes/rednblue-plus/rednblue-plus-mod-rtl.css',
                 // 'themes/rednblue-plus/rednblue-plus-mod-opaque.css'
             ],
@@ -115,7 +144,7 @@ displaySystem.config({
             zoom: 1,
             aspect: 'native',
             rotation: 0,
-            overscan: [0,0,0,0]
+            overscan: [0, 0, 0, 0]
         },
         'keybindings': {
             'q': 'time.show()',

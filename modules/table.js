@@ -28,6 +28,7 @@ displaySystem.registerModule({
         }
     */
     factory: function (config, onMessage) {
+        
         var numberOfLines = 8;
         var pageTimeout = 5000;
         var pageTimer;

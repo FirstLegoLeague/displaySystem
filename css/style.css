@@ -6,6 +6,7 @@ html, body {
 }
 
 
+
 /* hides screen during initialization, overridden in themes */
 
 body {
@@ -62,38 +63,4 @@ body {
     body.controls button {
         margin-right: 4px;
     }
-}
-
-tr{
-    padding-left: 1em;
-    padding-right: 1em;
-}
-
-table#table td:first-child {
-    width: 4%;
-}
-
-table#table td:nth-child(2) {
-    width: 7%;
-}
-
-table#table td:nth-child(4) {
-    width: 7%;
-}
-
-table#table td:nth-child(5) {
-    width: 7%;
-}
-
-table#table td:nth-child(6) {
-    width: 7%;
-}
-
-table#table td:nth-child(7) {
-    width: 7%;
-}
-
-table td {
-    border-left: 1px solid #000;
-    border-right: 1px solid #000;
 }

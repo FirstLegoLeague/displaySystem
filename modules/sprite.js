@@ -8,7 +8,7 @@ displaySystem.registerModule({
             position: absolute;
         }
     `,
-    factory: function(config,onMessage) {
+    factory: function (config, onMessage) {
         var sprites = [];
 
         function getElement() {
@@ -40,9 +40,15 @@ displaySystem.registerModule({
         function addSprite(config) {
             let sprite = document.createElement('div');
             sprite.className = 'sprite';
+
             sprite.innerHTML = config.html || '';
             Object.keys(config).forEach((key) => {
-                sprite.style[key] = config[key];
+                if (key === "id") {
+                    sprite.id = config[key];
+                } else {
+                    sprite.style[key] = config[key];
+                }
+
             });
             getElement().appendChild(sprite);
             return sprite;
@@ -52,7 +58,9 @@ displaySystem.registerModule({
             sprites.forEach(removeSprite);
             sprites = configSprites.map(addSprite);
         }
-
+        if (config.data) {
+            sprites = config.data;
+        }
         if (config.sprites) {
             set(config.sprites);
         }
