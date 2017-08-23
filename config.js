@@ -70,59 +70,47 @@ displaySystem.config({
         },
         'sprite': {
             visible: true,
+            text: [{
+                data:'FIRST LEGO League Final Israel 2017'
+            }
+            ],
             sprites: [{
-                id:'FIRST',
-                
-                html: '<img style="width:6.8em; margin-left:5vh;" src="http://10.100.102.8:8080/firstLegoLeague" />'
-
+                side: 'top',
+                id: 'FIRST',
+                alias: 'firstLegoLeague',
+                imgClass: 'firstLogo',
             },
             {
-                id:'challenge',
-                // width: '100%',
-                // top: '0.5vh',
-                // fontSize: '8vh',
-                // textAlign: 'center',
-                // color: 'rgba(255,255,255,0.5)',
-                html: '<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXP0i9vQkJbGukXsb0NsCQGyHVzp24Eb5d2HBd2FO7g46Dit9cfmEW53U" />'
+                side: 'top',
+                id: 'challenge',
+                alias: 'challengeTheme',
+                imgClass: 'challengeLogo'
 
             }, {
-                id:'LEGOEd',
-                html: '<img style="width:7.1em; margin-right:5vh;" src="https://lc-www-live-s.legocdn.com/r/www/r/careers/-/media/careers/images/logo/legoeducationlogo.png?l.r2=553377664" />'
-
+                side: 'top',
+                id: 'LEGOEd',
+                alias: 'legoEducation',
+                imgClass: 'legoLogo',
             },
             {
-                width: '100%',
-                bottom: '0.5vh',
-                fontSize: '8vh',
-                textAlign: 'left',
-                color: 'rgba(255,255,255,0.5)',
-                html: '<img style="width:6.1em; margin-left:5vh;" src="http://10.100.102.8:8080/sponsor1" />'
-
+                side: 'bottom',
+                id: 'sponsor1',
+                alias: 'sponsor1',
+                imgClass: 'sponsor1Img',
             }, {
-                width: '100%',
-                bottom: '0.5vh',
-                fontSize: '8vh',
-                textAlign: 'right',
-                color: 'rgba(255,255,255,0.5)',
-                html: '<img style="width:6.1em; margin-right:5vh;" src="http://10.100.102.8:8080/sponsor2" />'
+                side: 'bottom',
+                id: 'sponsor2',
+                alias: 'sponsor2',
+                imgClass: 'sponsor2Img',
 
             }]
         },
         'table': {
             visible: true,
-            header: ['team name', 'number', 'score 1', 'score 2'],
+            header: ['rank', 'NO.', 'name', 'best', '1', '2', '3'],
             data: [
-                ['yuby', 1, 100, 167],
-                ['ahgf', 2, 120, 198],
-                ['butny', 3, 10, 387],
-                ['batey', 4, 140, 243],
-                ['meroy', 5, 101, 543],
-                ['marnc', 6, 123, 198],
-                ['arben', 7, 189, 123],
-                ['opic', 8, 203, 431],
-                ['poner', 9, 403, 142],
-                ['notar', 10, 257, 289],
-                ['serminc', 11, 143, 365],
+                ['--', '--', '   ', '--', '--', '--', '--'],
+
             ],
             timer: 10000,
             lines: 8

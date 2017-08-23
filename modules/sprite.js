@@ -10,6 +10,13 @@ displaySystem.registerModule({
     `,
     factory: function (config, onMessage) {
         var sprites = [];
+        var texts = [];
+        var top = document.createElement('div');
+        var bottom = document.createElement('div');
+        getElement().appendChild(top);
+        getElement().appendChild(bottom);
+        top.setAttribute("id", "top");
+        bottom.setAttribute("id", "bottom");
 
         function getElement() {
             return document.getElementById('sprite');
@@ -40,26 +47,51 @@ displaySystem.registerModule({
         function addSprite(config) {
             let sprite = document.createElement('div');
             sprite.className = 'sprite';
+            var imageServer = "http://127.0.0.1:1395/";
+            var imgSrc = imageServer.concat(config.alias);
 
-            sprite.innerHTML = config.html || '';
+            var img = document.createElement('img');
+            img.setAttribute("src", imgSrc);
+            img.setAttribute("class", config.imgClass);
+            sprite.appendChild(img);
             Object.keys(config).forEach((key) => {
+
                 if (key === "id") {
                     sprite.id = config[key];
-                } else {
+                }
+
+                else {
                     sprite.style[key] = config[key];
                 }
 
             });
-            getElement().appendChild(sprite);
+            var spriteWrapper = document.getElementById(config.side);
+            spriteWrapper.appendChild(sprite);
+            getElement().appendChild(spriteWrapper);
             return sprite;
         }
+        function addText(config) {
+            let text = document.createElement('span');
+            text.setAttribute("id", "eventName");
 
+            text.innerHTML = config.data;
+
+            bottom.appendChild(text);
+            return text;
+        }
+        function setText(configText) {
+            texts.forEach(removeSprite);
+            texts = configText.map(addText);
+        }
         function set(configSprites) {
             sprites.forEach(removeSprite);
             sprites = configSprites.map(addSprite);
         }
         if (config.data) {
             sprites = config.data;
+        }
+        if (config.text) {
+            setText(config.text);
         }
         if (config.sprites) {
             set(config.sprites);

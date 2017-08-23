@@ -130,7 +130,7 @@ img.emojione {
         color: black;
         text-shadow: 0.05em 0.05em 0.1em rgba(0, 0, 0, 0.5);
     }
-    #table th{
+    #table th {
         font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     }
     #table th, #table td {
@@ -178,7 +178,7 @@ img.emojione {
 
 #FIRST {
     width: 100%;
-    top: 1.5vh;
+    top: 3vh;
     font-size: 8vh;
     text-align: left;
     color: rgba(255, 255, 255, 0.5);
@@ -199,6 +199,75 @@ img.emojione {
     right: 0.5vh;
     text-align: right;
     color: rgba(255, 255, 255, 0.5);
+}
+
+#sponsor1 {
+    width: 100%;
+    bottom: 0.5vh;
+    font-size: 8vh;
+    text-align: left;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+#sponsor2 {
+    width: 100%;
+    bottom: 0.5vh;
+    font-size: 8vh;
+    text-align: right;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.firstLogo {
+    height: 1.667em;
+    margin-left: 5vh;
+}
+
+.challengeLogo {
+    height: 2.3em;
+}
+
+.legoLogo {
+    height: 1.667em;
+    margin-right: 5vh;
+}
+
+.sponsor1Img {
+    height: 1em;
+    margin-left: 5vh;
+}
+
+.sponsor2Img {
+    height: 1.4em;
+    margin-right: 5vh;
+}
+
+#top {
+    align-items: center;
+    display: flex;
+    top: 0vh;
+    width: 100%;
+}
+
+#bottom {
+    align-items: center;
+    display: flex;
+    bottom: 0vh;
+    width: 100%;
+}
+
+#eventName {
+    position: absolute;
+    bottom: 3.5vh;
+    width: 100%;
+    text-align: center;
+    border: black;
+    border-radius: 5px;
+    border-width: 0px;
+    border-style: solid;
+    font-size: 6vh;
+    color:#3131a7;
+    font-weight: bold;
+    font-family: sans-serif;
 }
 
 
