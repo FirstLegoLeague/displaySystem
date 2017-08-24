@@ -193,7 +193,7 @@ img.emojione {
     text-align: center;
     border: #1e68d8;
     border-radius: 20px;
-    background-color: #e6e6ee;
+    background: linear-gradient(#e6e6ee,#b6b6db,#e6e6ee);
     border-width: 3px;
     border-style: solid;
     font-size: 6vh;
