@@ -47,7 +47,7 @@ displaySystem.registerModule({
         function addSprite(config) {
             let sprite = document.createElement('div');
             sprite.className = 'sprite';
-            var imageServer = "http://127.0.0.1:1395/";
+            var imageServer = "http://10.100.102.13:1395/";
             var imgSrc = imageServer.concat(config.alias);
 
             var img = document.createElement('img');

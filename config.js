@@ -1,6 +1,7 @@
 displaySystem.config({
     //websocket host to listen to
-    wsHost: "localhost:13900/",
+    
+    wsHost: "10.100.102.13:13900/",
     //host to listen to in case of a secure connection
     wssHost: "localhost.daplie.com:13900/",
     //specify the node that is being subscribed to when using mserver
@@ -66,12 +67,12 @@ displaySystem.config({
                 ['🇳🇱 paging', 8],
             ],
             timer: 5000,
-            lines: 8
+            lines: 12
         },
         'sprite': {
             visible: true,
             text: [{
-                data:'FIRST LEGO League Final Israel 2017'
+                data:'2017 Regional, Modiin'
             }
             ],
             sprites: [{
