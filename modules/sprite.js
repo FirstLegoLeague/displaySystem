@@ -11,12 +11,9 @@ displaySystem.registerModule({
     factory: function (config, onMessage) {
         var sprites = [];
         var texts = [];
-        var top = document.createElement('div');
-        var bottom = document.createElement('div');
-        getElement().appendChild(top);
-        getElement().appendChild(bottom);
-        top.setAttribute("id", "top");
-        bottom.setAttribute("id", "bottom");
+
+
+        var hostAddress;
 
         function getElement() {
             return document.getElementById('sprite');
@@ -47,8 +44,9 @@ displaySystem.registerModule({
         function addSprite(config) {
             let sprite = document.createElement('div');
             sprite.className = 'sprite';
-            var imageServer = "http://10.100.102.13:1395/";
+            var imageServer = "http://".concat(window.location.hostname).concat(":1395/");
             var imgSrc = imageServer.concat(config.alias);
+
 
             var img = document.createElement('img');
             img.setAttribute("src", imgSrc);
@@ -65,9 +63,7 @@ displaySystem.registerModule({
                 }
 
             });
-            var spriteWrapper = document.getElementById(config.side);
-            spriteWrapper.appendChild(sprite);
-            getElement().appendChild(spriteWrapper);
+            getElement().appendChild(sprite);
             return sprite;
         }
         function addText(config) {
@@ -76,12 +72,13 @@ displaySystem.registerModule({
 
             text.innerHTML = config.data;
 
-            bottom.appendChild(text);
-            return text;
+            getElement().appendChild(text);
+            texts.add(text);
         }
         function setText(configText) {
             texts.forEach(removeSprite);
-            texts = configText.map(addText);
+            addTextsToArray(configText);
+            configText.forEach(addText);
         }
         function set(configSprites) {
             sprites.forEach(removeSprite);
@@ -90,8 +87,8 @@ displaySystem.registerModule({
         if (config.data) {
             sprites = config.data;
         }
-        if (config.text) {
-            setText(config.text);
+        if (config.texts) {
+            setText(config.texts);
         }
         if (config.sprites) {
             set(config.sprites);
