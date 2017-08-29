@@ -53,7 +53,7 @@ displaySystem.registerModule({
                     btn.innerHTML = fn;
                     btn.addEventListener('click',function() {
                         var data = inps.map(getValue);
-                        if (system.ws) {
+                        if (system.ws && system.connected) {
                             //handle via websocket
                             sendMessage(name,fn,args,data);
                         } else {
