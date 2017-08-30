@@ -37,7 +37,7 @@ displaySystem.registerModule({
         }
 
         function handleButton(module, f, inputs) {
-            return () => {
+            return function() {
                 var data = inputs.map(getValue);
                 if (system.ws) {
                     //handle via websocket
@@ -50,7 +50,7 @@ displaySystem.registerModule({
         }
 
         function renderModule(module, name, container) {
-            return (fn) => {
+            return function(fn) {
                 var f = module[fn];
                 if (typeof f === 'function' && !f.hidden) {
                     var s = container.appendChild(document.createElement('span'));
