@@ -97,6 +97,9 @@ displaySystem.registerModule({
                 var win = window.open(config.url,'fllDisplayControlWindow','resize=yes,width=800,height=550');
             } else {
                 var win = window.open('','fllDisplayControlWindow','resize=yes,width=800,height=550');
+                if (win.document.body.innerHTML) {
+                    return;
+                }
                 win.document.write(html);
                 init(win.document);
             }
