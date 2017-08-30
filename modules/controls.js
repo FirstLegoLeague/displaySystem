@@ -86,10 +86,14 @@ displaySystem.registerModule({
 
         function open() {
             if (config.url) {
+                //we have a completely custom control window supplied by the user, do not bother rendering
                 var win = window.open(config.url,'fllDisplayControlWindow','resize=yes,width=800,height=550');
             } else {
                 var win = window.open('','fllDisplayControlWindow','resize=yes,width=800,height=550');
                 if (win.document.body.innerHTML) {
+                    // do not render, as the window has already been filled with html.
+                    // Just rendering would add more html to the existing screen
+                    // Rerendering would lose page state
                     return;
                 }
                 win.document.write(html);
