@@ -36,6 +36,35 @@ displaySystem.registerModule({
             system.ws.sendMessage({name:name},action,data);
         }
 
+        function handleButton(module, f, inputs) {
+            return function() {
+                var data = inputs.map(getValue);
+                if (system.ws && system.connected) {
+                    //handle via websocket
+                    sendMessage(name,fn,args,data);
+                } else {
+                    //handle directly
+                    f.apply(module,data);
+                }
+            }
+        }
+
+        function renderModule(module, name, container) {
+            return function(fn) {
+                var f = module[fn];
+                if (typeof f === 'function' && !f.hidden) {
+                    var s = container.appendChild(document.createElement('span'));
+                    var args = getArguments(f);
+                    var inps = args.map(createInput);
+                    var btn = document.createElement('button');
+                    btn.innerHTML = fn;
+                    btn.addEventListener('click', handleButton(module, f, inps));
+                    inps.forEach(appendTo(s));
+                    s.appendChild(btn);
+                }
+            }
+        }
+
         function renderModuleControls(name, document) {
             var module = system.modules[name];
             if (module.hidden) {
@@ -43,28 +72,7 @@ displaySystem.registerModule({
             }
             var p = document.createElement('p');
             p.innerHTML = '<label>'+name+'</label>';
-            Object.keys(module).forEach(function(fn) {
-                var f = module[fn];
-                if (typeof f === 'function' && !f.hidden) {
-                    var s = p.appendChild(document.createElement('span'));
-                    var args = getArguments(f);
-                    var inps = args.map(createInput);
-                    var btn = document.createElement('button');
-                    btn.innerHTML = fn;
-                    btn.addEventListener('click',function() {
-                        var data = inps.map(getValue);
-                        if (system.ws && system.connected) {
-                            //handle via websocket
-                            sendMessage(name,fn,args,data);
-                        } else {
-                            //handle directly 
-                            f.apply(module,data);
-                        }
-                    });
-                    inps.forEach(appendTo(s));
-                    s.appendChild(btn);
-                }
-            });
+            Object.keys(module).forEach(renderModule(module, name, p));
             document.body.appendChild(p);
         }
 
