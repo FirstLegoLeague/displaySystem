@@ -44,7 +44,7 @@ displaySystem.registerModule({
         function addSprite(config) {
             let sprite = document.createElement('div');
             sprite.className = 'sprite';
-            var imgSrc = config.html || '';
+            var imgSrc = config.html || `http://${window.location.hostname}:1395/${config.alias}`||'';
             var img = document.createElement('img');
             img.setAttribute("src", imgSrc);
             img.setAttribute("class", config.imgClass);
