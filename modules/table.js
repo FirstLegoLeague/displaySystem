@@ -27,7 +27,8 @@ displaySystem.registerModule({
             //text-align: left;
         }
     */
-    factory: function(config,onMessage) {
+    factory: function (config, onMessage) {
+        
         var numberOfLines = 8;
         var pageTimeout = 5000;
         var pageTimer;
@@ -57,24 +58,24 @@ displaySystem.registerModule({
 
         function setFromString(pasteFromExcel) {
             var lines = pasteFromExcel.trim().split(/[\n\r]+/);
-            var data = lines.map(function(line) {
+            var data = lines.map(function (line) {
                 return line.split(/\t/);
             });
             header = data.shift();
-            set(data,header);
+            set(data, header);
         }
 
-        function setPage(data,header,page) {
-            var pageData = data.slice(page*numberOfLines,(page+1)*numberOfLines);
+        function setPage(data, header, page) {
+            var pageData = data.slice(page * numberOfLines, (page + 1) * numberOfLines);
             var head = '';
             if (header) {
-                head = '<thead><tr><th>'+header.join('</th><th>')+'</th></tr></thead>';
+                head = '<thead><tr><th>' + header.join('</th><th>') + '</th></tr></thead>';
             }
 
-            var html = pageData.slice(0,numberOfLines).map(function(row) {
+            var html = pageData.slice(0, numberOfLines).map(function (row) {
                 return [
                     '<tr>',
-                    row.map(function(cell,i,a) {
+                    row.map(function (cell, i, a) {
                         return [
                             '<td>',
                             cell,
@@ -87,24 +88,24 @@ displaySystem.registerModule({
             getElement().innerHTML = head + html;
         }
 
-        function nextPage(data,header,page) {
+        function nextPage(data, header, page) {
             var pages = Math.ceil(data.length / numberOfLines);
             var current = page;
-            var next = (current+1) % pages;
-            setPage(data,header,current);
+            var next = (current + 1) % pages;
+            setPage(data, header, current);
             if (pageTimer) {
                 window.clearTimeout(pageTimer);
                 pageTimer = null;
             }
             if (running) {
-                pageTimer = window.setTimeout(function() {
-                    nextPage(data,header,next);
-                },pageTimeout);
+                pageTimer = window.setTimeout(function () {
+                    nextPage(data, header, next);
+                }, pageTimeout);
             }
         }
 
-        function set(data,header) {
-            nextPage(data,header,0);
+        function set(data, header) {
+            nextPage(data, header, 0);
         }
 
         function start() {
@@ -135,17 +136,17 @@ displaySystem.registerModule({
         }
         if (config.data) {
             if (config.data instanceof Array) {
-                set(config.data,config.header);
+                set(config.data, config.header);
             } else {
-                setFromString(config.data,config.header);
+                setFromString(config.data, config.header);
             }
         }
         if (config.visible) {
             show();
         }
 
-        onMessage('setData',function(msg) {
-            set(msg.data.data,msg.data.header);
+        onMessage('setData', function (msg) {
+            set(msg.data.data, msg.data.header);
         });
 
         return {

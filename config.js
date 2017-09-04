@@ -8,17 +8,17 @@ displaySystem.config({
     //modules, order determines z stacking
     modules: {
         'background': {
-            // visible: false
+            visible: false,
             color: 'black',
             //optional chromakey background color
             // color: "lime",
         },
         'camera': {
-            // visible: true,
+            visible: false,
             // audio: true,
         },
         'gallery': {
-            visible: true,
+            visible: false,
             transition: 'fade',
             size: 'cover',
             timeout: 4,
@@ -33,11 +33,11 @@ displaySystem.config({
             ],
         },
         'clock': {
-            visible: true,
+            visible: false,
             // countdown: 20,
         },
         'time': {
-            visible: true,
+            visible: false,
             // format: "MM:ss",
         },
         'twitter': {
@@ -45,7 +45,7 @@ displaySystem.config({
             // speed: 500,
         },
         'lowThird': {
-            visible: true,
+            visible: false,
             line1: '❤️ press \'C\'',
             line2: 'to show the control window',
         },
@@ -53,54 +53,71 @@ displaySystem.config({
             // visible: true,
             header: 'results round 1',
             data: [
-                ['🇳🇱 just try',1],
-                ['🇳🇱 to copy',2],
-                ['🇪🇬 and paste',3],
-                ['🇪🇬 some cells',4],
-                ['🇪🇬 from excel',5],
-                ['🇺🇸 into the control',6],
-                ['🇺🇸 window! You\'ll be',7],
-                ['🇺🇸 amazed!',8],
-                ['🇳🇱 It even has',8],
-                ['🇳🇱 automatic',8],
-                ['🇳🇱 paging',8],
+                ['🇳🇱 just try', 1],
+                ['🇳🇱 to copy', 2],
+                ['🇪🇬 and paste', 3],
+                ['🇪🇬 some cells', 4],
+                ['🇪🇬 from excel', 5],
+                ['🇺🇸 into the control', 6],
+                ['🇺🇸 window! You\'ll be', 7],
+                ['🇺🇸 amazed!', 8],
+                ['🇳🇱 It even has', 8],
+                ['🇳🇱 automatic', 8],
+                ['🇳🇱 paging', 8],
             ],
             timer: 5000,
-            lines: 8
+            lines: 12
         },
         'sprite': {
-            // visible: true,
+            visible: true,
+            text: [{
+                data:'2017 Regional, Modiin'
+            }
+            ],
             sprites: [{
-                width: '100%',
-                top: '3.5vh',
-                fontSize: '8vh',
-                textAlign: 'center',
-                color: 'rgba(255,255,255,0.5)',
-                html: 'FIRST LEGO League'
+                side: 'top',
+                id: 'FIRST',
+                alias: 'firstLegoLeague',
+                imgClass: 'firstLogo',
+            },
+            {
+                side: 'top',
+                id: 'challenge',
+                alias: 'challengeTheme',
+                imgClass: 'challengeLogo'
+
+            }, {
+                side: 'top',
+                id: 'LEGOEd',
+                alias: 'legoEducation',
+                imgClass: 'legoLogo',
+            },
+            {
+                side: 'bottom',
+                id: 'sponsor1',
+                alias: 'sponsor1',
+                imgClass: 'sponsor1Img',
+            }, {
+                side: 'bottom',
+                id: 'sponsor2',
+                alias: 'sponsor2',
+                imgClass: 'sponsor2Img',
+
             }]
         },
         'table': {
-            // visible: true,
-            header: ['team name', 'number', 'score 1', 'score 2'],
+            visible: true,
+            header: ['rank', 'NO.', 'name', 'best', '1', '2', '3'],
             data: [
-                ['yuby',1, 100, 167],
-                ['ahgf',2, 120, 198],
-                ['butny',3, 10, 387],
-                ['batey',4, 140, 243],
-                ['meroy',5, 101, 543],
-                ['marnc',6, 123, 198],
-                ['arben',7, 189, 123],
-                ['opic',8, 203, 431],
-                ['poner',9, 403, 142],
-                ['notar',10, 257, 289],
-                ['serminc',11, 143, 365],
+                ['--', '--', '   ', '--', '--', '--', '--'],
+
             ],
             timer: 10000,
             lines: 8
         },
         'css': {
             href: [
-                'themes/rednblue-plus/rednblue-plus.css',
+                'themes/fll/flltable.css',
                 // 'themes/rednblue-plus/rednblue-plus-mod-rtl.css',
                 // 'themes/rednblue-plus/rednblue-plus-mod-opaque.css'
             ],
@@ -115,7 +132,7 @@ displaySystem.config({
             zoom: 1,
             aspect: 'native',
             rotation: 0,
-            overscan: [0,0,0,0]
+            overscan: [0, 0, 0, 0]
         },
         'keybindings': {
             'q': 'time.show()',
