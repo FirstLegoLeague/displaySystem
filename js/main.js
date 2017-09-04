@@ -43,6 +43,8 @@ var displaySystem = (function () {
 
     function initWebsocket(config) {
         var ws, host;
+        var port = config.wsHost.substr(config.wsHost.indexOf(":"), config.wsHost.length);
+        config.wsHost = config.wsHost || `http://${window.location.hostname}:${port}/` || '';
         if (config.wsHost || config.wssHost) {
             if (pendingConnection) {
                 clearTimeout(pendingConnection);

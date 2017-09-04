@@ -1,7 +1,6 @@
 displaySystem.config({
     //websocket host to listen to
-    
-    wsHost: "10.100.102.13:13900/",
+    wsHost: "localhost:13900/",
     //host to listen to in case of a secure connection
     wssHost: "localhost.daplie.com:13900/",
     //specify the node that is being subscribed to when using mserver
