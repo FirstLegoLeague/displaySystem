@@ -44,24 +44,18 @@ displaySystem.registerModule({
         function addSprite(config) {
             let sprite = document.createElement('div');
             sprite.className = 'sprite';
-            var imageServer = "http://".concat(window.location.hostname).concat(":1395/");
-            var imgSrc = imageServer.concat(config.alias);
-
-
+            var imgSrc = config.html || '';
             var img = document.createElement('img');
             img.setAttribute("src", imgSrc);
             img.setAttribute("class", config.imgClass);
             sprite.appendChild(img);
             Object.keys(config).forEach((key) => {
-
                 if (key === "id") {
                     sprite.id = config[key];
                 }
-
                 else {
                     sprite.style[key] = config[key];
                 }
-
             });
             getElement().appendChild(sprite);
             return sprite;
@@ -73,7 +67,9 @@ displaySystem.registerModule({
             text.innerHTML = config.data;
 
             getElement().appendChild(text);
-            texts.add(text);
+        }
+        function addTextsToArray(config) {
+            texts.push.apply(texts, config);
         }
         function setText(configText) {
             texts.forEach(removeSprite);

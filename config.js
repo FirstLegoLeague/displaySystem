@@ -78,29 +78,35 @@ displaySystem.config({
                 side: 'top',
                 id: 'FIRST',
                 alias: 'firstLegoLeague',
+                html: 'http://localhost:1395/firstLegoLeague',//This connects to the Image server, and is meant to differantiate between the ip autoconfig PR and this PR.
                 imgClass: 'firstLogo',
+
             },
             {
                 side: 'top',
                 id: 'challenge',
                 alias: 'challengeTheme',
+                html: 'http://localhost:1395/challengeTheme',
                 imgClass: 'challengeLogo'
 
             }, {
                 side: 'top',
                 id: 'LEGOEd',
                 alias: 'legoEducation',
+                html: 'http://localhost:1395/legoEducation',
                 imgClass: 'legoLogo',
             },
             {
                 side: 'bottom',
                 id: 'sponsor1',
                 alias: 'sponsor1',
+                html: 'http://localhost:1395/sponsor1',
                 imgClass: 'sponsor1Img',
             }, {
                 side: 'bottom',
                 id: 'sponsor2',
                 alias: 'sponsor2',
+                html: 'http://localhost:1395/sponsor2',
                 imgClass: 'sponsor2Img',
 
             }]
