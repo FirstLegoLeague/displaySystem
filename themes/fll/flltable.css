@@ -184,7 +184,7 @@ img.emojione {
     color: rgba(255, 255, 255, 0.5);
 }
 /* Top Center */
-#eventName {
+.eventName {
     position: absolute;
     top: 3%;
     /* width: 100%; */

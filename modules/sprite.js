@@ -62,7 +62,7 @@ displaySystem.registerModule({
         }
         function addText(config) {
             let text = document.createElement('span');
-            text.setAttribute("id", "eventName");
+            text.setAttribute("class", "eventName");
 
             text.innerHTML = config.data;
 
