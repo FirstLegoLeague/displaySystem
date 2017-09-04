@@ -43,6 +43,9 @@ var displaySystem = (function () {
 
     function initWebsocket(config) {
         var ws, host;
+        var address = window.location.hostname + ":13900/";
+        config.wsHost = address;
+        
         if (config.wsHost || config.wssHost) {
             if (pendingConnection) {
                 clearTimeout(pendingConnection);
