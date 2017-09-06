@@ -3,7 +3,11 @@ body {
     visibility: visible;
 }
 
+
+
+
 /* time definitions */
+
 #time {
     left: -20vw;
     transform: translate(20vw);
@@ -17,6 +21,7 @@ body {
     padding-left: 3vh;
     padding-right: 1vh;
 }
+
 #time::after {
     content: '';
     width: 2.5vh;
@@ -35,7 +40,9 @@ body {
     transform: translate(0);
 }
 
+
 /* clock */
+
 #clock {
     right: -20vw;
     transform: translate(-20vw);
@@ -72,14 +79,18 @@ body {
 #clock.stopped {
     background-color: crimson;
 }
+
 #clock.stopped::before {
     border-color: crimson transparent;
 }
+
 #clock.armed {
     color: crimson;
 }
 
+
 /* list */
+
 #list {
     background-image: url(fll_list_bkg.png);
     background-size: 100% 100%;
@@ -92,17 +103,22 @@ body {
     left: 12.5vw;
     padding: 4vw;
 }
+
 #list.hidden {
     opacity: 0;
 }
+
 #list .header {
     text-align: center;
 }
+
 #list .cell {
     padding-left: 3vh;
 }
 
+
 /* table defenitions */
+
 #table {
     color: #FFD204;
     background: black;
@@ -112,7 +128,9 @@ body {
     border: #FFD204 1px solid;
 }
 
+
 /* lowThird definitions */
+
 #lowThird {
     background-image: url(fll_lowThird_bkg.png);
     background-size: cover;
@@ -123,16 +141,20 @@ body {
     padding-left: 22vw;
     transition: transform 0.3s;
 }
-#lowThird.hidden  {
+
+#lowThird.hidden {
     transform: translateY(120%);
 }
+
 #lowThird .line {
     padding-left: 3vh;
     box-sizing: border-box;
     position: relative;
 }
 
+
 /* used ceaser to create custom easing functions: http://matthewlein.com/ceaser/ */
+
 #lowThird .line1 {
     /*background-color: darkblue;*/
     width: 80%;
@@ -149,7 +171,9 @@ body {
     line-height: 8vh;
 }
 
+
 /* ticker */
+
 #twitter {
     font-size: 6vh;
     padding: 0.2em;
@@ -170,10 +194,11 @@ body {
     font-weight: bold;
 }
 
-#twitter .message {
-}
+#twitter .message {}
+
 
 /* gallery */
+
 #gallery div {
     transition: none;
 }

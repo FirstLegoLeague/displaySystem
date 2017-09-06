@@ -1,5 +1,5 @@
 // display system main
-var displaySystem = (function() {
+var displaySystem = (function () {
     var system = {};
     var config;
     var modules = {};
@@ -9,12 +9,12 @@ var displaySystem = (function() {
 
     function setConfig(_config) {
         config = _config;
-        setTimeout(init,0);
+        setTimeout(init, 0);
     }
 
     function prependToHead(el) {
         var h = document.getElementsByTagName('head')[0];
-        h.insertBefore(el,h.firstChild);
+        h.insertBefore(el, h.firstChild);
     }
 
     function appendToHead(el) {
@@ -22,14 +22,14 @@ var displaySystem = (function() {
         h.appendChild(el);
     }
 
-    function loadScript(src,onload) {
+    function loadScript(src, onload) {
         var el = document.createElement('script');
         el.src = src;
         el.onload = onload;
         appendToHead(el);
     }
 
-    function loadCss(src,onLoad) {
+    function loadCss(src, onLoad) {
         var el = document.createElement('link');
         el.rel = 'stylesheet';
         el.href = src;
@@ -48,13 +48,13 @@ var displaySystem = (function() {
                 clearTimeout(pendingConnection);
             }
             if (window.location.protocol === 'https:') {
-                host = 'wss://'+config.wssHost;
+                host = 'wss://' + config.wssHost;
             } else {
-                host = 'ws://'+config.wsHost;
+                host = 'ws://' + config.wsHost;
             }
             ws = new WebSocket(host);
 
-            ws.onopen = function() {
+            ws.onopen = function () {
                 if (config.mserverNode) {
                     ws.send(JSON.stringify({
                         type: "subscribe",
@@ -64,20 +64,20 @@ var displaySystem = (function() {
                     backoff = 100;
                 }
             };
-            ws.onerror = function(e){
+            ws.onerror = function (e) {
                 console.log("error");
                 ws.close();
             };
-            ws.onclose = function() {
-                console.log("close reconnecting in",backoff,'ms');
+            ws.onclose = function () {
+                console.log("close reconnecting in", backoff, 'ms');
                 connected = false;
                 delete system.ws;
-                pendingConnection = setTimeout(function() {
+                pendingConnection = setTimeout(function () {
                     connect();
-                },backoff);
-                backoff = Math.min(maxBackoff,backoff * 2);
+                }, backoff);
+                backoff = Math.min(maxBackoff, backoff * 2);
             };
-            ws.onmessage = function(msg) {
+            ws.onmessage = function (msg) {
                 var data = JSON.parse(msg.data);
                 if (data.topic) {
                     handleMessage(data);
@@ -99,7 +99,7 @@ var displaySystem = (function() {
 
     function getArguments(f) {
         var deps = f.toString().match(/^function\s*\w*\((.*?)\)/)[1];
-        return deps?deps.split(/\s*,\s*/):[];
+        return deps ? deps.split(/\s*,\s*/) : [];
     }
 
     var handlers = {};
@@ -113,37 +113,37 @@ var displaySystem = (function() {
                 var module = modules[moduleName];
                 var api = module[action];
                 var args = getArguments(api);
-                var data = args.map(function(arg) {
-                    return (msg.data||{})[arg];
+                var data = args.map(function (arg) {
+                    return (msg.data || {})[arg];
                 });
-                api.apply(module,data);
+                api.apply(module, data);
             }
 
             //handle individual handlers
             if (handlers[topic]) {
-                handlers[topic].forEach(function(handler) {
+                handlers[topic].forEach(function (handler) {
                     handler(msg);
                 });
             }
         }
     }
 
-    function sendMessage(def,action,data) {
+    function sendMessage(def, action, data) {
         if (config.wsHost || config.wssHost) {
             ws.send(JSON.stringify({
                 type: "publish",
                 node: config.mserverNode,
-                topic: def.name+':'+action,
+                topic: def.name + ':' + action,
                 data: data
             }));
         }
     }
 
-    function onMessage(def,action,handler) {
+    function onMessage(def, action, handler) {
         if (!def.name) {
             return;
         }
-        var topic = (def.name+':'+action);
+        var topic = (def.name + ':' + action);
         if (!handlers[topic]) {
             handlers[topic] = [];
         }
@@ -153,14 +153,14 @@ var displaySystem = (function() {
     function init() {
         // initWebsocket();
         connect();
-        var modulePath = config.modulePath||'modules';
+        var modulePath = config.modulePath || 'modules';
         var pending = [];
-        Object.keys(config.modules).forEach(function(name,i) {
-            var src = modulePath+'/'+name+'.js';
+        Object.keys(config.modules).forEach(function (name, i) {
+            var src = modulePath + '/' + name + '.js';
             pending[i] = {
                 name: name
             };
-            loadScript(src,function() {
+            loadScript(src, function () {
                 pending[i].def = lastModule;
                 checkLoaded(pending);
             });
@@ -168,10 +168,10 @@ var displaySystem = (function() {
     }
 
     function checkLoaded(pending) {
-        if (pending.every(function(module) {
+        if (pending.every(function (module) {
             return module.def;
         })) {
-            pending.forEach(function(module) {
+            pending.forEach(function (module) {
                 initializeModule(module.def);
             });
         }
@@ -185,7 +185,7 @@ var displaySystem = (function() {
         // add html
         if (def.template) {
             var d = document.createElement('div');
-            d.className = 'moduleContainer '+def.name;
+            d.className = 'moduleContainer ' + def.name;
             d.innerHTML = def.template;
             document.getElementById('mainContainer').appendChild(d);
         }
@@ -196,14 +196,14 @@ var displaySystem = (function() {
             prependToHead(s);
         }
         // register api
-        var m,cfg;
+        var m, cfg;
         if (def.factory) {
             if (def.name) {
                 //TODO: this is a bit of a tight coupling between names in config and module names
                 cfg = config.modules[def.name];
             }
-            m = def.factory(cfg,function(action, handler) {
-                return onMessage(def,action,handler);
+            m = def.factory(cfg, function (action, handler) {
+                return onMessage(def, action, handler);
             });
         }
         if (def.name) {
