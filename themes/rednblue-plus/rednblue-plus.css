@@ -411,22 +411,22 @@ img.emojione {
         z-index: -1;
     }
 
-    .spritetext.blue, .spriteimage.blue {
+    .spritetext.secondary, .spriteimage.secondary {
         color: white;
     }
-    .spritetext.blue::before, .spriteimage.blue::before{
+    .spritetext.secondary::before, .spriteimage.secondary::before{
         background: linear-gradient(to right, rgba(0,0,139,0.9) 0%,rgba(0,0,139,0.7) 100%);
     }
-    .spritetext.white, .spriteimage.white {
+    .spritetext.primary, .spriteimage.primary {
         color: black;
     }
-    .spritetext.white::before, .spriteimage.white::before{
+    .spritetext.primary::before, .spriteimage.primary::before{
         background: linear-gradient(to bottom, rgba(255,255,255,1) 0%,rgba(214,214,214,0.8) 100%);
     }
-    .spritetext.red{
+    .spritetext.standout{
         color: white;
     }
-    .spritetext.red::before{
+    .spritetext.standout::before{
         background: linear-gradient(to right, rgba(237,20,61,0.9) 0%,rgba(237,20,61,0.7) 100%);
     }
 
