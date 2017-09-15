@@ -94,35 +94,35 @@ displaySystem.config({
                 top: '1vh',
                 left: '5em',
                 textAlign: 'center',
-                class: 'spritetext primary',
+                class: 'spritetext primary exitleft',
                 html: 'Master Builder'
             },{
                 width: '10em',
                 top: '12vh',
                 left: '7em',
                 textAlign: 'center',
-                class: 'spritetext standout',
+                class: 'spritetext standout exitright',
                 html: 'FIRST LEGO League'
             },{
                 width: '10em',
                 top: '24vh',
                 left: '7em',
                 textAlign: 'center',
-                class: 'spritetext primary',
+                class: 'spritetext primary exitleft',
                 html: 'Scoring software'
             },{
                 width: '10em',
                 top: '36vh',
                 left: '7em',
                 textAlign: 'center',
-                class: 'spritetext secondary',
+                class: 'spritetext secondary exitright',
                 html: 'Display system'
             },{
                 width: '6em',
                 top: '70vh',
                 right: '-1em',
                 padding: '0.2em 1em 0.2em 0em',
-                class: 'spriteimage primary',
+                class: 'spriteimage primary exitright',
                 html: '<img class="medium" src="/themes/rednblue-plus/img/FIRSTLego_iconHorz_RGB.png"></img>'
             },{
                 width: '18em',
@@ -131,7 +131,7 @@ displaySystem.config({
                 fontSize: '4vh',
                 textAlign: 'left',
                 padding: '0.2em 1.2em',
-                class: 'spritetext secondary',
+                class: 'spritetext secondary exitleft',
                 html: 'Dean L. Kamen (born April 5, 1951) is an American engineer, inventor, and businessman. He is best known for his invention of the Segway, as well as founding FIRST with Woodie Flowers.'
             },{
                 width: '8em',
@@ -139,7 +139,7 @@ displaySystem.config({
                 left: '7em',
                 fontSize: '6vh',
                 textAlign: 'center',
-                class: 'spritetext primary',
+                class: 'spritetext primary exitleft',
                 html: 'Dean L. Kamen'
             },]
         },

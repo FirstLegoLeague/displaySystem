@@ -362,10 +362,6 @@ img.emojione {
         transition: transform 0.3s;
         transform: translate(0);
         box-sizing: border-box;
-        /*position: relative;*/
-        /*padding-left: 8vh;*/
-        /*padding-top: 0.05em;*/
-        /*overflow: hidden; removed to show complete sprite*/
         font-size: 8vh;
         
     }
@@ -386,7 +382,6 @@ img.emojione {
         border: 0.05em solid rgba(255,255,255,0.5);
         transform: skew(-20deg);
         border-radius: 0.5em / 1em;
-        transition: all 1s;
         z-index: -1;
     }
 
@@ -407,7 +402,6 @@ img.emojione {
         border: 0.05em solid rgba(255,255,255,0.5);
         transform: skew(-20deg);
         border-radius: 0.5em / 1em;
-        transition: all 1s;
         z-index: -1;
     }
 
@@ -437,5 +431,15 @@ img.emojione {
         height: 100px;
     }
 
+    #sprites.hidden .sprite.exitleft,
+    #sprites .sprite.exitleft.hidden {
+        transform: translate(-110vw);
+        visibility: visible;
+    }
+    #sprites.hidden .sprite.exitright,
+    #sprites .sprite.exitright.hidden {
+        transform: translate(110vw);
+        visibility: visible;
+    }
 
 }
