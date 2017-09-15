@@ -1,10 +1,10 @@
 displaySystem.registerModule({
     name: 'sprite',
     template: `
-        <div id="sprite" class="hidden"></div>
+        <div id="sprites" class="hidden"></div>
     `,
     style: `
-        #sprite .sprite {
+        #sprites .sprite {
             position: absolute;
         }
     `,
@@ -12,7 +12,7 @@ displaySystem.registerModule({
         var sprites = [];
 
         function getElement() {
-            return document.getElementById('sprite');
+            return document.getElementById('sprites');
         }
 
         function show() {
@@ -39,10 +39,15 @@ displaySystem.registerModule({
 
         function addSprite(config) {
             let sprite = document.createElement('div');
-            sprite.className = 'sprite';
+            sprite.className = 'sprite ';
+            if (config.class){
+                sprite.className += config.class;
+            }
             sprite.innerHTML = config.html || '';
             Object.keys(config).forEach((key) => {
-                sprite.style[key] = config[key];
+                if (key != 'class'){
+                    sprite.style[key] = config[key];
+                }
             });
             getElement().appendChild(sprite);
             return sprite;

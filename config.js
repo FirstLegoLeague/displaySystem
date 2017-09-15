@@ -68,17 +68,6 @@ displaySystem.config({
             timer: 5000,
             lines: 8
         },
-        'sprite': {
-            // visible: true,
-            sprites: [{
-                width: '100%',
-                top: '3.5vh',
-                fontSize: '8vh',
-                textAlign: 'center',
-                color: 'rgba(255,255,255,0.5)',
-                html: 'FIRST LEGO League'
-            }]
-        },
         'table': {
             // visible: true,
             header: ['team name', 'number', 'score 1', 'score 2'],
@@ -97,6 +86,62 @@ displaySystem.config({
             ],
             timer: 10000,
             lines: 8
+        },        
+        'sprite': {
+            visible: true,
+            sprites: [{
+                width: '14em',
+                top: '1vh',
+                left: '5em',
+                textAlign: 'center',
+                class: 'spritetext white',
+                html: 'Master Builder'
+            },{
+                width: '10em',
+                top: '12vh',
+                left: '7em',
+                textAlign: 'center',
+                class: 'spritetext red',
+                html: 'FIRST LEGO League 2'
+            },{
+                width: '10em',
+                top: '24vh',
+                left: '7em',
+                textAlign: 'center',
+                class: 'spritetext white',
+                html: 'FIRST LEGO League 2'
+            },{
+                width: '10em',
+                top: '36vh',
+                left: '7em',
+                textAlign: 'center',
+                class: 'spritetext blue',
+                html: 'Sprite Power!'
+            },{
+                width: '6em',
+                top: '70vh',
+                right: '-1em',
+                padding: '0.2em 1em 0.2em 0em',
+                class: 'spriteimage white',
+                html: '<img class="medium" src="/themes/rednblue-plus/img/FIRSTLego_iconHorz_RGB.png"></img>'
+            },{
+                width: '18em',
+                top: '68vh',
+                left: '2em',
+                fontSize: '4vh',
+                textAlign: 'left',
+                padding: '0.2em 1.2em',
+                class: 'spritetext blue',
+                html: 'The new gate was commissioned by Frederick William II of Prussia to represent peace. The Gate was designed by Carl Gotthard Langhans, the Court Superintendent of Buildings, and built between 1788 and 1791'
+            },{
+                width: '8em',
+                top: '61vh',
+                left: '7em',
+                fontSize: '6vh',
+                textAlign: 'center',
+                class: 'spritetext white',
+                html: 'Brandenburg Gate'
+            },]
         },
         'css': {
             href: [
