@@ -102,21 +102,21 @@ displaySystem.config({
                 left: '7em',
                 textAlign: 'center',
                 class: 'spritetext red',
-                html: 'FIRST LEGO League 2'
+                html: 'FIRST LEGO League'
             },{
                 width: '10em',
                 top: '24vh',
                 left: '7em',
                 textAlign: 'center',
                 class: 'spritetext white',
-                html: 'FIRST LEGO League 2'
+                html: 'Scoring software'
             },{
                 width: '10em',
                 top: '36vh',
                 left: '7em',
                 textAlign: 'center',
                 class: 'spritetext blue',
-                html: 'Sprite Power!'
+                html: 'Display system'
             },{
                 width: '6em',
                 top: '70vh',
@@ -132,7 +132,7 @@ displaySystem.config({
                 textAlign: 'left',
                 padding: '0.2em 1.2em',
                 class: 'spritetext blue',
-                html: 'The new gate was commissioned by Frederick William II of Prussia to represent peace. The Gate was designed by Carl Gotthard Langhans, the Court Superintendent of Buildings, and built between 1788 and 1791'
+                html: 'Dean L. Kamen (born April 5, 1951) is an American engineer, inventor, and businessman. He is best known for his invention of the Segway, as well as founding FIRST with Woodie Flowers.'
             },{
                 width: '8em',
                 top: '61vh',
@@ -140,7 +140,7 @@ displaySystem.config({
                 fontSize: '6vh',
                 textAlign: 'center',
                 class: 'spritetext white',
-                html: 'Brandenburg Gate'
+                html: 'Dean L. Kamen'
             },]
         },
         'css': {
