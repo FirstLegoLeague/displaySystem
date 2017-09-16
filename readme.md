@@ -50,6 +50,7 @@ Contents
     - [css](#css)
     - [geometry](#geometry)
     - [keybindings](#keybindings)
+    - [macro](#macro)
 - [Theming](#theming)
     - [Included themes](#included-themes)
     - [External themes](#external-themes)
@@ -651,6 +652,14 @@ That is:
 The handlers could be strings, in which case they are prefixed by `displaySystem.modules.`. This causes a string like `clock.show()` to be correctly executed. This allows for a simple way to bind module functions to keys.
 
 Alternatively, handlers could be functions,. In that case, you can do pretty much anything you want, for example define "display groups" under numeric keys, to toggle the visibility of a set of modules.
+
+### macro
+
+This module lets you use the other modules exposed functions. It also includes a wait function. Each macro is a list of actions that are executed consecutatively.
+
+Each macro is exposed as a function for this module. Therefor you get buttons for these in the console and you can use macros inside of other macros!
+
+This is a powerfull tool to set scenes or animate sprites together.
 
 ### controls
 
