@@ -141,6 +141,24 @@ displaySystem.config({
         'emojione': {
             // displays emoji characters
             selector: '.line1, .list-cell, .tweet'
+        },
+        'macro': {
+            'magic':[
+                'lowThird.hide()',
+                'twitter.hide()',
+                'time.hide()',
+                'clock.hide()',
+                'macro.wait(0.3)',
+                'lowThird.show()',
+                'time.show()',
+                'clock.show()',
+                'macro.showList()'
+            ],
+            'showList':[
+                'macro.wait(2)',
+                'lowThird.hide()',
+                'list.show()'
+            ]
         }
     },
     //path to the modules, can even be a full url
