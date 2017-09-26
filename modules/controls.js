@@ -39,7 +39,7 @@ displaySystem.registerModule({
         function handleButton(module, f, inputs) {
             return function() {
                 var data = inputs.map(getValue);
-                if (system.ws) {
+                if (system.ws && system.connected) {
                     //handle via websocket
                     sendMessage(name,fn,args,data);
                 } else {

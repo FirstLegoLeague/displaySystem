@@ -1,6 +1,8 @@
 // display system main
 var displaySystem = (function() {
-    var system = {};
+    var system = {
+        connected: false
+    };
     var config;
     var modules = {};
     var moduleDefs = {};
@@ -36,7 +38,6 @@ var displaySystem = (function() {
         appendToHead(el);
     }
 
-    var connected = false;
     var backoff = 100;
     var maxBackoff = 5000;
     var pendingConnection;
@@ -60,7 +61,7 @@ var displaySystem = (function() {
                         type: "subscribe",
                         node: config.mserverNode
                     }));
-                    connected = true;
+                    system.connected = true;
                     backoff = 100;
                 }
             };
@@ -70,7 +71,7 @@ var displaySystem = (function() {
             };
             ws.onclose = function() {
                 console.log("close reconnecting in",backoff,'ms');
-                connected = false;
+                system.connected = false;
                 delete system.ws;
                 pendingConnection = setTimeout(function() {
                     connect();
@@ -216,14 +217,14 @@ var displaySystem = (function() {
         }
     }
 
-    system = {
+    system = Object.assign(system, {
         config: setConfig,
         registerModule,
         modules,
         definitions: moduleDefs,
         loadScript,
         loadCss
-    };
+    });
 
     return system;
 }());
