@@ -350,3 +350,96 @@ img.emojione {
     #twitter .message {
     }
 }
+
+/* spritetext */
+@media screen {
+    
+    #sprites {
+        position: relative;
+    }
+
+    #sprites .sprite {
+        transition: transform 0.3s;
+        transform: translate(0);
+        box-sizing: border-box;
+        font-size: 8vh;
+        
+    }
+
+    .spritetext {
+        line-height: 1.2em;
+        text-shadow: 0.05em 0.05em 0.1em rgba(0,0,0,0.5);
+    }
+
+    .spritetext::before {
+        content: '';
+        width: 99%;
+        height: 100%;
+        box-sizing: border-box;
+        position: absolute;
+        left: 0;
+        top: 0;
+        border: 0.05em solid rgba(255,255,255,0.5);
+        transform: skew(-20deg);
+        border-radius: 0.5em / 1em;
+        z-index: -1;
+    }
+
+    .spriteimage {
+        line-height: 1.2em;
+        text-align: center;
+        padding-top: 0.05em;
+    }
+
+    .spriteimage::before {
+        content: '';
+        width: 99%;
+        height: 100%;
+        box-sizing: border-box;
+        position: absolute;
+        left: 0;
+        top: 0;
+        border: 0.05em solid rgba(255,255,255,0.5);
+        transform: skew(-20deg);
+        border-radius: 0.5em / 1em;
+        z-index: -1;
+    }
+
+    .spritetext.secondary, .spriteimage.secondary {
+        color: white;
+    }
+    .spritetext.secondary::before, .spriteimage.secondary::before{
+        background: linear-gradient(to right, rgba(0,0,139,0.9) 0%,rgba(0,0,139,0.7) 100%);
+    }
+    .spritetext.primary, .spriteimage.primary {
+        color: black;
+    }
+    .spritetext.primary::before, .spriteimage.primary::before{
+        background: linear-gradient(to bottom, rgba(255,255,255,1) 0%,rgba(214,214,214,0.8) 100%);
+    }
+    .spritetext.standout{
+        color: white;
+    }
+    .spritetext.standout::before{
+        background: linear-gradient(to right, rgba(237,20,61,0.9) 0%,rgba(237,20,61,0.7) 100%);
+    }
+
+    .sprite img {
+        vertical-align: middle;
+    }
+    .sprite img.medium {
+        height: 100px;
+    }
+
+    #sprites.hidden .sprite.exitleft,
+    #sprites .sprite.exitleft.hidden {
+        transform: translate(-110vw);
+        visibility: visible;
+    }
+    #sprites.hidden .sprite.exitright,
+    #sprites .sprite.exitright.hidden {
+        transform: translate(110vw);
+        visibility: visible;
+    }
+
+}
