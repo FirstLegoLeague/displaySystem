@@ -1,5 +1,5 @@
 {
-  "name": "displaysystem",
+  "name": "@first-lego-league/displaySystem",
   "version": "1.0.0",
   "description": "Display Systems",
   "main": "config.js",
